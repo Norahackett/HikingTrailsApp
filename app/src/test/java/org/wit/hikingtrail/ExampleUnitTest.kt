@@ -1,4 +1,4 @@
-package org.wit.hikingtrails
+package org.wit.hikingtrail
 
 import org.junit.Test
 

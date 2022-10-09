@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">HikingTrails</string>
+    <string name="app_name">HikingTrail</string>
+    <string name="button_addHikingTrail">Add Hiking Trial</string>
+    <string name="hint_hikingTrailTitle">HikingTrail Title</string>
 </resources>
