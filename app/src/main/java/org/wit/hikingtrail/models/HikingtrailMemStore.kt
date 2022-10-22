@@ -29,6 +29,7 @@ class HikingtrailMemStore : HikingtrailStore {
         if (foundHikingtrail != null) {
             foundHikingtrail.title = hikingtrail.title
             foundHikingtrail.description = hikingtrail.description
+            foundHikingtrail.image = hikingtrail.image
             logAll()
         }
     }

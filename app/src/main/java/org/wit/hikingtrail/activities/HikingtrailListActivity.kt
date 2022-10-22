@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import org.wit.hikingtrail.R
@@ -16,6 +18,8 @@ import org.wit.hikingtrail.models.HikingtrailModel
 class HikingtrailListActivity : AppCompatActivity(), HikingtrailListener {
     lateinit var app: MainApp
     private lateinit var binding: ActivityHikingtrailListBinding
+    private lateinit var refreshIntentLauncher : ActivityResultLauncher<Intent>
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +33,8 @@ class HikingtrailListActivity : AppCompatActivity(), HikingtrailListener {
         val layoutManager = LinearLayoutManager(this)
         binding.recyclerView.layoutManager = layoutManager
         binding.recyclerView.adapter = HikingtrailAdapter(app.hikingtrails.findAll(),this)
+
+        registerRefreshCallback()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -40,20 +46,22 @@ class HikingtrailListActivity : AppCompatActivity(), HikingtrailListener {
         when (item.itemId) {
             R.id.item_add -> {
                 val launcherIntent = Intent(this, HikingtrailActivity::class.java)
-                startActivityForResult(launcherIntent,0)
+                refreshIntentLauncher.launch(launcherIntent)
             }
         }
         return super.onOptionsItemSelected(item)
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        binding.recyclerView.adapter?.notifyDataSetChanged()
-        super.onActivityResult(requestCode, resultCode, data)
-    }
-
     override fun onHikingtrailClick(hikingtrail: HikingtrailModel) {
         val launcherIntent = Intent(this, HikingtrailActivity::class.java)
         launcherIntent.putExtra("hikingtrail_edit", hikingtrail)
-        startActivityForResult(launcherIntent,0)
+        refreshIntentLauncher.launch(launcherIntent)
     }
+
+    private fun registerRefreshCallback() {
+        refreshIntentLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult())
+            { binding.recyclerView.adapter?.notifyDataSetChanged() }
+    }
+
 }

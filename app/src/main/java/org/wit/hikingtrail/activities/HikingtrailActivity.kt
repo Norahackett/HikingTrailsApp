@@ -1,6 +1,7 @@
 package org.wit.hikingtrail.activities
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -14,13 +15,13 @@ import org.wit.hikingtrail.databinding.ActivityHikingtrailBinding
 import org.wit.hikingtrail.helpers.showImagePicker
 import org.wit.hikingtrail.main.MainApp
 import org.wit.hikingtrail.models.HikingtrailModel
-import timber.log.Timber
+
 import timber.log.Timber.i
 
 class HikingtrailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHikingtrailBinding
-    private lateinit var imageIntentLauncher: ActivityResultLauncher<Intent>
     var hikingtrail = HikingtrailModel()
+    private lateinit var imageIntentLauncher: ActivityResultLauncher<Intent>
     lateinit var app: MainApp
     val IMAGE_REQUEST = 1
 
@@ -49,34 +50,37 @@ class HikingtrailActivity : AppCompatActivity() {
             Picasso.get()
                 .load(hikingtrail.image)
                 .into(binding.hikingtrailImage)
-        }
-
-        binding.btnAdd.setOnClickListener() {
-            hikingtrail.title = binding.hikingtrailTitle.text.toString()
-            hikingtrail.description = binding.description.text.toString()
-            if (hikingtrail.title.isEmpty()) {
-                Snackbar.make(it, R.string.enter_hikingtrail_title, Snackbar.LENGTH_LONG)
-                    .show()
-            } else {
-                if (edit) {
-                    app.hikingtrails.update(hikingtrail.copy())
-                } else {
-                    app.hikingtrails.create(hikingtrail.copy())
-                }
+            if (hikingtrail.image != Uri.EMPTY) {
+                binding.chooseImage.setText(R.string.change_hikingtrail_image)
             }
-            i("add Button Pressed: $hikingtrail")
-            setResult(RESULT_OK)
-            finish()
         }
 
-        binding.chooseImage.setOnClickListener {
-            showImagePicker(imageIntentLauncher)
+
+            binding.btnAdd.setOnClickListener() {
+                hikingtrail.title = binding.hikingtrailTitle.text.toString()
+                hikingtrail.description = binding.description.text.toString()
+                if (hikingtrail.title.isEmpty()) {
+                    Snackbar.make(it, R.string.enter_hikingtrail_title, Snackbar.LENGTH_LONG)
+                        .show()
+                } else {
+                    if (edit) {
+                        app.hikingtrails.update(hikingtrail.copy())
+                    } else {
+                        app.hikingtrails.create(hikingtrail.copy())
+                    }
+                }
+                i("add Button Pressed: $hikingtrail")
+                setResult(RESULT_OK)
+                finish()
+            }
+
+            binding.chooseImage.setOnClickListener {
+                showImagePicker(imageIntentLauncher)
+            }
+
+            registerImagePickerCallback()
+
         }
-
-       registerImagePickerCallback()
-
-    }
-
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_hikingtrail, menu)
