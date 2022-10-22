@@ -15,6 +15,7 @@ import org.wit.hikingtrail.databinding.ActivityHikingtrailBinding
 import org.wit.hikingtrail.helpers.showImagePicker
 import org.wit.hikingtrail.main.MainApp
 import org.wit.hikingtrail.models.HikingtrailModel
+import org.wit.hikingtrail.models.Location
 
 import timber.log.Timber.i
 
@@ -22,8 +23,10 @@ class HikingtrailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHikingtrailBinding
     var hikingtrail = HikingtrailModel()
     private lateinit var imageIntentLauncher: ActivityResultLauncher<Intent>
+    private lateinit var mapIntentLauncher : ActivityResultLauncher<Intent>
     lateinit var app: MainApp
     val IMAGE_REQUEST = 1
+    var location = Location(52.245696, -7.139102, 15f)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -78,7 +81,19 @@ class HikingtrailActivity : AppCompatActivity() {
                 showImagePicker(imageIntentLauncher)
             }
 
+            binding.hikingtrailLocation.setOnClickListener {
+                val location = Location(52.245696, -7.139102, 15f)
+                if (hikingtrail.zoom != 0f) {
+                    location.lat =  hikingtrail.lat
+                    location.lng = hikingtrail.lng
+                    location.zoom = hikingtrail.zoom
+                }
+                val launcherIntent = Intent(this, MapActivity::class.java)
+                    .putExtra("location", location)
+                mapIntentLauncher.launch(launcherIntent)
+            }
             registerImagePickerCallback()
+            registerMapCallback()
 
         }
 
@@ -115,4 +130,27 @@ class HikingtrailActivity : AppCompatActivity() {
                 }
             }
     }
+        private fun registerMapCallback() {
+            mapIntentLauncher =
+                registerForActivityResult(ActivityResultContracts.StartActivityForResult())
+                { result ->
+                    when (result.resultCode) {
+                        RESULT_OK -> {
+                            if (result.data != null) {
+                                i("Got Location ${result.data.toString()}")
+                                location = result.data!!.extras?.getParcelable("location")!!
+                                i("Location == $location")
+                                hikingtrail.lat = location.lat
+                                hikingtrail.lng = location.lng
+                                hikingtrail.zoom = location.zoom
+
+
+
+                            } // end of if
+                        }
+                        RESULT_CANCELED -> { } else -> { }
+                    }
+                }
+        }
+
 }

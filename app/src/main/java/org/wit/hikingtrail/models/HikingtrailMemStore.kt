@@ -30,6 +30,9 @@ class HikingtrailMemStore : HikingtrailStore {
             foundHikingtrail.title = hikingtrail.title
             foundHikingtrail.description = hikingtrail.description
             foundHikingtrail.image = hikingtrail.image
+            foundHikingtrail.lat = hikingtrail.lat
+            foundHikingtrail.lng = hikingtrail.lng
+            foundHikingtrail.zoom = hikingtrail.zoom
             logAll()
         }
     }
