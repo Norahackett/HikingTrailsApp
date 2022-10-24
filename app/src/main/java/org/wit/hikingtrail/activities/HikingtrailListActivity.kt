@@ -32,7 +32,7 @@ class HikingtrailListActivity : AppCompatActivity(), HikingtrailListener {
 
         val layoutManager = LinearLayoutManager(this)
         binding.recyclerView.layoutManager = layoutManager
-        binding.recyclerView.adapter = HikingtrailAdapter(app.hikingtrails.findAll(),this)
+        loadHikingtrails()
 
         registerRefreshCallback()
     }
@@ -61,7 +61,16 @@ class HikingtrailListActivity : AppCompatActivity(), HikingtrailListener {
     private fun registerRefreshCallback() {
         refreshIntentLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult())
-            { binding.recyclerView.adapter?.notifyDataSetChanged() }
+            { loadHikingtrails() }
+    }
+
+    private fun loadHikingtrails() {
+        showHikingtrails(app.hikingtrails.findAll())
+    }
+
+    fun showHikingtrails(hikingtrails: List<HikingtrailModel>) {
+        binding.recyclerView.adapter = HikingtrailAdapter(hikingtrails,this)
+        binding.recyclerView.adapter?.notifyDataSetChanged()
     }
 
 }
