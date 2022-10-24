@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">HikingTrail</string>
-    <string name="button_addHikingTrail">Add Hiking Trial</string>
+    <string name="button_addHikingtrail">Add Hiking Trial</string>
     <string name="hint_hikingtrailTitle">Hiking trail Title</string>
     <string name="hint_hikingtrailDescription">Description </string>
     <string name="menu_addHikingtrail">Add</string>
@@ -12,4 +12,9 @@
     <string name="change_hikingtrail_image">Change hiking image</string>
     <string name="button_location">Set Location</string>
     <string name="title_activity_map">Map</string>
+    <string name="menu_deleteHikingtrail">Delete</string>
+    <string name="title_activity_hikingtrail_maps">Map of All Hikingtrails </string>
+    <string name="hikingtrail_image_placeholder">Hikingtrail Image</string>
+    <string name="hikingtrail_title_placeholder">Hikingtrail Title</string>
+    <string name="hikingtrail_description_placeholder">Hikingtrail Description</string>
 </resources>

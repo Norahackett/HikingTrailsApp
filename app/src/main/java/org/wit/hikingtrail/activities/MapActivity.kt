@@ -24,7 +24,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback,
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_map)
+        setContentView(R.layout.activity__hikingtrail_maps)
         location = intent.extras?.getParcelable<Location>("location")!!
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
@@ -35,7 +35,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback,
         map = googleMap
         val loc = LatLng(location.lat, location.lng)
         val options = MarkerOptions()
-            .title("Placemark")
+            .title("Hiking")
             .snippet("GPS : $loc")
             .draggable(true)
             .position(loc)

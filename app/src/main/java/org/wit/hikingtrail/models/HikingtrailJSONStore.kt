@@ -41,13 +41,31 @@ class HikingtrailJSONStore(private val context: Context) : HikingtrailStore {
     }
 
 
+
     override fun update(hikingtrail: HikingtrailModel) {
-        // todo
+        val hikingtrailsList = findAll() as ArrayList<HikingtrailModel>
+        var foundHikingtrail: HikingtrailModel? =
+            hikingtrailsList.find { p -> p.id == hikingtrail.id }
+        if (foundHikingtrail != null) {
+            foundHikingtrail.title = hikingtrail.title
+            foundHikingtrail.description = hikingtrail.description
+            foundHikingtrail.image = hikingtrail.image
+            foundHikingtrail.lat = hikingtrail.lat
+            foundHikingtrail.lng = hikingtrail.lng
+            foundHikingtrail.zoom = hikingtrail.zoom
+        }
+        serialize()
     }
 
     private fun serialize() {
         val jsonString = gsonBuilder.toJson(hikingtrails, listType)
         write(context, JSON_FILE, jsonString)
+    }
+
+
+    override fun delete(hikingtrail: HikingtrailModel) {
+        hikingtrails.remove(hikingtrail)
+        serialize()
     }
 
     private fun deserialize() {

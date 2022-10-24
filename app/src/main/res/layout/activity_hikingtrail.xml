@@ -65,21 +65,7 @@
                     android:maxLines="1"
                     android:padding="8dp"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textSize="14sp"
-                     />
-
-                <Button
-                    android:id="@+id/btnAdd"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:background="@color/colorAccent"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-                    android:stateListAnimator="@null"
-                    android:text="@string/button_addHikingTrail"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
 
                 <Button
                     android:id="@+id/chooseImage"
@@ -92,6 +78,13 @@
                     android:text="@string/button_addImage"
                     android:textColor="@color/colorPrimary"
                     android:textSize="16sp"/>
+
+                <ImageView
+                    android:id="@+id/hikingtrailImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@mipmap/ic_launcher"/>
+
                 <Button
                     android:id="@+id/hikingtrailLocation"
                     android:layout_width="match_parent"
@@ -105,12 +98,18 @@
                     android:textColor="@color/colorPrimary"
                     android:textSize="16sp"/>
 
-
-                <ImageView
-                    android:id="@+id/hikingtrailImage"
+                <Button
+                    android:id="@+id/btnAdd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@mipmap/ic_launcher"/>
+                    android:layout_margin="16dp"
+                    android:background="@color/colorAccent"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:stateListAnimator="@null"
+                    android:text="@string/button_addHikingtrail"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp" />
             </LinearLayout>
         </ScrollView>
 

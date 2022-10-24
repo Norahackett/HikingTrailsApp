@@ -15,11 +15,12 @@ import org.wit.hikingtrail.databinding.ActivityHikingtrailListBinding
 import org.wit.hikingtrail.main.MainApp
 import org.wit.hikingtrail.models.HikingtrailModel
 
-class HikingtrailListActivity : AppCompatActivity(), HikingtrailListener {
+class HikingtrailListActivity : AppCompatActivity(), HikingtrailListener/*, MultiplePermissionsListener*/ {
+
     lateinit var app: MainApp
     private lateinit var binding: ActivityHikingtrailListBinding
-    private lateinit var refreshIntentLauncher : ActivityResultLauncher<Intent>
-
+    private lateinit var refreshIntentLauncher: ActivityResultLauncher<Intent>
+    private lateinit var mapIntentLauncher: ActivityResultLauncher<Intent>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,9 +33,10 @@ class HikingtrailListActivity : AppCompatActivity(), HikingtrailListener {
 
         val layoutManager = LinearLayoutManager(this)
         binding.recyclerView.layoutManager = layoutManager
-        loadHikingtrails()
 
+        loadHikingtrails()
         registerRefreshCallback()
+        registerMapCallback()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -47,6 +49,10 @@ class HikingtrailListActivity : AppCompatActivity(), HikingtrailListener {
             R.id.item_add -> {
                 val launcherIntent = Intent(this, HikingtrailActivity::class.java)
                 refreshIntentLauncher.launch(launcherIntent)
+            }
+            R.id.item_map -> {
+                val launcherIntent = Intent(this, HikingtrailMapsActivity::class.java)
+                mapIntentLauncher.launch(launcherIntent)
             }
         }
         return super.onOptionsItemSelected(item)
@@ -64,12 +70,18 @@ class HikingtrailListActivity : AppCompatActivity(), HikingtrailListener {
             { loadHikingtrails() }
     }
 
+    private fun registerMapCallback() {
+        mapIntentLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult())
+            { }
+    }
+
     private fun loadHikingtrails() {
         showHikingtrails(app.hikingtrails.findAll())
     }
 
     fun showHikingtrails(hikingtrails: List<HikingtrailModel>) {
-        binding.recyclerView.adapter = HikingtrailAdapter(hikingtrails,this)
+        binding.recyclerView.adapter = HikingtrailAdapter(hikingtrails, this)
         binding.recyclerView.adapter?.notifyDataSetChanged()
     }
 

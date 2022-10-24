@@ -36,6 +36,10 @@ class HikingtrailMemStore : HikingtrailStore {
             logAll()
         }
     }
+
+    override fun delete(hikingtrail: HikingtrailModel) {
+        hikingtrails.remove(hikingtrail)
+    }
     private fun logAll() {
         hikingtrails.forEach { i("$it") }
     }
