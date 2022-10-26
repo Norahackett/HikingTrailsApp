@@ -15,16 +15,16 @@ import com.google.android.gms.maps.model.MarkerOptions
 import org.wit.hikingtrail.R
 import org.wit.hikingtrail.models.Location
 
-
 class MapActivity : AppCompatActivity(), OnMapReadyCallback,
-    GoogleMap.OnMarkerDragListener,GoogleMap.OnMarkerClickListener {
+    GoogleMap.OnMarkerDragListener,
+    GoogleMap.OnMarkerClickListener {
 
     private lateinit var map: GoogleMap
     var location = Location()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity__hikingtrail_maps)
+        setContentView(R.layout.activity_map)
         location = intent.extras?.getParcelable<Location>("location")!!
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
@@ -35,7 +35,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback,
         map = googleMap
         val loc = LatLng(location.lat, location.lng)
         val options = MarkerOptions()
-            .title("Hiking")
+            .title("Hikingtrail")
             .snippet("GPS : $loc")
             .draggable(true)
             .position(loc)

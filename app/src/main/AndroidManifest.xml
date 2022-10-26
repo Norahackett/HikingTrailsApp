@@ -3,6 +3,7 @@
     package="org.wit.hikingtrail">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:name=".main.MainApp"
@@ -21,15 +22,24 @@
             android:name=".activities.MapActivity"
             android:exported="true"
             android:label="@string/title_activity_map" />
+
         <activity
             android:name=".activities.HikingtrailListActivity"
-            android:exported="true">
+            android:exported="true"
+            />
+
+        <activity
+                android:name=".activities.SplashScreen"
+                android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+
         <activity android:name=".activities.HikingtrailActivity" />
+        <activity android:name=".activities.HikingtrailMapsActivity" />
     </application>
+
 </manifest>

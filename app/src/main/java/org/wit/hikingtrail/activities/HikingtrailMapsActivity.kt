@@ -75,3 +75,4 @@ class HikingtrailMapsActivity : AppCompatActivity(), GoogleMap.OnMarkerClickList
         contentBinding.mapView.onSaveInstanceState(outState)
     }
 }
+
