@@ -49,6 +49,7 @@ class HikingtrailJSONStore(private val context: Context) : HikingtrailStore {
         if (foundHikingtrail != null) {
             foundHikingtrail.title = hikingtrail.title
             foundHikingtrail.description = hikingtrail.description
+            foundHikingtrail.county = hikingtrail.county
             foundHikingtrail.image = hikingtrail.image
             foundHikingtrail.lat = hikingtrail.lat
             foundHikingtrail.lng = hikingtrail.lng

@@ -50,6 +50,8 @@ class HikingtrailActivity : AppCompatActivity() {
             hikingtrail = intent.extras?.getParcelable("hikingtrail_edit")!!
             binding.hikingtrailTitle.setText(hikingtrail.title)
             binding.description.setText(hikingtrail.description)
+            binding.county.setText(hikingtrail.county)
+            binding.rating.setText(hikingtrail.rating)
             binding.btnAdd.setText(R.string.save_hikingtrail)
             Picasso.get()
                 .load(hikingtrail.image)
@@ -62,7 +64,10 @@ class HikingtrailActivity : AppCompatActivity() {
         binding.btnAdd.setOnClickListener() {
             hikingtrail.title = binding.hikingtrailTitle.text.toString()
             hikingtrail.description = binding.description.text.toString()
-            if (hikingtrail.title.isEmpty()) {
+            hikingtrail.rating = binding.rBar.rating.toString()
+            hikingtrail.county = binding.county.text.toString()
+
+            if (hikingtrail.title.isEmpty())  {
                 Snackbar.make(it, R.string.enter_hikingtrail_title, Snackbar.LENGTH_LONG)
                     .show()
             } else {

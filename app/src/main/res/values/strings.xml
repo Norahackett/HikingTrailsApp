@@ -3,6 +3,7 @@
     <string name="button_addHikingtrail">Add Hiking Trial</string>
     <string name="hint_hikingtrailTitle">Hiking trail Title</string>
     <string name="hint_hikingtrailDescription">Description </string>
+    <string name="hint_hikingtrailCounty">County </string>
     <string name="menu_addHikingtrail">Add</string>
     <string name="menu_cancelHikingtrail">Cancel</string>
     <string name="enter_hikingtrail_title"> Please enter a Hiking trail Title </string>
@@ -17,4 +18,7 @@
     <string name="hikingtrail_image_placeholder">Hikingtrail Image</string>
     <string name="hikingtrail_title_placeholder">Hikingtrail Title</string>
     <string name="hikingtrail_description_placeholder">Hikingtrail Description</string>
+    <string name="hikingtrail_county_placeholder">Hikingtrail County</string>
+
+
 </resources>
