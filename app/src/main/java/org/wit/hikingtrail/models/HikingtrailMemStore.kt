@@ -29,6 +29,7 @@ class HikingtrailMemStore : HikingtrailStore {
         if (foundHikingtrail != null) {
             foundHikingtrail.title = hikingtrail.title
             foundHikingtrail.description = hikingtrail.description
+            foundHikingtrail.rating = hikingtrail.rating
             foundHikingtrail.county = hikingtrail.county
             foundHikingtrail.image = hikingtrail.image
             foundHikingtrail.lat = hikingtrail.lat

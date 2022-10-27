@@ -50,6 +50,7 @@ class HikingtrailJSONStore(private val context: Context) : HikingtrailStore {
             foundHikingtrail.title = hikingtrail.title
             foundHikingtrail.description = hikingtrail.description
             foundHikingtrail.county = hikingtrail.county
+            foundHikingtrail.rating= hikingtrail.rating
             foundHikingtrail.image = hikingtrail.image
             foundHikingtrail.lat = hikingtrail.lat
             foundHikingtrail.lng = hikingtrail.lng

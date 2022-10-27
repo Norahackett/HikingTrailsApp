@@ -4,6 +4,7 @@
     <string name="hint_hikingtrailTitle">Hiking trail Title</string>
     <string name="hint_hikingtrailDescription">Description </string>
     <string name="hint_hikingtrailCounty">County </string>
+    <string name="hint_hikingtrailRating">Submit your Rating below </string>
     <string name="menu_addHikingtrail">Add</string>
     <string name="menu_cancelHikingtrail">Cancel</string>
     <string name="enter_hikingtrail_title"> Please enter a Hiking trail Title </string>
@@ -19,6 +20,7 @@
     <string name="hikingtrail_title_placeholder">Hikingtrail Title</string>
     <string name="hikingtrail_description_placeholder">Hikingtrail Description</string>
     <string name="hikingtrail_county_placeholder">Hikingtrail County</string>
+    <string name="hikingtrail_rating_bar">RatingkBarInKotlin</string>
 
 
 </resources>

@@ -1,11 +1,15 @@
 package org.wit.hikingtrail.activities
 
 import android.content.Intent
+import android.media.Rating
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
+import android.widget.RatingBar
+import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import com.google.android.gms.maps.GoogleMap
@@ -30,6 +34,7 @@ class HikingtrailActivity : AppCompatActivity() {
     private lateinit var imageIntentLauncher: ActivityResultLauncher<Intent>
     private lateinit var mapIntentLauncher: ActivityResultLauncher<Intent>
 
+
     //var location = Location(52.245696, -7.139102, 15f)
     var edit = false
 
@@ -41,17 +46,22 @@ class HikingtrailActivity : AppCompatActivity() {
         binding.toolbarAdd.title = title
         setSupportActionBar(binding.toolbarAdd)
 
+
         app = application as MainApp
 
         i("Hikingtrail Activity started...")
 
         if (intent.hasExtra("hikingtrail_edit")) {
             edit = true
+
+           // val rBar = findViewById<RatingBar>(R.id.rBar)
+
             hikingtrail = intent.extras?.getParcelable("hikingtrail_edit")!!
             binding.hikingtrailTitle.setText(hikingtrail.title)
             binding.description.setText(hikingtrail.description)
             binding.county.setText(hikingtrail.county)
             binding.rating.setText(hikingtrail.rating)
+
             binding.btnAdd.setText(R.string.save_hikingtrail)
             Picasso.get()
                 .load(hikingtrail.image)
@@ -60,12 +70,13 @@ class HikingtrailActivity : AppCompatActivity() {
                 binding.chooseImage.setText(R.string.change_hikingtrail_image)
             }
         }
-
+        //val msg = rBar.rating.toString()
         binding.btnAdd.setOnClickListener() {
             hikingtrail.title = binding.hikingtrailTitle.text.toString()
             hikingtrail.description = binding.description.text.toString()
-            hikingtrail.rating = binding.rBar.rating.toString()
             hikingtrail.county = binding.county.text.toString()
+            hikingtrail.rating = binding.rBar.rating.toString()
+
 
             if (hikingtrail.title.isEmpty())  {
                 Snackbar.make(it, R.string.enter_hikingtrail_title, Snackbar.LENGTH_LONG)

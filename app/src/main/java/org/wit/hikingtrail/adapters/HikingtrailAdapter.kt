@@ -2,6 +2,7 @@ package org.wit.hikingtrail.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import org.wit.hikingtrail.databinding.CardHikingtrailBinding
@@ -34,6 +35,9 @@ class HikingtrailAdapter constructor(private var hikingtrails: List<HikingtrailM
             binding.hikingtrailTitle.text = hikingtrail.title
             binding.description.text = hikingtrail.description
             binding.county.text = hikingtrail.county
+            binding.rating.text = hikingtrail.rating
+
+
             Picasso.get().load(hikingtrail.image).resize(200,200).into(binding.imageIcon)
             binding.root.setOnClickListener { listener.onHikingtrailClick(hikingtrail) }
         }
