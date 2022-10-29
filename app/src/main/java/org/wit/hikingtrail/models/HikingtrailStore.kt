@@ -5,4 +5,5 @@ interface HikingtrailStore {
     fun create(hikingtrail: HikingtrailModel)
     fun update(hikingtrail: HikingtrailModel)
     fun delete(hikingtrail: HikingtrailModel)
+
 }

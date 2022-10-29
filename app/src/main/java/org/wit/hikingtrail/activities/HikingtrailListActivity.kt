@@ -18,6 +18,7 @@ import org.wit.hikingtrail.models.HikingtrailModel
 class HikingtrailListActivity : AppCompatActivity(), HikingtrailListener/*, MultiplePermissionsListener*/ {
 
     lateinit var app: MainApp
+    var hikingtrail = HikingtrailModel()
     private lateinit var binding: ActivityHikingtrailListBinding
     private lateinit var refreshIntentLauncher: ActivityResultLauncher<Intent>
     private lateinit var mapIntentLauncher: ActivityResultLauncher<Intent>
@@ -54,6 +55,11 @@ class HikingtrailListActivity : AppCompatActivity(), HikingtrailListener/*, Mult
                 val launcherIntent = Intent(this, HikingtrailMapsActivity::class.java)
                 mapIntentLauncher.launch(launcherIntent)
             }
+
+
+
+
+
         }
         return super.onOptionsItemSelected(item)
     }
@@ -84,5 +90,7 @@ class HikingtrailListActivity : AppCompatActivity(), HikingtrailListener/*, Mult
         binding.recyclerView.adapter = HikingtrailAdapter(hikingtrails, this)
         binding.recyclerView.adapter?.notifyDataSetChanged()
     }
+
+
 
 }

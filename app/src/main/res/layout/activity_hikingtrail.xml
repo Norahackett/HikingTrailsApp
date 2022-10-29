@@ -33,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/appBarLayout"
-            android:layout_marginTop="-3dp"
+            android:layout_marginTop="-29dp"
             android:fillViewport="true">
 
             <LinearLayout
@@ -68,18 +68,63 @@
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="14sp" />
 
-                <EditText
+                <TextView
                     android:id="@+id/county"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:hint="@string/hint_hikingtrailCounty"
+                    android:maxLength="25"
+                    android:maxLines="1"
+                    android:padding="8dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="14sp" />
+
+                <Spinner
+                    android:id="@+id/spinner2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/county" />
+
+                <TextView
+                    android:id="@+id/dateView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:hint="@string/hint_hikingtrailDate"
                     android:inputType="text"
                     android:maxLength="25"
                     android:maxLines="1"
                     android:padding="8dp"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="14sp" />
+
+                <DatePicker
+                    android:id="@+id/datePicker"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:calendarViewShown="false"
+                    android:datePickerMode="spinner" />
+
+                <TextView
+                    android:id="@+id/difficulty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:hint="@string/hint_hikingtrailDifficulty"
+                    android:maxLength="25"
+                    android:maxLines="1"
+                    android:padding="8dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="14sp" />
+
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/difficulty" />
+
 
 
                 <TextView
@@ -99,11 +144,10 @@
                     android:id="@+id/rBar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:stepSize="0.5"
-                    android:theme="@style/Widget.AppCompat.RatingBar"
                     android:background="@color/colorPrimary"
-                    android:numStars="4"/>
-
+                    android:numStars="4"
+                    android:stepSize="0.5"
+                    android:theme="@style/Widget.AppCompat.RatingBar" />
 
 
                 <Button
@@ -117,8 +161,6 @@
                     android:text="@string/button_addImage"
                     android:textColor="@color/colorPrimary"
                     android:textSize="16sp" />
-
-
 
                 <Button
                     android:id="@+id/hikingtrailLocation"
@@ -145,7 +187,6 @@
                     android:text="@string/button_addHikingtrail"
                     android:textColor="@color/colorPrimary"
                     android:textSize="16sp" />
-
 
 
                 <ImageView

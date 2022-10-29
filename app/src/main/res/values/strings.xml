@@ -3,8 +3,10 @@
     <string name="button_addHikingtrail">Add Hiking Trial</string>
     <string name="hint_hikingtrailTitle">Hiking trail Title</string>
     <string name="hint_hikingtrailDescription">Description </string>
-    <string name="hint_hikingtrailCounty">County </string>
+    <string name="hint_hikingtrailCounty">Select County </string>
     <string name="hint_hikingtrailRating">Submit your Rating below </string>
+    <string name="hint_hikingtrailDifficulty">Select Difficulty of Hike  </string>
+    <string name="hint_hikingtrailDate">Select Date </string>
     <string name="menu_addHikingtrail">Add</string>
     <string name="menu_cancelHikingtrail">Cancel</string>
     <string name="enter_hikingtrail_title"> Please enter a Hiking trail Title </string>
@@ -20,7 +22,47 @@
     <string name="hikingtrail_title_placeholder">Hikingtrail Title</string>
     <string name="hikingtrail_description_placeholder">Hikingtrail Description</string>
     <string name="hikingtrail_county_placeholder">Hikingtrail County</string>
-    <string name="hikingtrail_rating_bar">RatingkBarInKotlin</string>
+    <string name="hikingtrail_difficulty_placeholder">Hikingtrail Difficulty</string>
+    <string name="selected_item">Selected item:</string>
+    <string-array name="Difficulty">
+        <item>Easy</item>
+        <item>Moderate</item>
+        <item>Difficult</item>
 
+    </string-array>
+    <string-array name="County">
+        <item>Carlow</item>
+        <item>Cavan</item>
+        <item>Clare</item>
+        <item>Cork,</item>
+        <item>Donegal</item>
+        <item>Dublin</item>
+        <item>Galway</item>
+        <item>Kerry</item>
+        <item>Kildare</item>
+        <item>Kilkenny</item>
+        <item>Laois</item>
+        <item>Leitrim</item>
+        <item>Limerick</item>
+        <item>Longford,</item>
+        <item>Louth,</item>
+        <item>Mayo</item>
+        <item>Meath</item>
+        <item>Monaghan</item>
+        <item>Offaly</item>
+        <item>Roscommon</item>
+        <item>Sligo</item>
+        <item>Tipperary</item>
+        <item>Waterford</item>
+        <item>Westmeath</item>
+        <item>Wexford</item>
+        <item>Wicklow</item>
+        <item>Antrim</item>
+        <item>Down</item>
+        <item>Tyrone</item>
+        <item>Armagh</item>
+        <item>Derry</item>
+
+    </string-array>
 
 </resources>

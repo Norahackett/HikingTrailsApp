@@ -51,6 +51,8 @@ class HikingtrailJSONStore(private val context: Context) : HikingtrailStore {
             foundHikingtrail.description = hikingtrail.description
             foundHikingtrail.county = hikingtrail.county
             foundHikingtrail.rating= hikingtrail.rating
+            foundHikingtrail.date= hikingtrail.date
+            foundHikingtrail.difficulty= hikingtrail.difficulty
             foundHikingtrail.image = hikingtrail.image
             foundHikingtrail.lat = hikingtrail.lat
             foundHikingtrail.lng = hikingtrail.lng
@@ -69,6 +71,7 @@ class HikingtrailJSONStore(private val context: Context) : HikingtrailStore {
         hikingtrails.remove(hikingtrail)
         serialize()
     }
+
 
     private fun deserialize() {
         val jsonString = read(context, JSON_FILE)
