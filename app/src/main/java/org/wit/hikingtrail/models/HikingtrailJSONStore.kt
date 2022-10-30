@@ -68,6 +68,7 @@ class HikingtrailJSONStore(private val context: Context) : HikingtrailStore {
 
 
     override fun delete(hikingtrail: HikingtrailModel) {
+
         hikingtrails.remove(hikingtrail)
         serialize()
     }
