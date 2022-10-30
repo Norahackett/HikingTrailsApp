@@ -56,8 +56,7 @@ class HikingtrailListActivity : AppCompatActivity(), HikingtrailListener/*, Mult
                 mapIntentLauncher.launch(launcherIntent)
             }
 
-
-
+          //  }
 
 
         }

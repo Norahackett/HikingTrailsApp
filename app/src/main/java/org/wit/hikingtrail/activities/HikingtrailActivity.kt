@@ -39,14 +39,12 @@ class HikingtrailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
+        app = application as MainApp
         binding = ActivityHikingtrailBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.toolbarAdd.title = title
         setSupportActionBar(binding.toolbarAdd)
 
-
-        app = application as MainApp
 
         val datePicker = findViewById<DatePicker>(R.id.datePicker)
         val today = Calendar.getInstance()
@@ -61,94 +59,45 @@ class HikingtrailActivity : AppCompatActivity() {
             Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
         }
 
-        i("Hikingtrail Activity started...")
+        val difficulty = resources.getStringArray(R.array.Difficulty)
+        val county = resources.getStringArray(R.array.County)
+        if (binding.spinner != null) {
+            val adapter2 = ArrayAdapter(
+                this,
+                android.R.layout.simple_spinner_item, county
 
-        if (intent.hasExtra("hikingtrail_edit")) {
-            edit = true
-
-            hikingtrail = intent.extras?.getParcelable("hikingtrail_edit")!!
-            binding.hikingtrailTitle.setText(hikingtrail.title)
-            binding.description.setText(hikingtrail.description)
-            binding.county.setText(hikingtrail.county)
-            binding.rating.setText(hikingtrail.rating)
-            binding.difficulty.setText(hikingtrail.difficulty)
-            binding.dateView.setText(hikingtrail.date)
+            )
+            binding.spinner2.adapter = adapter2
 
 
-            binding.btnAdd.setText(R.string.save_hikingtrail)
-            Picasso.get()
-                .load(hikingtrail.image)
-                .into(binding.hikingtrailImage)
-            if (hikingtrail.image != Uri.EMPTY) {
-                binding.chooseImage.setText(R.string.change_hikingtrail_image)
-            }
-        }
+            binding.spinner2.onItemSelectedListener = object :
 
-        binding.btnAdd.setOnClickListener() {
-            hikingtrail.title = binding.hikingtrailTitle.text.toString()
-            hikingtrail.description = binding.description.text.toString()
-            hikingtrail.county = binding.county.text.toString()
-            hikingtrail.difficulty = binding.difficulty.text.toString()
-            hikingtrail.rating = binding.rBar.rating.toString()
-            hikingtrail.date = binding.dateView.text.toString()
+                AdapterView.OnItemSelectedListener {
 
+                override fun onItemSelected(
+                    parent: AdapterView<*>,
+                    view2: View, position2: Int, id: Long
 
-            if (hikingtrail.title.isEmpty()) {
-                Snackbar.make(it, R.string.enter_hikingtrail_title, Snackbar.LENGTH_LONG)
-                    .show()
-            } else {
-                if (edit) {
-                    app.hikingtrails.update(hikingtrail.copy())
-                } else {
-                    app.hikingtrails.create(hikingtrail.copy())
-                }
-            }
-            i("add Button Pressed: $hikingtrail")
-            setResult(RESULT_OK)
-            finish()
-        }
+                ) {
 
+                    binding.county.setText(county[position2])
 
-            val difficulty = resources.getStringArray(R.array.Difficulty)
-            val county = resources.getStringArray(R.array.County)
-            if (binding.spinner2 != null) {
-                val adapter2 = ArrayAdapter(
-                    this,
-                    android.R.layout.simple_spinner_item, county
-
-                )
-
-                binding.spinner2.adapter = adapter2
-
-
-                binding.spinner2.onItemSelectedListener = object :
-
-                    AdapterView.OnItemSelectedListener {
-
-                    override fun onItemSelected(
-                        parent: AdapterView<*>,
-                        view: View, position: Int, id: Long
-
-                    ) {
-
-                        binding.county.setText(county[position])
-
-                        if (county != null) {
-                            val spinnerPosition2 = adapter2.getPosition(county.toString())
-                            binding.spinner.setSelection(spinnerPosition2)
-                        }
-
+                    if (county!= null) {
+                        val spinnerPosition2 = adapter2.getPosition(county.toString())
+                        binding.spinner.setSelection(spinnerPosition2)
                     }
 
-                    override fun onNothingSelected(parent: AdapterView<*>) {
+                }
 
-                    }
+                override fun onNothingSelected(parent: AdapterView<*>) {
+
                 }
             }
+        }
 
 
         //val difficulty = resources.getStringArray(R.array.Difficulty)
-        if (binding.spinner != null) {
+        if (binding.spinner2 != null) {
             val adapter = ArrayAdapter(
                 this,
                 android.R.layout.simple_spinner_item, difficulty
@@ -183,13 +132,60 @@ class HikingtrailActivity : AppCompatActivity() {
             }
         }
 
+        i("Hikingtrail Activity started...")
+
+        if (intent.hasExtra("hikingtrail_edit")) {
+            edit = true
+
+            hikingtrail = intent.extras?.getParcelable("hikingtrail_edit")!!
+            binding.hikingtrailTitle.setText(hikingtrail.title)
+            binding.description.setText(hikingtrail.description)
+            binding.county.setText(hikingtrail.county)
+            binding.rating.setText(hikingtrail.rating)
+            binding.difficulty.setText(hikingtrail.difficulty)
+            binding.dateView.setText(hikingtrail.date)
+
+
+            binding.btnAdd.setText(R.string.save_hikingtrail)
+            Picasso.get()
+                .load(hikingtrail.image)
+                .into(binding.hikingtrailImage)
+            if (hikingtrail.image != Uri.EMPTY) {
+                binding.chooseImage.setText(R.string.change_hikingtrail_image)
+            }
+        }
+
+        binding.btnAdd.setOnClickListener() {
+            hikingtrail.title = binding.hikingtrailTitle.text.toString()
+            hikingtrail.description = binding.description.text.toString()
+            hikingtrail.county = binding.county.text.toString()
+            hikingtrail.difficulty = binding.difficulty.text.toString()
+            hikingtrail.rating = binding.rBar.rating.toString()
+            hikingtrail.date = binding.dateView.text.toString()
+
+            if (hikingtrail.title.isEmpty()) {
+                Snackbar.make(it, R.string.enter_hikingtrail_title, Snackbar.LENGTH_LONG)
+                    .show()
+            } else {
+                if (edit) {
+                    app.hikingtrails.update(hikingtrail.copy())
+                } else {
+                    app.hikingtrails.create(hikingtrail.copy())
+                }
+            }
+            i("add Button Pressed: $hikingtrail")
+            setResult(RESULT_OK)
+            finish()
+        }
+
+
 
         binding.chooseImage.setOnClickListener {
             showImagePicker(imageIntentLauncher)
         }
 
         binding.hikingtrailLocation.setOnClickListener {
-            val location = Location(53.245696, -6.139102, 15f)
+            val location = Location(54.30, -6.58, 15f)
             if (hikingtrail.zoom != 0f) {
                 location.lat = hikingtrail.lat
                 location.lng = hikingtrail.lng
@@ -199,6 +195,8 @@ class HikingtrailActivity : AppCompatActivity() {
                 .putExtra("location", location)
             mapIntentLauncher.launch(launcherIntent)
         }
+
+
 
         registerImagePickerCallback()
         registerMapCallback()
@@ -267,4 +265,3 @@ class HikingtrailActivity : AppCompatActivity() {
             }
     }
 }
-
