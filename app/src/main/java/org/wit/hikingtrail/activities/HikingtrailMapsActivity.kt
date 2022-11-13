@@ -1,6 +1,7 @@
 package org.wit.hikingtrail.activities
 
 import android.os.Bundle
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -8,6 +9,7 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.squareup.picasso.Picasso
+import org.wit.hikingtrail.R
 import org.wit.hikingtrail.databinding.ActivityHikingtrailMapsBinding
 import org.wit.hikingtrail.databinding.ContentHikingtrailMapsBinding
 import org.wit.hikingtrail.main.MainApp
@@ -24,8 +26,8 @@ class HikingtrailMapsActivity : AppCompatActivity(), GoogleMap.OnMarkerClickList
         app = application as MainApp
         binding = ActivityHikingtrailMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        //binding.toolbar.title = title
         setSupportActionBar(binding.toolbar)
+
         contentBinding = ContentHikingtrailMapsBinding.bind(binding.root)
         contentBinding.mapView.onCreate(savedInstanceState)
         contentBinding.mapView.getMapAsync {
@@ -36,7 +38,8 @@ class HikingtrailMapsActivity : AppCompatActivity(), GoogleMap.OnMarkerClickList
 
     fun configureMap() {
         map.setOnMarkerClickListener(this)
-        map.uiSettings.setZoomControlsEnabled(true)
+        map.uiSettings.isZoomControlsEnabled = true
+
         app.hikingtrails.findAll().forEach {
             val loc = LatLng(it.lat, it.lng)
             val options = MarkerOptions().title(it.title).position(loc)
@@ -46,7 +49,9 @@ class HikingtrailMapsActivity : AppCompatActivity(), GoogleMap.OnMarkerClickList
     }
 
     override fun onMarkerClick(marker: Marker): Boolean {
-        contentBinding.currentTitle.text = marker.title
+        val currentTitle: TextView = findViewById(R.id.currentTitle)
+        currentTitle.text = marker.title
+
         return false
     }
 
@@ -75,4 +80,7 @@ class HikingtrailMapsActivity : AppCompatActivity(), GoogleMap.OnMarkerClickList
         contentBinding.mapView.onSaveInstanceState(outState)
     }
 }
+
+
+
 
