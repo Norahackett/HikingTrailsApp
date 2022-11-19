@@ -47,4 +47,9 @@ class HikingtrailMemStore : HikingtrailStore {
     private fun logAll() {
         hikingtrails.forEach { i("$it") }
     }
+
+    override fun findById(id:Long) : HikingtrailModel? {
+        val foundHikingtrail: HikingtrailModel? = hikingtrails.find { it.id == id }
+        return foundHikingtrail
+    }
 }

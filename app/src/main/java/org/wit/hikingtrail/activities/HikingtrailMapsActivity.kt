@@ -14,7 +14,7 @@ import org.wit.hikingtrail.databinding.ActivityHikingtrailMapsBinding
 import org.wit.hikingtrail.databinding.ContentHikingtrailMapsBinding
 import org.wit.hikingtrail.main.MainApp
 
-class HikingtrailMapsActivity : AppCompatActivity(), GoogleMap.OnMarkerClickListener {
+class HikingtrailMapsActivity : AppCompatActivity() , GoogleMap.OnMarkerClickListener{
 
     private lateinit var binding: ActivityHikingtrailMapsBinding
     private lateinit var contentBinding: ContentHikingtrailMapsBinding
@@ -30,29 +30,34 @@ class HikingtrailMapsActivity : AppCompatActivity(), GoogleMap.OnMarkerClickList
 
         contentBinding = ContentHikingtrailMapsBinding.bind(binding.root)
         contentBinding.mapView.onCreate(savedInstanceState)
-        contentBinding.mapView.getMapAsync {
+        contentBinding.mapView.getMapAsync{
             map = it
             configureMap()
         }
     }
-
     fun configureMap() {
         map.setOnMarkerClickListener(this)
         map.uiSettings.isZoomControlsEnabled = true
 
-        app.hikingtrails.findAll().forEach {
+        app.hikingtrails.findAll().forEach{
             val loc = LatLng(it.lat, it.lng)
             val options = MarkerOptions().title(it.title).position(loc)
-            map.addMarker(options).tag = it.id
+            map.addMarker(options)?.tag = it.id
             map.moveCamera(CameraUpdateFactory.newLatLngZoom(loc, it.zoom))
         }
     }
 
     override fun onMarkerClick(marker: Marker): Boolean {
-        val currentTitle: TextView = findViewById(R.id.currentTitle)
-        currentTitle.text = marker.title
+        val tag = marker.tag as Long
+        val hikingtrail = app.hikingtrails.findById(tag)
 
-        return false
+        contentBinding.currentTitle.text = hikingtrail!!.title
+        contentBinding.currentDescription.text = hikingtrail!!.description
+        Picasso.get()
+            .load(hikingtrail.image)
+            .into(contentBinding.imageView2)
+
+        return true
     }
 
     override fun onDestroy() {
@@ -79,8 +84,8 @@ class HikingtrailMapsActivity : AppCompatActivity(), GoogleMap.OnMarkerClickList
         super.onSaveInstanceState(outState)
         contentBinding.mapView.onSaveInstanceState(outState)
     }
+
+
 }
-
-
 
 

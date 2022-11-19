@@ -73,6 +73,11 @@ class HikingtrailJSONStore(private val context: Context) : HikingtrailStore {
         serialize()
     }
 
+    override fun findById(id:Long) : HikingtrailModel? {
+        val foundHikingtrail: HikingtrailModel? = hikingtrails.find { it.id == id }
+        return foundHikingtrail
+    }
+
 
     private fun deserialize() {
         val jsonString = read(context, JSON_FILE)
