@@ -9,7 +9,6 @@ import android.os.Looper
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import org.wit.hikingtrail.R
-import org.wit.hikingtrail.views.hikingtrail.HikingtrailView
 import org.wit.hikingtrail.views.hikingtraillist.HikingtrailListView
 
 
@@ -26,7 +25,7 @@ class SplashScreen : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this, HikingtrailListView::class.java)
+            val intent = Intent(this, Home::class.java)
             startActivity(intent)
             finish()
         }, 3000) // 3000 is the delayed time in milliseconds.
