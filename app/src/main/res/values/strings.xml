@@ -26,6 +26,7 @@
     <string name="hikingtrail_county_placeholder">Hikingtrail County</string>
     <string name="hikingtrail_difficulty_placeholder">Hikingtrail Difficulty</string>
     <string name="selected_item">Selected item:</string>
+    <string name="aboutus_message">Welcome to Hiking App!!</string>
 
     <string-array name="Difficulty">
         <item>Easy</item>

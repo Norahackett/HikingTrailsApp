@@ -11,6 +11,8 @@
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#006a4e</color>
     <color name="lightyellow">#FFFFE0</color>
+    <color name="color_primary">#0E76CC</color>
+
 
 
 </resources>
