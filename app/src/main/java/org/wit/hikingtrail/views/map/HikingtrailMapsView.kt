@@ -1,25 +1,21 @@
-package org.wit.hikingtrail.activities
+package org.wit.hikingtrail.views.map
 
 import android.os.Bundle
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
-import com.google.android.gms.maps.model.MarkerOptions
 import com.squareup.picasso.Picasso
-import org.wit.hikingtrail.R
 import org.wit.hikingtrail.databinding.ActivityHikingtrailMapsBinding
 import org.wit.hikingtrail.databinding.ContentHikingtrailMapsBinding
 import org.wit.hikingtrail.main.MainApp
+import org.wit.hikingtrail.models.HikingtrailModel
 
-class HikingtrailMapsActivity : AppCompatActivity() , GoogleMap.OnMarkerClickListener{
+class HikingtrailMapView : AppCompatActivity() , GoogleMap.OnMarkerClickListener {
 
     private lateinit var binding: ActivityHikingtrailMapsBinding
     private lateinit var contentBinding: ContentHikingtrailMapsBinding
-    lateinit var map: GoogleMap
     lateinit var app: MainApp
+    lateinit var presenter: HikingtrailMapPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,35 +24,26 @@ class HikingtrailMapsActivity : AppCompatActivity() , GoogleMap.OnMarkerClickLis
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
 
+        presenter = HikingtrailMapPresenter(this)
+
         contentBinding = ContentHikingtrailMapsBinding.bind(binding.root)
+
         contentBinding.mapView.onCreate(savedInstanceState)
-        contentBinding.mapView.getMapAsync{
-            map = it
-            configureMap()
-        }
-    }
-    fun configureMap() {
-        map.setOnMarkerClickListener(this)
-        map.uiSettings.isZoomControlsEnabled = true
-
-        app.hikingtrails.findAll().forEach{
-            val loc = LatLng(it.lat, it.lng)
-            val options = MarkerOptions().title(it.title).position(loc)
-            map.addMarker(options)?.tag = it.id
-            map.moveCamera(CameraUpdateFactory.newLatLngZoom(loc, it.zoom))
+        contentBinding.mapView.getMapAsync {
+            presenter.doPopulateMap(it)
         }
     }
 
-    override fun onMarkerClick(marker: Marker): Boolean {
-        val tag = marker.tag as Long
-        val hikingtrail = app.hikingtrails.findById(tag)
-
-        contentBinding.currentTitle.text = hikingtrail!!.title
-        contentBinding.currentDescription.text = hikingtrail!!.description
+    fun showHikingtrail(hikingtrail: HikingtrailModel) {
+        contentBinding.currentTitle.text = hikingtrail.title
+        contentBinding.currentDescription.text = hikingtrail.description
         Picasso.get()
             .load(hikingtrail.image)
             .into(contentBinding.imageView2)
+    }
 
+    override fun onMarkerClick(marker: Marker): Boolean {
+        presenter.doMarkerSelected(marker)
         return true
     }
 
@@ -84,5 +71,5 @@ class HikingtrailMapsActivity : AppCompatActivity() , GoogleMap.OnMarkerClickLis
         super.onSaveInstanceState(outState)
         contentBinding.mapView.onSaveInstanceState(outState)
     }
-
 }
+

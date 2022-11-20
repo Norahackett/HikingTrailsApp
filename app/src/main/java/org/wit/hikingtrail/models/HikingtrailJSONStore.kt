@@ -41,18 +41,12 @@ class HikingtrailJSONStore(private val context: Context) : HikingtrailStore {
     }
 
 
-
     override fun update(hikingtrail: HikingtrailModel) {
         val hikingtrailsList = findAll() as ArrayList<HikingtrailModel>
-        var foundHikingtrail: HikingtrailModel? =
-            hikingtrailsList.find { p -> p.id == hikingtrail.id }
+        var foundHikingtrail: HikingtrailModel? = hikingtrailsList.find { p -> p.id == hikingtrail.id }
         if (foundHikingtrail != null) {
             foundHikingtrail.title = hikingtrail.title
             foundHikingtrail.description = hikingtrail.description
-            foundHikingtrail.county = hikingtrail.county
-            foundHikingtrail.rating= hikingtrail.rating
-            foundHikingtrail.date= hikingtrail.date
-            foundHikingtrail.difficulty= hikingtrail.difficulty
             foundHikingtrail.image = hikingtrail.image
             foundHikingtrail.lat = hikingtrail.lat
             foundHikingtrail.lng = hikingtrail.lng
@@ -61,23 +55,20 @@ class HikingtrailJSONStore(private val context: Context) : HikingtrailStore {
         serialize()
     }
 
-    private fun serialize() {
-        val jsonString = gsonBuilder.toJson(hikingtrails, listType)
-        write(context, JSON_FILE, jsonString)
-    }
-
-
     override fun delete(hikingtrail: HikingtrailModel) {
-
-        hikingtrails.remove(hikingtrail)
+        val foundHikingtrail: HikingtrailModel? = hikingtrails.find { it.id == hikingtrail.id }
+        hikingtrails.remove(foundHikingtrail)
         serialize()
     }
-
     override fun findById(id:Long) : HikingtrailModel? {
         val foundHikingtrail: HikingtrailModel? = hikingtrails.find { it.id == id }
         return foundHikingtrail
     }
 
+    private fun serialize() {
+        val jsonString = gsonBuilder.toJson(hikingtrails, listType)
+        write(context, JSON_FILE, jsonString)
+    }
 
     private fun deserialize() {
         val jsonString = read(context, JSON_FILE)

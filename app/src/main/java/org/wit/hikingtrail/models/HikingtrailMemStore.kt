@@ -1,7 +1,5 @@
 package org.wit.hikingtrail.models
 
-import org.wit.hikingtrail.models.HikingtrailModel
-import org.wit.hikingtrail.models.HikingtrailStore
 import timber.log.Timber.i
 
 var lastId = 0L
@@ -25,14 +23,10 @@ class HikingtrailMemStore : HikingtrailStore {
     }
 
     override fun update(hikingtrail: HikingtrailModel) {
-        var foundHikingtrail: HikingtrailModel? = hikingtrails.find { p -> p.id == hikingtrail.id }
+        val foundHikingtrail: HikingtrailModel? = hikingtrails.find { p -> p.id == hikingtrail.id }
         if (foundHikingtrail != null) {
             foundHikingtrail.title = hikingtrail.title
             foundHikingtrail.description = hikingtrail.description
-            foundHikingtrail.rating = hikingtrail.rating
-            foundHikingtrail.difficulty = hikingtrail.difficulty
-            foundHikingtrail.county = hikingtrail.county
-            foundHikingtrail.date = hikingtrail.date
             foundHikingtrail.image = hikingtrail.image
             foundHikingtrail.lat = hikingtrail.lat
             foundHikingtrail.lng = hikingtrail.lng
@@ -40,14 +34,14 @@ class HikingtrailMemStore : HikingtrailStore {
             logAll()
         }
     }
-
     override fun delete(hikingtrail: HikingtrailModel) {
         hikingtrails.remove(hikingtrail)
+        logAll()
     }
+
     private fun logAll() {
         hikingtrails.forEach { i("$it") }
     }
-
     override fun findById(id:Long) : HikingtrailModel? {
         val foundHikingtrail: HikingtrailModel? = hikingtrails.find { it.id == id }
         return foundHikingtrail

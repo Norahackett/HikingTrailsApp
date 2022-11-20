@@ -10,33 +10,43 @@ import org.wit.hikingtrail.adapters.HikingtrailListener
 import org.wit.hikingtrail.databinding.ActivityHikingtrailListBinding
 import org.wit.hikingtrail.main.MainApp
 import org.wit.hikingtrail.models.HikingtrailModel
-import org.wit.placemark.views.hikingtraillist.HikingtrailListPresenter
+import org.wit.hikingtrail.views.hikingtraillist.HikingtrailListPresenter
+import timber.log.Timber.i
 
 class HikingtrailListView : AppCompatActivity(), HikingtrailListener {
 
     lateinit var app: MainApp
-    private lateinit var binding: ActivityHikingtrailListBinding
+    lateinit var binding: ActivityHikingtrailListBinding
     lateinit var presenter: HikingtrailListPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        i("Recycler View Loaded")
         super.onCreate(savedInstanceState)
         binding = ActivityHikingtrailListBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.toolbar.title = title
         setSupportActionBar(binding.toolbar)
         presenter = HikingtrailListPresenter(this)
-        app = application as MainApp
+        //app = application as MainApp
 
         val layoutManager = LinearLayoutManager(this)
         binding.recyclerView.layoutManager = layoutManager
-        loadHikingtrails()
+        binding.recyclerView.adapter =
+            HikingtrailAdapter(presenter.getHikingtrails(), this)
 
     }
-
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
         return super.onCreateOptionsMenu(menu)
     }
+
+    override fun onResume() {
+        //update the view
+        binding.recyclerView.adapter?.notifyDataSetChanged()
+        i("recyclerView onResume")
+        super.onResume()
+    }
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
@@ -51,8 +61,4 @@ class HikingtrailListView : AppCompatActivity(), HikingtrailListener {
 
     }
 
-    private fun loadHikingtrails() {
-        binding.recyclerView.adapter = HikingtrailAdapter(presenter.getHikingtrails(), this)
-        binding.recyclerView.adapter?.notifyDataSetChanged()
-    }
 }

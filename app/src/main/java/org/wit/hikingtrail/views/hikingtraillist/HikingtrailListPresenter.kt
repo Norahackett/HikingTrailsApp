@@ -1,23 +1,22 @@
-package org.wit.placemark.views.hikingtraillist
+package org.wit.hikingtrail.views.hikingtraillist
 
 import android.content.Intent
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import org.wit.hikingtrail.activities.HikingtrailMapsActivity
-import org.wit.hikingtrail.main.MainApp
 import org.wit.hikingtrail.models.HikingtrailModel
 import org.wit.hikingtrail.views.hikingtrail.HikingtrailView
-import org.wit.hikingtrail.views.hikingtraillist.HikingtrailListView
+import org.wit.hikingtrail.main.MainApp
+import org.wit.hikingtrail.views.map.HikingtrailMapView
 
 class HikingtrailListPresenter(val view: HikingtrailListView) {
 
-    var app: MainApp
+    var app: MainApp = view.application as MainApp
     private lateinit var refreshIntentLauncher : ActivityResultLauncher<Intent>
+    private lateinit var editIntentLauncher : ActivityResultLauncher<Intent>
     private lateinit var mapIntentLauncher : ActivityResultLauncher<Intent>
 
     init {
-        app = view.application as MainApp
-        registerMapCallback()
+        registerEditCallback()
         registerRefreshCallback()
     }
 
@@ -25,27 +24,28 @@ class HikingtrailListPresenter(val view: HikingtrailListView) {
 
     fun doAddHikingtrail() {
         val launcherIntent = Intent(view, HikingtrailView::class.java)
-        refreshIntentLauncher.launch(launcherIntent)
+        editIntentLauncher.launch(launcherIntent)
     }
 
     fun doEditHikingtrail(hikingtrail: HikingtrailModel) {
         val launcherIntent = Intent(view, HikingtrailView::class.java)
         launcherIntent.putExtra("hikingtrail_edit", hikingtrail)
-        mapIntentLauncher.launch(launcherIntent)
+        editIntentLauncher.launch(launcherIntent)
     }
 
     fun doShowHikingtrailsMap() {
-        val launcherIntent = Intent(view, HikingtrailMapsActivity::class.java)
-        refreshIntentLauncher.launch(launcherIntent)
+        val launcherIntent = Intent(view, HikingtrailMapView::class.java)
+        editIntentLauncher.launch(launcherIntent)
     }
     private fun registerRefreshCallback() {
         refreshIntentLauncher =
             view.registerForActivityResult(ActivityResultContracts.StartActivityForResult())
             { getHikingtrails() }
     }
-    private fun registerMapCallback() {
-        mapIntentLauncher =
+    private fun registerEditCallback() {
+        editIntentLauncher =
             view.registerForActivityResult(ActivityResultContracts.StartActivityForResult())
             {  }
+
     }
 }

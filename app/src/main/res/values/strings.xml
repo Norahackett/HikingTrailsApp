@@ -18,13 +18,13 @@
     <string name="button_location">Set Location</string>
     <string name="title_activity_map">Map</string>
     <string name="menu_deleteHikingtrail">Delete</string>
+    <string name="menu_saveHikingtrail">Save</string>
     <string name="title_activity_hikingtrail_maps">Map of All Hikingtrails </string>
     <string name="hikingtrail_image_placeholder">Hikingtrail Image</string>
     <string name="hikingtrail_title_placeholder">Hikingtrail Title</string>
     <string name="hikingtrail_description_placeholder">Hikingtrail Description</string>
     <string name="hikingtrail_county_placeholder">Hikingtrail County</string>
     <string name="hikingtrail_difficulty_placeholder">Hikingtrail Difficulty</string>
-    <string name="title_activity_placemark_maps">Map of All Placemarks </string>
     <string name="selected_item">Selected item:</string>
 
     <string-array name="Difficulty">

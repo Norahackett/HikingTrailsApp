@@ -3,6 +3,7 @@
     package="org.wit.hikingtrail">
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:name=".main.MainApp"
@@ -13,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Hikingtrail">
         <activity
-            android:name=".activities.HikingtrailMapsActivity"
+            android:name=".views.map.HikingtrailMapView"
             android:exported="true"
             android:label="@string/title_activity_hikingtrail_maps"
             android:theme="@style/Theme.Hikingtrail.NoActionBar" />

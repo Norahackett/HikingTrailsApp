@@ -35,8 +35,12 @@ class HikingtrailAdapter constructor(private var hikingtrails: List<HikingtrailM
         fun bind(hikingtrail: HikingtrailModel, listener: HikingtrailListener) {
             binding.hikingtrailTitle.text = hikingtrail.title
             binding.description.text = hikingtrail.description
-            Picasso.get().load(hikingtrail.image).resize(200,200).into(binding.imageIcon)
+            Picasso.get()
+                .load(hikingtrail.image)
+                .resize(200,200)
+                .into(binding.imageIcon)
             binding.root.setOnClickListener { listener.onHikingtrailClick(hikingtrail) }
         }
     }
 }
+
