@@ -29,7 +29,11 @@
             android:label="@string/title_activity_map" />
         <activity
             android:name=".views.hikingtraillist.HikingtrailListView"
-            android:exported="true">
+            android:exported="true"/>
+
+        <activity
+            android:name=".activities.SplashScreen"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
