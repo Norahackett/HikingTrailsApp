@@ -35,7 +35,7 @@ class HikingtrailView : AppCompatActivity() {
             presenter.doSelectImage()
         }
 
-        binding.hikingtrailLocation.setOnClickListener {
+        binding.mapView2.setOnClickListener {
             presenter.cacheHikingtrail(binding.hikingtrailTitle.text.toString(), binding.description.text.toString())
             presenter.doSetLocation()
         }
@@ -44,6 +44,7 @@ class HikingtrailView : AppCompatActivity() {
         binding.mapView2.getMapAsync {
             map = it
             presenter.doConfigureMap(map)
+            it.setOnMapClickListener { presenter.doSetLocation() }
         }
 
     }
@@ -80,6 +81,7 @@ class HikingtrailView : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
+
     fun showHikingtrail(hikingtrail: HikingtrailModel) {
         binding.hikingtrailTitle.setText(hikingtrail.title)
         binding.description.setText(hikingtrail.description)
@@ -87,9 +89,12 @@ class HikingtrailView : AppCompatActivity() {
         Picasso.get()
             .load(hikingtrail.image)
             .into(binding.hikingtrailImage)
+
         if (hikingtrail.image != Uri.EMPTY) {
             binding.chooseImage.setText(R.string.change_hikingtrail_image)
         }
+        binding.lat.setText("%.6f".format(hikingtrail.lat))
+        binding.lng.setText("%.6f".format(hikingtrail.lng))
 
     }
 
@@ -100,6 +105,7 @@ class HikingtrailView : AppCompatActivity() {
             .into(binding.hikingtrailImage)
         binding.chooseImage.setText(R.string.change_hikingtrail_image)
     }
+
     override fun onDestroy() {
         super.onDestroy()
         binding.mapView2.onDestroy()
@@ -118,6 +124,7 @@ class HikingtrailView : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         binding.mapView2.onResume()
+        presenter.doRestartLocationUpdates()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {

@@ -6,12 +6,15 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationCallback
+import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import org.wit.hikingtrail.helpers.checkLocationPermissions
+import org.wit.hikingtrail.helpers.createDefaultLocationRequest
 import org.wit.hikingtrail.main.MainApp
 import org.wit.hikingtrail.models.Location
 import org.wit.hikingtrail.models.HikingtrailModel
@@ -21,15 +24,17 @@ import timber.log.Timber
 import timber.log.Timber.i
 
 class HikingtrailPresenter(private val view: HikingtrailView) {
+    private val locationRequest = createDefaultLocationRequest()
     var map: GoogleMap? = null
     var hikingtrail = HikingtrailModel()
     var app: MainApp = view.application as MainApp
+    //location service
     var locationService: FusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(view)
     private lateinit var imageIntentLauncher : ActivityResultLauncher<Intent>
     private lateinit var mapIntentLauncher : ActivityResultLauncher<Intent>
     private lateinit var requestPermissionLauncher: ActivityResultLauncher<String>
     var edit = false;
-    private val location = Location(52.245696, -7.139102, 15f)
+    private val location = Location(57.245696, -7.139102, 15f)
 
     init {
 
@@ -97,15 +102,25 @@ class HikingtrailPresenter(private val view: HikingtrailView) {
 
     @SuppressLint("MissingPermission")
     fun doSetCurrentLocation() {
-        i("setting location from doSetLocation")
+
         locationService.lastLocation.addOnSuccessListener {
             locationUpdate(it.latitude, it.longitude)
         }
     }
 
-    fun cacheHikingtrail (title: String, description: String) {
-        hikingtrail.title = title;
-        hikingtrail.description = description
+    @SuppressLint("MissingPermission")
+    fun doRestartLocationUpdates() {
+        var locationCallback = object : LocationCallback() {
+            override fun onLocationResult(locationResult: LocationResult?) {
+                if (locationResult != null && locationResult.locations != null) {
+                    val l = locationResult.locations.last()
+                    locationUpdate(l.latitude, l.longitude)
+                }
+            }
+        }
+        if (!edit) {
+            locationService.requestLocationUpdates(locationRequest, locationCallback, null)
+        }
     }
     fun doConfigureMap(m: GoogleMap) {
         map = m
@@ -124,7 +139,10 @@ class HikingtrailPresenter(private val view: HikingtrailView) {
         view.showHikingtrail(hikingtrail)
     }
 
-
+    fun cacheHikingtrail (title: String, description: String) {
+        hikingtrail.title = title;
+        hikingtrail.description = description
+    }
 
     private fun registerImagePickerCallback() {
 
@@ -165,6 +183,7 @@ class HikingtrailPresenter(private val view: HikingtrailView) {
 
             }
     }
+
     private fun doPermissionLauncher() {
         i("permission check called")
         requestPermissionLauncher =
@@ -178,4 +197,3 @@ class HikingtrailPresenter(private val view: HikingtrailView) {
             }
     }
 }
-
