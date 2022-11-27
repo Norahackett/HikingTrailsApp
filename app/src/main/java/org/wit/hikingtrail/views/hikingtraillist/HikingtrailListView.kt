@@ -51,7 +51,7 @@ class HikingtrailListView : AppCompatActivity(), HikingtrailListener {
         when (item.itemId) {
             R.id.item_add -> { presenter.doAddHikingtrail() }
             R.id.item_map -> { presenter.doShowHikingtrailsMap() }
-
+            R.id.item_logout -> { presenter.doLogout() }
         }
         return super.onOptionsItemSelected(item)
     }

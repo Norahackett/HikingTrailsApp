@@ -10,6 +10,7 @@ import org.wit.hikingtrail.main.MainApp
 import org.wit.hikingtrail.models.HikingtrailModel
 
 import org.wit.hikingtrail.views.hikingtrail.HikingtrailView
+import org.wit.hikingtrail.views.login.LoginView
 import org.wit.hikingtrail.views.map.HikingtrailMapView
 
 class HikingtrailListPresenter(private val view: HikingtrailListView) {
@@ -40,7 +41,10 @@ class HikingtrailListPresenter(private val view: HikingtrailListView) {
         val launcherIntent = Intent(view, HikingtrailMapView::class.java)
         editIntentLauncher.launch(launcherIntent)
     }
-
+    fun doLogout(){
+        val launcherIntent = Intent(view, LoginView::class.java)
+        editIntentLauncher.launch(launcherIntent)
+    }
 
 
     private fun registerRefreshCallback() {
