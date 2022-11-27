@@ -9,7 +9,6 @@ import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.LocationRequest.PRIORITY_HIGH_ACCURACY
 import com.google.android.gms.location.LocationRequest.create
 import java.util.concurrent.TimeUnit
-
 const val REQUEST_PERMISSIONS_REQUEST_CODE = 34
 
 fun checkLocationPermissions(activity: Activity) : Boolean {
@@ -25,8 +24,8 @@ fun checkLocationPermissions(activity: Activity) : Boolean {
 @SuppressLint("RestrictedApi")
 fun createDefaultLocationRequest() : LocationRequest {
     val locationRequest = create().apply{
-        interval = TimeUnit.SECONDS.toMillis(60)
-        fastestInterval = TimeUnit.SECONDS.toMillis(30)
+        interval = 10000
+        fastestInterval = 5000
         priority = PRIORITY_HIGH_ACCURACY
     }
     return locationRequest

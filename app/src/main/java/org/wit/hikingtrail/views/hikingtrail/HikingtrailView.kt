@@ -1,5 +1,6 @@
 package org.wit.hikingtrail.views.hikingtrail
 
+
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,8 +9,12 @@ import android.view.MenuItem
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import org.wit.hikingtrail.R
 import org.wit.hikingtrail.databinding.ActivityHikingtrailBinding
+import org.wit.hikingtrail.models.Location
 import org.wit.hikingtrail.models.HikingtrailModel
 import timber.log.Timber.i
 
@@ -68,11 +73,18 @@ class HikingtrailView : AppCompatActivity() {
                     Snackbar.make(binding.root, R.string.enter_hikingtrail_title, Snackbar.LENGTH_LONG)
                         .show()
                 } else {
-                    presenter.doAddOrSave(binding.hikingtrailTitle.text.toString(), binding.description.text.toString())
+                    GlobalScope.launch(Dispatchers.IO) {
+                        presenter.doAddOrSave(
+                            binding.hikingtrailTitle.text.toString(),
+                            binding.description.text.toString()
+                        )
+                    }
                 }
             }
             R.id.item_delete -> {
-                presenter.doDelete()
+                GlobalScope.launch(Dispatchers.IO){
+                    presenter.doDelete()
+                }
             }
             R.id.item_cancel -> {
                 presenter.doCancel()
@@ -83,8 +95,8 @@ class HikingtrailView : AppCompatActivity() {
     }
 
     fun showHikingtrail(hikingtrail: HikingtrailModel) {
-        binding.hikingtrailTitle.setText(hikingtrail.title)
-        binding.description.setText(hikingtrail.description)
+        if (binding.hikingtrailTitle.text.isEmpty()) binding.hikingtrailTitle.setText(hikingtrail.title)
+        if (binding.description.text.isEmpty())  binding.description.setText(hikingtrail.description)
 
         Picasso.get()
             .load(hikingtrail.image)
@@ -93,9 +105,11 @@ class HikingtrailView : AppCompatActivity() {
         if (hikingtrail.image != Uri.EMPTY) {
             binding.chooseImage.setText(R.string.change_hikingtrail_image)
         }
-        binding.lat.setText("%.6f".format(hikingtrail.lat))
-        binding.lng.setText("%.6f".format(hikingtrail.lng))
-
+        this.showLocation(hikingtrail.location)
+    }
+    private fun showLocation (loc: Location){
+        binding.lat.setText("%.6f".format(loc.lat))
+        binding.lng.setText("%.6f".format(loc.lng))
     }
 
     fun updateImage(image: Uri){

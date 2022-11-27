@@ -34,7 +34,7 @@ class HikingtrailPresenter(private val view: HikingtrailView) {
     private lateinit var mapIntentLauncher : ActivityResultLauncher<Intent>
     private lateinit var requestPermissionLauncher: ActivityResultLauncher<String>
     var edit = false;
-    private val location = Location(57.245696, -7.139102, 15f)
+    private val location = Location(52.245696, -7.139102, 15f)
 
     init {
 
@@ -52,14 +52,14 @@ class HikingtrailPresenter(private val view: HikingtrailView) {
             if (checkLocationPermissions(view)) {
                 doSetCurrentLocation()
             }
-            hikingtrail.lat = location.lat
-            hikingtrail.lng = location.lng
+            hikingtrail.location.lat = location.lat
+            hikingtrail.location.lng = location.lng
         }
 
     }
 
 
-    fun doAddOrSave(title: String, description: String) {
+    suspend fun doAddOrSave(title: String, description: String) {
         hikingtrail.title = title
         hikingtrail.description = description
         if (edit) {
@@ -77,7 +77,7 @@ class HikingtrailPresenter(private val view: HikingtrailView) {
 
     }
 
-    fun doDelete() {
+    suspend fun doDelete() {
         app.hikingtrails.delete(hikingtrail)
         view.finish()
 
@@ -89,11 +89,12 @@ class HikingtrailPresenter(private val view: HikingtrailView) {
 
     fun doSetLocation() {
 
-        if (hikingtrail.zoom != 0f) {
-            location.lat =  hikingtrail.lat
-            location.lng = hikingtrail.lng
-            location.zoom = hikingtrail.zoom
-            locationUpdate(hikingtrail.lat, hikingtrail.lng)
+        if (hikingtrail.location.zoom != 0f) {
+
+            location.lat =  hikingtrail.location.lat
+            location.lng = hikingtrail.location.lng
+            location.zoom = hikingtrail.location.zoom
+            locationUpdate(hikingtrail.location.lat, hikingtrail.location.lng)
         }
         val launcherIntent = Intent(view, EditLocationView::class.java)
             .putExtra("location", location)
@@ -124,18 +125,16 @@ class HikingtrailPresenter(private val view: HikingtrailView) {
     }
     fun doConfigureMap(m: GoogleMap) {
         map = m
-        locationUpdate(hikingtrail.lat, hikingtrail.lng)
+        locationUpdate(hikingtrail.location.lat, hikingtrail.location.lng)
     }
 
     fun locationUpdate(lat: Double, lng: Double) {
-        hikingtrail.lat = lat
-        hikingtrail.lng = lng
-        hikingtrail.zoom = 15f
+        hikingtrail.location = location
         map?.clear()
         map?.uiSettings?.setZoomControlsEnabled(true)
-        val options = MarkerOptions().title(hikingtrail.title).position(LatLng(hikingtrail.lat, hikingtrail.lng))
+        val options = MarkerOptions().title(hikingtrail.title).position(LatLng(hikingtrail.location.lat, hikingtrail.location.lng))
         map?.addMarker(options)
-        map?.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(hikingtrail.lat, hikingtrail.lng), hikingtrail.zoom))
+        map?.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(hikingtrail.location.lat, hikingtrail.location.lng), hikingtrail.location.zoom))
         view.showHikingtrail(hikingtrail)
     }
 
@@ -173,9 +172,7 @@ class HikingtrailPresenter(private val view: HikingtrailView) {
                             Timber.i("Got Location ${result.data.toString()}")
                             val location = result.data!!.extras?.getParcelable<Location>("location")!!
                             Timber.i("Location == $location")
-                            hikingtrail.lat = location.lat
-                            hikingtrail.lng = location.lng
-                            hikingtrail.zoom = location.zoom
+                            hikingtrail.location = location
                         } // end of if
                     }
                     AppCompatActivity.RESULT_CANCELED -> { } else -> { }

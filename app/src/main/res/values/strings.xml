@@ -33,8 +33,8 @@
     <string name="nav_header_subtitle">make a review</string>
     <string name="nav_header_desc">Navigation header</string>
 
-    <string name="action_donate">Donate</string>
-    <string name="action_report">Report</string>
+    <string name="action_home">Home</string>
+    <string name="action_report">Hiking</string>
     <string name="group_communicate">Communicate</string>
     <string name="action_share">Share</string>
     <string name="action_send">Send</string>

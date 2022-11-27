@@ -12,5 +12,17 @@
         android:label="@string/action_about"
         tools:layout="@layout/fragment_about" />
 
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="org.wit.hikingtrail.views.about.AboutFragment"
+        android:label="@string/action_about"
+        tools:layout="@layout/fragment_about" />
+
+    <fragment
+        android:id="@+id/reportFragment"
+        android:name="org.wit.hikingtrail.views.about.AboutFragment"
+        android:label="@string/action_about"
+        tools:layout="@layout/fragment_about" />
+
 
 </navigation>

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:showIn="navigation_view">
+    tools:showIn="navigation show">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/donateFragment"
-            android:icon="@drawable/ic_menu_donate"
-            android:title="@string/action_donate" />
+            android:id="@+id/HikingtrailListView"
+            android:icon="@drawable/ic_baseline_home_24"
+            android:title="@string/action_home" />
         <item
-            android:id="@+id/reportFragment"
+            android:id="@+id/Fragment"
             android:icon="@drawable/ic_menu_report"
             android:title="@string/action_report" />
         <item

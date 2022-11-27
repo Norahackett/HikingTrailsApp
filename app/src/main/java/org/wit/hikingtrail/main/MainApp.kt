@@ -5,6 +5,7 @@ import org.wit.hikingtrail.models.HikingtrailJSONStore
 import org.wit.hikingtrail.models.HikingtrailMemStore
 import org.wit.hikingtrail.models.HikingtrailModel
 import org.wit.hikingtrail.models.HikingtrailStore
+import org.wit.hikingtrail.room.HikingtrailStoreRoom
 import timber.log.Timber
 import timber.log.Timber.i
 
@@ -15,9 +16,7 @@ class MainApp : Application() {
     override fun onCreate() {
         super.onCreate()
         Timber.plant(Timber.DebugTree())
-        hikingtrails = HikingtrailJSONStore(applicationContext)
-
+        hikingtrails = HikingtrailStoreRoom(applicationContext)
         i("Hikingtrail started")
-
     }
 }

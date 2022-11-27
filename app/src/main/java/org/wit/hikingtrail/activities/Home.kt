@@ -9,6 +9,7 @@ import androidx.navigation.*
 import androidx.navigation.ui.*
 import org.wit.hikingtrail.databinding.HomeBinding
 import org.wit.hikingtrail.R
+import org.wit.hikingtrail.views.hikingtrail.HikingtrailView
 
 
 class Home : AppCompatActivity() {
@@ -32,7 +33,7 @@ class Home : AppCompatActivity() {
         // menu should be considered as top level destinations.
 
         appBarConfiguration = AppBarConfiguration(setOf(
-             R.id.aboutFragment), drawerLayout)
+             R.id.aboutFragment, R.id.HikingtrailListView), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         val navView = homeBinding.navView

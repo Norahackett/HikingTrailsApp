@@ -5,12 +5,15 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.Marker
 import com.squareup.picasso.Picasso
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import org.wit.hikingtrail.databinding.ActivityHikingtrailMapsBinding
 import org.wit.hikingtrail.databinding.ContentHikingtrailMapsBinding
 import org.wit.hikingtrail.main.MainApp
 import org.wit.hikingtrail.models.HikingtrailModel
 
-class HikingtrailMapView : AppCompatActivity() , GoogleMap.OnMarkerClickListener {
+class HikingtrailMapView : AppCompatActivity() , GoogleMap.OnMarkerClickListener{
 
     private lateinit var binding: ActivityHikingtrailMapsBinding
     private lateinit var contentBinding: ContentHikingtrailMapsBinding
@@ -29,22 +32,24 @@ class HikingtrailMapView : AppCompatActivity() , GoogleMap.OnMarkerClickListener
         contentBinding = ContentHikingtrailMapsBinding.bind(binding.root)
 
         contentBinding.mapView.onCreate(savedInstanceState)
-        contentBinding.mapView.getMapAsync {
-            presenter.doPopulateMap(it)
+        contentBinding.mapView.getMapAsync{
+            GlobalScope.launch(Dispatchers.Main) {
+                presenter.doPopulateMap(it)
+            }
         }
     }
-
+    override fun onMarkerClick(marker: Marker): Boolean {
+        GlobalScope.launch(Dispatchers.Main) {
+            presenter.doMarkerSelected(marker)
+        }
+        return true
+    }
     fun showHikingtrail(hikingtrail: HikingtrailModel) {
         contentBinding.currentTitle.text = hikingtrail.title
         contentBinding.currentDescription.text = hikingtrail.description
         Picasso.get()
             .load(hikingtrail.image)
             .into(contentBinding.imageView2)
-    }
-
-    override fun onMarkerClick(marker: Marker): Boolean {
-        presenter.doMarkerSelected(marker)
-        return true
     }
 
     override fun onDestroy() {
@@ -71,5 +76,6 @@ class HikingtrailMapView : AppCompatActivity() , GoogleMap.OnMarkerClickListener
         super.onSaveInstanceState(outState)
         contentBinding.mapView.onSaveInstanceState(outState)
     }
-}
 
+
+}

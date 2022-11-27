@@ -3,24 +3,27 @@ package org.wit.hikingtrail.views.hikingtraillist
 import android.content.Intent
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import org.wit.hikingtrail.models.HikingtrailModel
-import org.wit.hikingtrail.views.hikingtrail.HikingtrailView
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import org.wit.hikingtrail.main.MainApp
+import org.wit.hikingtrail.models.HikingtrailModel
+
+import org.wit.hikingtrail.views.hikingtrail.HikingtrailView
 import org.wit.hikingtrail.views.map.HikingtrailMapView
 
-class HikingtrailListPresenter(val view: HikingtrailListView) {
+class HikingtrailListPresenter(private val view: HikingtrailListView) {
 
     var app: MainApp = view.application as MainApp
-    private lateinit var refreshIntentLauncher : ActivityResultLauncher<Intent>
-    private lateinit var editIntentLauncher : ActivityResultLauncher<Intent>
-    private lateinit var mapIntentLauncher : ActivityResultLauncher<Intent>
+    private lateinit var refreshIntentLauncher: ActivityResultLauncher<Intent>
+    private lateinit var editIntentLauncher: ActivityResultLauncher<Intent>
 
     init {
         registerEditCallback()
         registerRefreshCallback()
     }
 
-    fun getHikingtrails() = app.hikingtrails.findAll()
+    suspend fun getHikingtrails() = app.hikingtrails.findAll()
 
     fun doAddHikingtrail() {
         val launcherIntent = Intent(view, HikingtrailView::class.java)
@@ -37,15 +40,23 @@ class HikingtrailListPresenter(val view: HikingtrailListView) {
         val launcherIntent = Intent(view, HikingtrailMapView::class.java)
         editIntentLauncher.launch(launcherIntent)
     }
+
+
+
     private fun registerRefreshCallback() {
         refreshIntentLauncher =
             view.registerForActivityResult(ActivityResultContracts.StartActivityForResult())
-            { getHikingtrails() }
+            {
+                GlobalScope.launch(Dispatchers.Main) {
+                    getHikingtrails()
+                }
+            }
     }
+
     private fun registerEditCallback() {
         editIntentLauncher =
             view.registerForActivityResult(ActivityResultContracts.StartActivityForResult())
-            {  }
+            { }
 
     }
 }

@@ -29,38 +29,36 @@ class HikingtrailJSONStore(private val context: Context) : HikingtrailStore {
         }
     }
 
-    override fun findAll(): MutableList<HikingtrailModel> {
+    override suspend fun findAll(): MutableList<HikingtrailModel> {
         logAll()
         return hikingtrails
     }
 
-    override fun create(hikingtrail: HikingtrailModel) {
+    override suspend fun create(hikingtrail: HikingtrailModel) {
         hikingtrail.id = generateRandomId()
         hikingtrails.add(hikingtrail)
         serialize()
     }
 
 
-    override fun update(hikingtrail: HikingtrailModel) {
+    override suspend fun update(hikingtrail: HikingtrailModel) {
         val hikingtrailsList = findAll() as ArrayList<HikingtrailModel>
         var foundHikingtrail: HikingtrailModel? = hikingtrailsList.find { p -> p.id == hikingtrail.id }
         if (foundHikingtrail != null) {
             foundHikingtrail.title = hikingtrail.title
             foundHikingtrail.description = hikingtrail.description
             foundHikingtrail.image = hikingtrail.image
-            foundHikingtrail.lat = hikingtrail.lat
-            foundHikingtrail.lng = hikingtrail.lng
-            foundHikingtrail.zoom = hikingtrail.zoom
+            foundHikingtrail.location = hikingtrail.location
         }
         serialize()
     }
 
-    override fun delete(hikingtrail: HikingtrailModel) {
+    override suspend fun delete(hikingtrail: HikingtrailModel) {
         val foundHikingtrail: HikingtrailModel? = hikingtrails.find { it.id == hikingtrail.id }
         hikingtrails.remove(foundHikingtrail)
         serialize()
     }
-    override fun findById(id:Long) : HikingtrailModel? {
+    override suspend fun findById(id:Long) : HikingtrailModel? {
         val foundHikingtrail: HikingtrailModel? = hikingtrails.find { it.id == id }
         return foundHikingtrail
     }
