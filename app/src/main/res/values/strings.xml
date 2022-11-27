@@ -39,6 +39,8 @@
     <string name="action_share">Share</string>
     <string name="action_send">Send</string>
 
+    <string name="title_activity_login"> Signup/Login to Hiking Trails App</string>
+
     <string-array name="Difficulty">
         <item>Easy</item>
         <item>Moderate</item>
