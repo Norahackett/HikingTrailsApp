@@ -19,7 +19,7 @@ fun generateRandomId(): Long {
     return Random().nextLong()
 }
 
-class HikingtrailJSONStore(private val context: Context) : HikingtrailStore {
+class HikingtrailJSONStore(private val context: Context) : HikingtrailStore{
 
     var hikingtrails = mutableListOf<HikingtrailModel>()
 
@@ -58,6 +58,11 @@ class HikingtrailJSONStore(private val context: Context) : HikingtrailStore {
         hikingtrails.remove(foundHikingtrail)
         serialize()
     }
+
+    override suspend fun clear() {
+        TODO("Not yet implemented")
+    }
+
     override suspend fun findById(id:Long) : HikingtrailModel? {
         val foundHikingtrail: HikingtrailModel? = hikingtrails.find { it.id == id }
         return foundHikingtrail

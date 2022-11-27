@@ -8,7 +8,7 @@ import com.google.android.gms.location.LocationRequest
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.LocationRequest.PRIORITY_HIGH_ACCURACY
 import com.google.android.gms.location.LocationRequest.create
-import java.util.concurrent.TimeUnit
+
 const val REQUEST_PERMISSIONS_REQUEST_CODE = 34
 
 fun checkLocationPermissions(activity: Activity) : Boolean {

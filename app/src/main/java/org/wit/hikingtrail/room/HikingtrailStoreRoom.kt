@@ -37,4 +37,8 @@ class HikingtrailStoreRoom(val context: Context) : HikingtrailStore {
     override suspend fun delete(hikingtrail: HikingtrailModel) {
         dao.deleteHikingtrail(hikingtrail)
     }
+
+    override suspend fun clear() {
+        TODO("Not yet implemented")
+    }
 }

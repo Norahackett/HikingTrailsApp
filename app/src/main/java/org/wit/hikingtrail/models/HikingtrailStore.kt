@@ -6,4 +6,5 @@ interface HikingtrailStore {
     suspend fun update(hikingtrail: HikingtrailModel)
     suspend fun findById(id:Long) : HikingtrailModel?
     suspend fun delete(hikingtrail: HikingtrailModel)
+    suspend fun clear()
 }

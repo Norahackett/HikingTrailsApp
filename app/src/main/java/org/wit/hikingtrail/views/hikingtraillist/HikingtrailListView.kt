@@ -4,6 +4,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.*
 import org.wit.hikingtrail.R
 import org.wit.hikingtrail.adapters.HikingtrailAdapter
@@ -12,6 +13,8 @@ import org.wit.hikingtrail.databinding.ActivityHikingtrailListBinding
 import org.wit.hikingtrail.main.MainApp
 import org.wit.hikingtrail.models.HikingtrailModel
 import timber.log.Timber.i
+
+
 
 class HikingtrailListView : AppCompatActivity(), HikingtrailListener {
 

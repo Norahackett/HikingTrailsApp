@@ -6,7 +6,9 @@ import android.content.Intent
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import com.google.firebase.auth.FirebaseAuth
+import org.wit.hikingtrail.main.MainApp
 import org.wit.hikingtrail.views.hikingtraillist.HikingtrailListView
+
 
 
 

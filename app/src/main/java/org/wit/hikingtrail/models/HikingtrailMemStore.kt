@@ -1,5 +1,7 @@
 package org.wit.hikingtrail.models
 
+
+
 import timber.log.Timber.i
 
 var lastId = 0L
@@ -35,6 +37,10 @@ class HikingtrailMemStore : HikingtrailStore {
     override suspend fun delete(hikingtrail: HikingtrailModel) {
         hikingtrails.remove(hikingtrail)
         logAll()
+    }
+
+    override suspend fun clear() {
+        TODO("Not yet implemented")
     }
 
     private fun logAll() {
