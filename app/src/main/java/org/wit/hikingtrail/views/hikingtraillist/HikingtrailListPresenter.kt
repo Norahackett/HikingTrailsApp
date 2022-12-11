@@ -3,6 +3,7 @@ package org.wit.hikingtrail.views.hikingtraillist
 import android.content.Intent
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -15,8 +16,8 @@ import org.wit.hikingtrail.views.map.HikingtrailMapView
 class HikingtrailListPresenter(private val view: HikingtrailListView) {
 
     var app: MainApp = view.application as MainApp
-    private lateinit var refreshIntentLauncher : ActivityResultLauncher<Intent>
-    private lateinit var editIntentLauncher : ActivityResultLauncher<Intent>
+    private lateinit var refreshIntentLauncher: ActivityResultLauncher<Intent>
+    private lateinit var editIntentLauncher: ActivityResultLauncher<Intent>
 
     init {
         registerEditCallback()
@@ -40,23 +41,28 @@ class HikingtrailListPresenter(private val view: HikingtrailListView) {
         val launcherIntent = Intent(view, HikingtrailMapView::class.java)
         editIntentLauncher.launch(launcherIntent)
     }
-    fun doLogout(){
+
+    suspend fun doLogout() {
+        FirebaseAuth.getInstance().signOut()
+        app.hikingtrails.clear()
         val launcherIntent = Intent(view, LoginView::class.java)
         editIntentLauncher.launch(launcherIntent)
     }
+
     private fun registerRefreshCallback() {
         refreshIntentLauncher =
             view.registerForActivityResult(ActivityResultContracts.StartActivityForResult())
             {
-                GlobalScope.launch(Dispatchers.Main){
+                GlobalScope.launch(Dispatchers.Main) {
                     getHikingtrails()
                 }
             }
     }
+
     private fun registerEditCallback() {
         editIntentLauncher =
             view.registerForActivityResult(ActivityResultContracts.StartActivityForResult())
-            {  }
+            { }
 
     }
 }

@@ -7,14 +7,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.*
 import org.wit.hikingtrail.R
-import org.wit.hikingtrail.adapters.HikingtrailAdapter
-import org.wit.hikingtrail.adapters.HikingtrailListener
+
 import org.wit.hikingtrail.databinding.ActivityHikingtrailListBinding
 import org.wit.hikingtrail.main.MainApp
 import org.wit.hikingtrail.models.HikingtrailModel
 import timber.log.Timber.i
-
-
 
 class HikingtrailListView : AppCompatActivity(), HikingtrailListener {
 
@@ -27,13 +24,21 @@ class HikingtrailListView : AppCompatActivity(), HikingtrailListener {
         super.onCreate(savedInstanceState)
         binding = ActivityHikingtrailListBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        //update Toolbar title
         binding.toolbar.title = title
+        val user = FirebaseAuth.getInstance().currentUser
+        if (user != null) {
+            binding.toolbar.title = "${title}: ${user.email}"
+        }
         setSupportActionBar(binding.toolbar)
+
         presenter = HikingtrailListPresenter(this)
         val layoutManager = LinearLayoutManager(this)
         binding.recyclerView.layoutManager = layoutManager
         updateRecyclerView()
     }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
         return super.onCreateOptionsMenu(menu)
@@ -52,9 +57,17 @@ class HikingtrailListView : AppCompatActivity(), HikingtrailListener {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.item_add -> { presenter.doAddHikingtrail() }
-            R.id.item_map -> { presenter.doShowHikingtrailsMap() }
-            R.id.item_logout -> { presenter.doLogout() }
+            R.id.item_add -> {
+                presenter.doAddHikingtrail()
+            }
+            R.id.item_map -> {
+                presenter.doShowHikingtrailsMap()
+            }
+            R.id.item_logout -> {
+                GlobalScope.launch(Dispatchers.IO) {
+                    presenter.doLogout()
+                }
+            }
         }
         return super.onOptionsItemSelected(item)
     }
@@ -64,8 +77,8 @@ class HikingtrailListView : AppCompatActivity(), HikingtrailListener {
 
     }
 
-    private fun updateRecyclerView(){
-        GlobalScope.launch(Dispatchers.Main){
+    private fun updateRecyclerView() {
+        GlobalScope.launch(Dispatchers.Main) {
             binding.recyclerView.adapter =
                 HikingtrailAdapter(presenter.getHikingtrails(), this@HikingtrailListView)
         }

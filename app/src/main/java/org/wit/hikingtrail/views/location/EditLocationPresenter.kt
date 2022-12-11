@@ -9,6 +9,7 @@ import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import org.wit.hikingtrail.models.Location
 
+
 class EditLocationPresenter (val view: EditLocationView) {
 
     var location = Location()

@@ -1,5 +1,6 @@
 package org.wit.hikingtrail.models
 
+
 import android.net.Uri
 import android.os.Parcelable
 import androidx.room.Embedded
@@ -10,9 +11,10 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 @Entity
 data class HikingtrailModel(@PrimaryKey(autoGenerate = true) var id: Long = 0,
+                          var fbId: String = "",
                           var title: String = "",
                           var description: String = "",
-                          var image: Uri = Uri.EMPTY,
+                          var image: String = "",
                           @Embedded var location : Location = Location()): Parcelable
 
 @Parcelize

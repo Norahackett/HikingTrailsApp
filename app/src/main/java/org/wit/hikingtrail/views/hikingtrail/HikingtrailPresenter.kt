@@ -28,6 +28,7 @@ class HikingtrailPresenter(private val view: HikingtrailView) {
     var map: GoogleMap? = null
     var hikingtrail = HikingtrailModel()
     var app: MainApp = view.application as MainApp
+    var locationManualyChanged = false;
     //location service
     var locationService: FusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(view)
     private lateinit var imageIntentLauncher : ActivityResultLauncher<Intent>
@@ -58,7 +59,6 @@ class HikingtrailPresenter(private val view: HikingtrailView) {
 
     }
 
-
     suspend fun doAddOrSave(title: String, description: String) {
         hikingtrail.title = title
         hikingtrail.description = description
@@ -88,6 +88,7 @@ class HikingtrailPresenter(private val view: HikingtrailView) {
     }
 
     fun doSetLocation() {
+        locationManualyChanged = true;
 
         if (hikingtrail.location.zoom != 0f) {
 
@@ -115,7 +116,9 @@ class HikingtrailPresenter(private val view: HikingtrailView) {
             override fun onLocationResult(locationResult: LocationResult?) {
                 if (locationResult != null && locationResult.locations != null) {
                     val l = locationResult.locations.last()
-                    locationUpdate(l.latitude, l.longitude)
+                    if(!locationManualyChanged){
+                        locationUpdate(l.latitude, l.longitude)
+                    }
                 }
             }
         }
@@ -152,7 +155,7 @@ class HikingtrailPresenter(private val view: HikingtrailView) {
                     AppCompatActivity.RESULT_OK -> {
                         if (result.data != null) {
                             Timber.i("Got Result ${result.data!!.data}")
-                            hikingtrail.image = result.data!!.data!!
+                            hikingtrail.image = result.data!!.data!!.toString()
                             view.updateImage(hikingtrail.image)
                         }
                     }

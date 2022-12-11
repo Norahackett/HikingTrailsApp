@@ -9,6 +9,9 @@ import timber.log.Timber
 import java.lang.reflect.Type
 import java.util.*
 
+
+
+
 const val JSON_FILE = "hikingtrails.json"
 val gsonBuilder: Gson = GsonBuilder().setPrettyPrinting()
     .registerTypeAdapter(Uri::class.java, UriParser())
@@ -19,7 +22,7 @@ fun generateRandomId(): Long {
     return Random().nextLong()
 }
 
-class HikingtrailJSONStore(private val context: Context) : HikingtrailStore{
+class HikingtrailJSONStore(private val context: Context) : HikingtrailStore {
 
     var hikingtrails = mutableListOf<HikingtrailModel>()
 
@@ -43,7 +46,7 @@ class HikingtrailJSONStore(private val context: Context) : HikingtrailStore{
 
     override suspend fun update(hikingtrail: HikingtrailModel) {
         val hikingtrailsList = findAll() as ArrayList<HikingtrailModel>
-        var foundHikingtrail: HikingtrailModel? = hikingtrailsList.find { p -> p.id == hikingtrail.id }
+        var foundHikingtrail: HikingtrailModel? = hikingtrailsList.find { t -> t.id == hikingtrail.id }
         if (foundHikingtrail != null) {
             foundHikingtrail.title = hikingtrail.title
             foundHikingtrail.description = hikingtrail.description
@@ -58,11 +61,6 @@ class HikingtrailJSONStore(private val context: Context) : HikingtrailStore{
         hikingtrails.remove(foundHikingtrail)
         serialize()
     }
-
-    override suspend fun clear() {
-        TODO("Not yet implemented")
-    }
-
     override suspend fun findById(id:Long) : HikingtrailModel? {
         val foundHikingtrail: HikingtrailModel? = hikingtrails.find { it.id == id }
         return foundHikingtrail
@@ -80,6 +78,9 @@ class HikingtrailJSONStore(private val context: Context) : HikingtrailStore{
 
     private fun logAll() {
         hikingtrails.forEach { Timber.i("$it") }
+    }
+    override suspend fun clear(){
+        hikingtrails.clear()
     }
 }
 

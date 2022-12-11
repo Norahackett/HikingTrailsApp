@@ -1,6 +1,5 @@
 package org.wit.hikingtrail.views.hikingtrail
 
-
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -98,11 +97,11 @@ class HikingtrailView : AppCompatActivity() {
         if (binding.hikingtrailTitle.text.isEmpty()) binding.hikingtrailTitle.setText(hikingtrail.title)
         if (binding.description.text.isEmpty())  binding.description.setText(hikingtrail.description)
 
-        Picasso.get()
-            .load(hikingtrail.image)
-            .into(binding.hikingtrailImage)
+        if (hikingtrail.image != "") {
+            Picasso.get()
+                .load(hikingtrail.image)
+                .into(binding.hikingtrailImage)
 
-        if (hikingtrail.image != Uri.EMPTY) {
             binding.chooseImage.setText(R.string.change_hikingtrail_image)
         }
         this.showLocation(hikingtrail.location)
@@ -112,7 +111,7 @@ class HikingtrailView : AppCompatActivity() {
         binding.lng.setText("%.6f".format(loc.lng))
     }
 
-    fun updateImage(image: Uri){
+    fun updateImage(image: String){
         i("Image updated")
         Picasso.get()
             .load(image)

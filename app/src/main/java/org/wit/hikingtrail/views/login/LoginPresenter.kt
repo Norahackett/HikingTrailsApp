@@ -1,32 +1,46 @@
 package org.wit.hikingtrail.views.login
-
-
-
 import android.content.Intent
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import com.google.firebase.auth.FirebaseAuth
+import org.wit.hikingtrail.activities.Home
 import org.wit.hikingtrail.main.MainApp
+import org.wit.hikingtrail.models.HikingtrailFireStore
 import org.wit.hikingtrail.views.hikingtraillist.HikingtrailListView
 
 
 
-
-class LoginPresenter (val view: LoginView)  {
-    private lateinit var loginIntentLauncher : ActivityResultLauncher<Intent>
-
-    init{
-        registerLoginCallback()
-    }
+class LoginPresenter (val view: LoginView) {
+    private lateinit var loginIntentLauncher: ActivityResultLauncher<Intent>
+    var app: MainApp = view.application as MainApp
     var auth: FirebaseAuth = FirebaseAuth.getInstance()
+    var fireStore: HikingtrailFireStore? = null
+
+    init {
+        registerLoginCallback()
+        if (app.hikingtrails is HikingtrailFireStore) {
+            fireStore = app.hikingtrails as HikingtrailFireStore
+        }
+    }
+
 
     fun doLogin(email: String, password: String) {
         view.showProgress()
-        auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(view!!) { task ->
+        auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(view) { task ->
             if (task.isSuccessful) {
-                val launcherIntent = Intent(view, HikingtrailListView::class.java)
-                loginIntentLauncher.launch(launcherIntent)
+                if (fireStore != null) {
+                    fireStore!!.fetchHikingtrails {
+                        view?.hideProgress()
+                        val launcherIntent = Intent(view, HikingtrailListView::class.java)
+                        loginIntentLauncher.launch(launcherIntent)
+                    }
+                } else {
+                    view?.hideProgress()
+                    val launcherIntent = Intent(view, HikingtrailListView::class.java)
+                    loginIntentLauncher.launch(launcherIntent)
+                }
             } else {
+                view?.hideProgress()
                 view.showSnackBar("Login failed: ${task.exception?.message}")
             }
             view.hideProgress()
@@ -36,19 +50,23 @@ class LoginPresenter (val view: LoginView)  {
 
     fun doSignUp(email: String, password: String) {
         view.showProgress()
-        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(view!!) { task ->
+        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(view) { task ->
             if (task.isSuccessful) {
-                val launcherIntent = Intent(view, HikingtrailListView::class.java)
-                loginIntentLauncher.launch(launcherIntent)
+                fireStore!!.fetchHikingtrails {
+                    view?.hideProgress()
+                    val launcherIntent = Intent(view, HikingtrailListView::class.java)
+                    loginIntentLauncher.launch(launcherIntent)
+                }
             } else {
                 view.showSnackBar("Login failed: ${task.exception?.message}")
             }
             view.hideProgress()
         }
     }
-    private fun registerLoginCallback(){
+
+    private fun registerLoginCallback() {
         loginIntentLauncher =
             view.registerForActivityResult(ActivityResultContracts.StartActivityForResult())
-            {  }
+            { }
     }
 }

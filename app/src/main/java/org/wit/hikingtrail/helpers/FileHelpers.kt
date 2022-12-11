@@ -4,6 +4,8 @@ import android.content.Context
 import timber.log.Timber.e
 import java.io.*
 
+
+
 fun write(context: Context, fileName: String, data: String) {
     try {
         val outputStreamWriter = OutputStreamWriter(context.openFileOutput(fileName, Context.MODE_PRIVATE))
@@ -43,5 +45,3 @@ fun exists(context: Context, filename: String): Boolean {
     val file = context.getFileStreamPath(filename)
     return file.exists()
 }
-
-

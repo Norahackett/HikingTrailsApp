@@ -1,4 +1,4 @@
-package org.wit.hikingtrail.adapters
+package org.wit.hikingtrail.views.hikingtraillist
 
 
 import android.view.LayoutInflater
@@ -36,12 +36,13 @@ class HikingtrailAdapter constructor(private var hikingtrails: List<HikingtrailM
         fun bind(hikingtrail: HikingtrailModel, listener: HikingtrailListener) {
             binding.hikingtrailTitle.text = hikingtrail.title
             binding.description.text = hikingtrail.description
-            Picasso.get()
-                .load(hikingtrail.image)
-                .resize(200,200)
-                .into(binding.imageIcon)
+            if (hikingtrail.image != ""){
+                Picasso.get()
+                    .load(hikingtrail.image)
+                    .resize(200, 200)
+                    .into(binding.imageIcon)
+            }
             binding.root.setOnClickListener { listener.onHikingtrailClick(hikingtrail) }
         }
     }
 }
-

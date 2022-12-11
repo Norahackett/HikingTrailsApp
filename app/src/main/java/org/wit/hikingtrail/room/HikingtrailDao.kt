@@ -4,6 +4,7 @@ package org.wit.hikingtrail.room
 import androidx.room.*
 import org.wit.hikingtrail.models.HikingtrailModel
 
+
 @Dao
 interface HikingtrailDao {
 

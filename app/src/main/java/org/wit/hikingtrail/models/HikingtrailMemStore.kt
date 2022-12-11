@@ -25,7 +25,7 @@ class HikingtrailMemStore : HikingtrailStore {
     }
 
     override suspend fun update(hikingtrail: HikingtrailModel) {
-        val foundHikingtrail: HikingtrailModel? = hikingtrails.find { p -> p.id == hikingtrail.id }
+        val foundHikingtrail: HikingtrailModel? = hikingtrails.find { t -> t.id == hikingtrail.id }
         if (foundHikingtrail != null) {
             foundHikingtrail.title = hikingtrail.title
             foundHikingtrail.description = hikingtrail.description
@@ -34,20 +34,22 @@ class HikingtrailMemStore : HikingtrailStore {
             logAll()
         }
     }
+
     override suspend fun delete(hikingtrail: HikingtrailModel) {
         hikingtrails.remove(hikingtrail)
         logAll()
     }
 
-    override suspend fun clear() {
-        TODO("Not yet implemented")
-    }
-
     private fun logAll() {
         hikingtrails.forEach { i("$it") }
     }
-    override suspend fun findById(id:Long) : HikingtrailModel? {
+
+    override suspend fun findById(id: Long): HikingtrailModel? {
         val foundHikingtrail: HikingtrailModel? = hikingtrails.find { it.id == id }
         return foundHikingtrail
+    }
+
+    override suspend fun clear() {
+        hikingtrails.clear()
     }
 }

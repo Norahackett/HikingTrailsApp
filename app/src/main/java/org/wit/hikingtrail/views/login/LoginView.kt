@@ -6,13 +6,14 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import org.wit.hikingtrail.databinding.ActivityLoginBinding
 
-class LoginView : AppCompatActivity(){
+
+class LoginView : AppCompatActivity() {
     lateinit var presenter: LoginPresenter
     private lateinit var binding: ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        presenter = LoginPresenter( this)
+        presenter = LoginPresenter(this)
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -24,9 +25,8 @@ class LoginView : AppCompatActivity(){
             val password = binding.password.text.toString()
             if (email == "" || password == "") {
                 showSnackBar("please provide email and password")
-            }
-            else {
-                presenter.doSignUp(email,password)
+            } else {
+                presenter.doSignUp(email, password)
             }
         }
 
@@ -35,16 +35,17 @@ class LoginView : AppCompatActivity(){
             val password = binding.password.text.toString()
             if (email == "" || password == "") {
                 showSnackBar("please provide email and password")
-            }
-            else {
-                presenter.doLogin(email,password)
+            } else {
+                presenter.doLogin(email, password)
             }
         }
     }
-    fun showSnackBar(message: CharSequence){
+
+    fun showSnackBar(message: CharSequence) {
         Snackbar.make(binding.root, message, Snackbar.LENGTH_LONG)
             .show()
     }
+
     fun showProgress() {
         binding.progressBar.visibility = View.VISIBLE
     }
@@ -52,4 +53,5 @@ class LoginView : AppCompatActivity(){
     fun hideProgress() {
         binding.progressBar.visibility = View.GONE
     }
+
 }
