@@ -3,7 +3,6 @@ import android.content.Intent
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import com.google.firebase.auth.FirebaseAuth
-import org.wit.hikingtrail.activities.Home
 import org.wit.hikingtrail.main.MainApp
 import org.wit.hikingtrail.models.HikingtrailFireStore
 import org.wit.hikingtrail.views.hikingtraillist.HikingtrailListView
@@ -21,6 +20,7 @@ class LoginPresenter (val view: LoginView) {
         if (app.hikingtrails is HikingtrailFireStore) {
             fireStore = app.hikingtrails as HikingtrailFireStore
         }
+
     }
 
 

@@ -42,6 +42,7 @@
     <string name="title_activity_login"> Signup/Login to Hiking Trails App</string>
     <string name="menu_showMap">Show Map</string>
     <string name="menu_logout">Logout</string>
+    <string name="choose_theme_text">choose_theme_text</string>
 
     <string-array name="Difficulty">
         <item>Easy</item>

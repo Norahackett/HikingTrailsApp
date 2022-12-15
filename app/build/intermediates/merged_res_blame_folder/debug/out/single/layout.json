@@ -1,0 +1,62 @@
+[
+    {
+        "merged": "org.wit.hikingtrail.app-mergeDebugResources-35:/layout/nav_header.xml",
+        "source": "org.wit.hikingtrail.app-main-38:/layout/nav_header.xml"
+    },
+    {
+        "merged": "org.wit.hikingtrail.app-mergeDebugResources-35:/layout/app_bar_home.xml",
+        "source": "org.wit.hikingtrail.app-main-38:/layout/app_bar_home.xml"
+    },
+    {
+        "merged": "org.wit.hikingtrail.app-mergeDebugResources-35:/layout/activity_hikingtrail_maps.xml",
+        "source": "org.wit.hikingtrail.app-main-38:/layout/activity_hikingtrail_maps.xml"
+    },
+    {
+        "merged": "org.wit.hikingtrail.app-mergeDebugResources-35:/layout/content_home.xml",
+        "source": "org.wit.hikingtrail.app-main-38:/layout/content_home.xml"
+    },
+    {
+        "merged": "org.wit.hikingtrail.app-mergeDebugResources-35:/layout/fragment_first.xml",
+        "source": "org.wit.hikingtrail.app-main-38:/layout/fragment_first.xml"
+    },
+    {
+        "merged": "org.wit.hikingtrail.app-mergeDebugResources-35:/layout/fragment_second.xml",
+        "source": "org.wit.hikingtrail.app-main-38:/layout/fragment_second.xml"
+    },
+    {
+        "merged": "org.wit.hikingtrail.app-mergeDebugResources-35:/layout/content_hikingtrail_maps.xml",
+        "source": "org.wit.hikingtrail.app-main-38:/layout/content_hikingtrail_maps.xml"
+    },
+    {
+        "merged": "org.wit.hikingtrail.app-mergeDebugResources-35:/layout/fragment_about.xml",
+        "source": "org.wit.hikingtrail.app-main-38:/layout/fragment_about.xml"
+    },
+    {
+        "merged": "org.wit.hikingtrail.app-mergeDebugResources-35:/layout/activity_hikingtrail_list.xml",
+        "source": "org.wit.hikingtrail.app-main-38:/layout/activity_hikingtrail_list.xml"
+    },
+    {
+        "merged": "org.wit.hikingtrail.app-mergeDebugResources-35:/layout/activity_login.xml",
+        "source": "org.wit.hikingtrail.app-main-38:/layout/activity_login.xml"
+    },
+    {
+        "merged": "org.wit.hikingtrail.app-mergeDebugResources-35:/layout/card_hikingtrail.xml",
+        "source": "org.wit.hikingtrail.app-main-38:/layout/card_hikingtrail.xml"
+    },
+    {
+        "merged": "org.wit.hikingtrail.app-mergeDebugResources-35:/layout/activity_map.xml",
+        "source": "org.wit.hikingtrail.app-main-38:/layout/activity_map.xml"
+    },
+    {
+        "merged": "org.wit.hikingtrail.app-mergeDebugResources-35:/layout/activity_hikingtrail.xml",
+        "source": "org.wit.hikingtrail.app-main-38:/layout/activity_hikingtrail.xml"
+    },
+    {
+        "merged": "org.wit.hikingtrail.app-mergeDebugResources-35:/layout/activity_splash_screen.xml",
+        "source": "org.wit.hikingtrail.app-main-38:/layout/activity_splash_screen.xml"
+    },
+    {
+        "merged": "org.wit.hikingtrail.app-mergeDebugResources-35:/layout/home.xml",
+        "source": "org.wit.hikingtrail.app-main-38:/layout/home.xml"
+    }
+]
