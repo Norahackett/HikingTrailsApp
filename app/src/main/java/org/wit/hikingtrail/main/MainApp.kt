@@ -1,9 +1,10 @@
+
+
 package org.wit.hikingtrail.main
 
 import android.app.Application
-import org.wit.hikingtrail.models.HikingtrailJSONStore
-import org.wit.hikingtrail.models.HikingtrailMemStore
-import org.wit.hikingtrail.models.HikingtrailModel
+import org.wit.hikingtrail.models.HikingtrailFireStore
+
 import org.wit.hikingtrail.models.HikingtrailStore
 import org.wit.hikingtrail.room.HikingtrailStoreRoom
 import timber.log.Timber
@@ -17,6 +18,7 @@ class MainApp : Application() {
         super.onCreate()
         Timber.plant(Timber.DebugTree())
         hikingtrails = HikingtrailStoreRoom(applicationContext)
+       // hikingtrails = HikingtrailFireStore(applicationContext)
         i("Hikingtrail started")
     }
 }

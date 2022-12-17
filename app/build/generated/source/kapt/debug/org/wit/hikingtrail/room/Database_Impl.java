@@ -34,12 +34,12 @@ public final class Database_Impl extends Database {
 
   @Override
   protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration configuration) {
-    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(3) {
+    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(2) {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `HikingtrailModel` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `fbId` TEXT NOT NULL, `title` TEXT NOT NULL, `description` TEXT NOT NULL, `difficulty` TEXT NOT NULL, `image` TEXT NOT NULL, `lat` REAL NOT NULL, `lng` REAL NOT NULL, `zoom` REAL NOT NULL)");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `HikingtrailModel` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `fbId` TEXT NOT NULL, `title` TEXT NOT NULL, `description` TEXT NOT NULL, `difficulty` TEXT NOT NULL, `rating` TEXT NOT NULL, `image` TEXT NOT NULL, `lat` REAL NOT NULL, `lng` REAL NOT NULL, `zoom` REAL NOT NULL)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '200f6e7ad3fb20bf102854a69c2ec544')");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '8de7fb02ca71aa162f7355661d4b9d49')");
       }
 
       @Override
@@ -83,12 +83,13 @@ public final class Database_Impl extends Database {
 
       @Override
       protected RoomOpenHelper.ValidationResult onValidateSchema(SupportSQLiteDatabase _db) {
-        final HashMap<String, TableInfo.Column> _columnsHikingtrailModel = new HashMap<String, TableInfo.Column>(9);
+        final HashMap<String, TableInfo.Column> _columnsHikingtrailModel = new HashMap<String, TableInfo.Column>(10);
         _columnsHikingtrailModel.put("id", new TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsHikingtrailModel.put("fbId", new TableInfo.Column("fbId", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsHikingtrailModel.put("title", new TableInfo.Column("title", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsHikingtrailModel.put("description", new TableInfo.Column("description", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsHikingtrailModel.put("difficulty", new TableInfo.Column("difficulty", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsHikingtrailModel.put("rating", new TableInfo.Column("rating", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsHikingtrailModel.put("image", new TableInfo.Column("image", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsHikingtrailModel.put("lat", new TableInfo.Column("lat", "REAL", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsHikingtrailModel.put("lng", new TableInfo.Column("lng", "REAL", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
@@ -104,7 +105,7 @@ public final class Database_Impl extends Database {
         }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "200f6e7ad3fb20bf102854a69c2ec544", "55cf8841ce20d804d3573256673965f0");
+    }, "8de7fb02ca71aa162f7355661d4b9d49", "208d8738283a552774e757611ee44f53");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)

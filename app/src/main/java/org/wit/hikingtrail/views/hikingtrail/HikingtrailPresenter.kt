@@ -2,6 +2,7 @@ package org.wit.hikingtrail.views.hikingtrail
 
 import android.annotation.SuppressLint
 import android.content.Intent
+
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -28,13 +29,13 @@ class HikingtrailPresenter(private val view: HikingtrailView) {
     var map: GoogleMap? = null
     var hikingtrail = HikingtrailModel()
     var app: MainApp = view.application as MainApp
-    var locationManualyChanged = false;
+    var locationManualyChanged = false
     //location service
     var locationService: FusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(view)
     private lateinit var imageIntentLauncher : ActivityResultLauncher<Intent>
     private lateinit var mapIntentLauncher : ActivityResultLauncher<Intent>
     private lateinit var requestPermissionLauncher: ActivityResultLauncher<String>
-    var edit = false;
+    var edit = false
     private val location = Location(52.245696, -7.139102, 15f)
 
     init {
@@ -59,10 +60,12 @@ class HikingtrailPresenter(private val view: HikingtrailView) {
 
     }
 
-    suspend fun doAddOrSave(title: String, description: String, difficulty: String) {
+
+    suspend fun doAddOrSave(title: String, description: String, difficulty: String, rating: String) {
         hikingtrail.title = title
         hikingtrail.description = description
         hikingtrail.difficulty = difficulty
+        hikingtrail.rating = rating
         if (edit) {
             app.hikingtrails.update(hikingtrail)
         } else {
@@ -89,7 +92,7 @@ class HikingtrailPresenter(private val view: HikingtrailView) {
     }
 
     fun doSetLocation() {
-        locationManualyChanged = true;
+        locationManualyChanged = true
 
         if (hikingtrail.location.zoom != 0f) {
 
@@ -113,7 +116,7 @@ class HikingtrailPresenter(private val view: HikingtrailView) {
 
     @SuppressLint("MissingPermission")
     fun doRestartLocationUpdates() {
-        var locationCallback = object : LocationCallback() {
+        val locationCallback = object : LocationCallback() {
             override fun onLocationResult(locationResult: LocationResult?) {
                 if (locationResult != null && locationResult.locations != null) {
                     val l = locationResult.locations.last()
@@ -142,10 +145,11 @@ class HikingtrailPresenter(private val view: HikingtrailView) {
         view.showHikingtrail(hikingtrail)
     }
 
-    fun cacheHikingtrail (title: String, description: String, difficulty: String) {
-        hikingtrail.title = title;
+    fun cacheHikingtrail (title: String, description: String, difficulty: String, rating: String) {
+        hikingtrail.title = title
         hikingtrail.description = description
         hikingtrail.difficulty = difficulty
+        hikingtrail.rating = rating
     }
 
     private fun registerImagePickerCallback() {

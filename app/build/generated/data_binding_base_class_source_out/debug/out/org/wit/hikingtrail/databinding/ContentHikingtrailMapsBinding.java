@@ -25,6 +25,9 @@ public final class ContentHikingtrailMapsBinding implements ViewBinding {
   public final TextView currentDescription;
 
   @NonNull
+  public final TextView currentDifficulty;
+
+  @NonNull
   public final TextView currentTitle;
 
   @NonNull
@@ -34,10 +37,11 @@ public final class ContentHikingtrailMapsBinding implements ViewBinding {
   public final MapView mapView;
 
   private ContentHikingtrailMapsBinding(@NonNull ConstraintLayout rootView,
-      @NonNull TextView currentDescription, @NonNull TextView currentTitle,
-      @NonNull ImageView imageView2, @NonNull MapView mapView) {
+      @NonNull TextView currentDescription, @NonNull TextView currentDifficulty,
+      @NonNull TextView currentTitle, @NonNull ImageView imageView2, @NonNull MapView mapView) {
     this.rootView = rootView;
     this.currentDescription = currentDescription;
+    this.currentDifficulty = currentDifficulty;
     this.currentTitle = currentTitle;
     this.imageView2 = imageView2;
     this.mapView = mapView;
@@ -76,6 +80,12 @@ public final class ContentHikingtrailMapsBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.currentDifficulty;
+      TextView currentDifficulty = ViewBindings.findChildViewById(rootView, id);
+      if (currentDifficulty == null) {
+        break missingId;
+      }
+
       id = R.id.currentTitle;
       TextView currentTitle = ViewBindings.findChildViewById(rootView, id);
       if (currentTitle == null) {
@@ -95,7 +105,7 @@ public final class ContentHikingtrailMapsBinding implements ViewBinding {
       }
 
       return new ContentHikingtrailMapsBinding((ConstraintLayout) rootView, currentDescription,
-          currentTitle, imageView2, mapView);
+          currentDifficulty, currentTitle, imageView2, mapView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

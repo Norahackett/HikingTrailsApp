@@ -25,7 +25,7 @@ public final class CardHikingtrailBinding implements ViewBinding {
   public final TextView description;
 
   @NonNull
-  public final TextView hikingtrailDifficulty;
+  public final TextView difficulty;
 
   @NonNull
   public final TextView hikingtrailTitle;
@@ -34,16 +34,21 @@ public final class CardHikingtrailBinding implements ViewBinding {
   public final ImageView imageIcon;
 
   @NonNull
+  public final TextView rating;
+
+  @NonNull
   public final ConstraintLayout relativeLayout;
 
   private CardHikingtrailBinding(@NonNull CardView rootView, @NonNull TextView description,
-      @NonNull TextView hikingtrailDifficulty, @NonNull TextView hikingtrailTitle,
-      @NonNull ImageView imageIcon, @NonNull ConstraintLayout relativeLayout) {
+      @NonNull TextView difficulty, @NonNull TextView hikingtrailTitle,
+      @NonNull ImageView imageIcon, @NonNull TextView rating,
+      @NonNull ConstraintLayout relativeLayout) {
     this.rootView = rootView;
     this.description = description;
-    this.hikingtrailDifficulty = hikingtrailDifficulty;
+    this.difficulty = difficulty;
     this.hikingtrailTitle = hikingtrailTitle;
     this.imageIcon = imageIcon;
+    this.rating = rating;
     this.relativeLayout = relativeLayout;
   }
 
@@ -80,9 +85,9 @@ public final class CardHikingtrailBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.hikingtrailDifficulty;
-      TextView hikingtrailDifficulty = ViewBindings.findChildViewById(rootView, id);
-      if (hikingtrailDifficulty == null) {
+      id = R.id.difficulty;
+      TextView difficulty = ViewBindings.findChildViewById(rootView, id);
+      if (difficulty == null) {
         break missingId;
       }
 
@@ -98,14 +103,20 @@ public final class CardHikingtrailBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.rating;
+      TextView rating = ViewBindings.findChildViewById(rootView, id);
+      if (rating == null) {
+        break missingId;
+      }
+
       id = R.id.relativeLayout;
       ConstraintLayout relativeLayout = ViewBindings.findChildViewById(rootView, id);
       if (relativeLayout == null) {
         break missingId;
       }
 
-      return new CardHikingtrailBinding((CardView) rootView, description, hikingtrailDifficulty,
-          hikingtrailTitle, imageIcon, relativeLayout);
+      return new CardHikingtrailBinding((CardView) rootView, description, difficulty,
+          hikingtrailTitle, imageIcon, rating, relativeLayout);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

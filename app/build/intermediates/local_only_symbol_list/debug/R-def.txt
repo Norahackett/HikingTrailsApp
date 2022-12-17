@@ -48,11 +48,12 @@ id button_second
 id chooseImage
 id coordinatorLayout
 id currentDescription
+id currentDifficulty
 id currentTitle
 id description
+id difficulty
 id drawer_layout
 id email
-id hikingtrailDifficulty
 id hikingtrailImage
 id hikingtrailListView
 id hikingtrailTitle
@@ -81,6 +82,8 @@ id nav_share
 id nav_view
 id password
 id progressBar
+id rBar
+id rating
 id recyclerView
 id relativeLayout
 id reportFragment
@@ -145,6 +148,7 @@ string hikingtrail_county_placeholder
 string hikingtrail_description_placeholder
 string hikingtrail_difficulty_placeholder
 string hikingtrail_image_placeholder
+string hikingtrail_rating_placeholder
 string hikingtrail_title_placeholder
 string hint_hikingtrailCounty
 string hint_hikingtrailDate

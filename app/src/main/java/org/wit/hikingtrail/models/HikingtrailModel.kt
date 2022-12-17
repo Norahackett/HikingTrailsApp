@@ -1,6 +1,7 @@
 package org.wit.hikingtrail.models
 
 
+
 import android.net.Uri
 import android.os.Parcelable
 import androidx.room.Embedded
@@ -15,6 +16,7 @@ data class HikingtrailModel(@PrimaryKey(autoGenerate = true) var id: Long = 0,
                           var title: String = "",
                           var description: String = "",
                             var difficulty: String = "",
+                            var rating: String = "",
                           var image: String = "",
                           @Embedded var location : Location = Location()): Parcelable
 

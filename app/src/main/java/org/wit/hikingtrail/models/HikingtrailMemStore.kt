@@ -30,6 +30,7 @@ class HikingtrailMemStore : HikingtrailStore {
             foundHikingtrail.title = hikingtrail.title
             foundHikingtrail.description = hikingtrail.description
             foundHikingtrail.difficulty = hikingtrail.difficulty
+            foundHikingtrail.rating = hikingtrail.rating
             foundHikingtrail.image = hikingtrail.image
             foundHikingtrail.location = hikingtrail.location
             logAll()

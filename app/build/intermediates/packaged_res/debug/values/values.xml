@@ -86,6 +86,7 @@
     <string name="hikingtrail_description_placeholder">Hikingtrail Description</string>
     <string name="hikingtrail_difficulty_placeholder">Hikingtrail Difficulty</string>
     <string name="hikingtrail_image_placeholder">Hikingtrail Image</string>
+    <string name="hikingtrail_rating_placeholder">Hikingtrail Rating</string>
     <string name="hikingtrail_title_placeholder">Hikingtrail Title</string>
     <string name="hint_hikingtrailCounty">Select County </string>
     <string name="hint_hikingtrailDate">Select Date </string>

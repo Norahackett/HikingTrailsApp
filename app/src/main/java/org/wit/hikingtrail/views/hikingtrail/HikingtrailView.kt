@@ -1,5 +1,6 @@
 package org.wit.hikingtrail.views.hikingtrail
 
+
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,7 +9,6 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Spinner
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
@@ -39,22 +39,12 @@ class HikingtrailView : AppCompatActivity() {
         presenter = HikingtrailPresenter(this)
 
         binding.chooseImage.setOnClickListener {
-            presenter.cacheHikingtrail(
-                binding.hikingtrailTitle.text.toString(),
-                binding.description.text.toString(),
-                binding.hikingtrailDifficulty.text.toString()
-
-
-            )
+            presenter.cacheHikingtrail(binding.hikingtrailTitle.text.toString(), binding.description.text.toString(), binding.difficulty.text.toString(),binding.rating.text.toString())
             presenter.doSelectImage()
         }
 
         binding.mapView2.setOnClickListener {
-            presenter.cacheHikingtrail(
-                binding.hikingtrailTitle.text.toString(),
-                binding.description.text.toString(),
-                binding.hikingtrailDifficulty.text.toString()
-            )
+            presenter.cacheHikingtrail(binding.hikingtrailTitle.text.toString(), binding.description.text.toString(), binding.difficulty.text.toString(), binding.rating.text.toString())
             presenter.doSetLocation()
         }
 
@@ -64,6 +54,7 @@ class HikingtrailView : AppCompatActivity() {
             presenter.doConfigureMap(map)
             it.setOnMapClickListener { presenter.doSetLocation() }
         }
+
         if (binding.spinner != null) {
             val adapter = ArrayAdapter(
                 this,
@@ -84,7 +75,7 @@ class HikingtrailView : AppCompatActivity() {
 
                 ) {
 
-                    binding.hikingtrailDifficulty.setText(difficulty[position])
+                    binding.difficulty.setText(difficulty[position])
 
                     if (difficulty != null) {
                         val spinnerPosition = adapter.getPosition(difficulty.toString())
@@ -92,15 +83,12 @@ class HikingtrailView : AppCompatActivity() {
                     }
 
                 }
-
                 override fun onNothingSelected(parent: AdapterView<*>) {
 
                 }
             }
         }
     }
-
-
 
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -126,7 +114,8 @@ class HikingtrailView : AppCompatActivity() {
                         presenter.doAddOrSave(
                             binding.hikingtrailTitle.text.toString(),
                             binding.description.text.toString(),
-                            binding.hikingtrailDifficulty.text.toString()
+                            binding.difficulty.text.toString(),
+                            binding.rBar.rating.toString(),
                         )
                     }
                 }
@@ -147,7 +136,8 @@ class HikingtrailView : AppCompatActivity() {
     fun showHikingtrail(hikingtrail: HikingtrailModel) {
         if (binding.hikingtrailTitle.text.isEmpty()) binding.hikingtrailTitle.setText(hikingtrail.title)
         if (binding.description.text.isEmpty())  binding.description.setText(hikingtrail.description)
-        if (binding.hikingtrailDifficulty.text.isEmpty())  binding.hikingtrailDifficulty.setText(hikingtrail.difficulty)
+        if (binding.difficulty.text.isEmpty())  binding.difficulty.setText(hikingtrail.difficulty)
+        if (binding.rating.text.isEmpty())  binding.rating.setText(hikingtrail.rating)
         if (hikingtrail.image != "") {
             Picasso.get()
                 .load(hikingtrail.image)

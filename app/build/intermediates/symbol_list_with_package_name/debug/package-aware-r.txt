@@ -2934,6 +2934,7 @@ id cos
 id counterclockwise
 id cradle
 id currentDescription
+id currentDifficulty
 id currentState
 id currentTitle
 id custom
@@ -2954,6 +2955,7 @@ id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
 id dialog_button
+id difficulty
 id dimensions
 id direct
 id disableHome
@@ -3014,7 +3016,6 @@ id groups
 id guideline
 id header_title
 id hideable
-id hikingtrailDifficulty
 id hikingtrailImage
 id hikingtrailListView
 id hikingtrailTitle
@@ -3178,7 +3179,9 @@ id pressed
 id progressBar
 id progress_circular
 id progress_horizontal
+id rBar
 id radio
+id rating
 id ratio
 id rectangles
 id recyclerView
@@ -3657,6 +3660,7 @@ string hikingtrail_county_placeholder
 string hikingtrail_description_placeholder
 string hikingtrail_difficulty_placeholder
 string hikingtrail_image_placeholder
+string hikingtrail_rating_placeholder
 string hikingtrail_title_placeholder
 string hint_hikingtrailCounty
 string hint_hikingtrailDate
