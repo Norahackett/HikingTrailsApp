@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "org.wit.hikingtrail.app-mergeDebugResources-34:/values-w600dp-land-v13/values-w600dp-land-v13.xml",
+            "outputFile": "org.wit.hikingtrail.app-mergeDebugResources-53:/values-w600dp-land-v13/values-w600dp-land-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\norah\\.gradle\\caches\\transforms-3\\4ab815f69c013bed741e5470d5a10fee\\transformed\\material-1.4.0\\res\\values-w600dp-land-v13\\values-w600dp-land-v13.xml",
+                    "source": "C:\\Users\\norah\\.gradle\\caches\\transforms-3\\2b763ecc77580436425b323020bf8092\\transformed\\material-1.7.0\\res\\values-w600dp-land-v13\\values-w600dp-land-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

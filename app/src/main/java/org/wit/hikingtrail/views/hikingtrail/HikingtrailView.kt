@@ -5,6 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
@@ -26,7 +30,7 @@ class HikingtrailView : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        val difficulty = resources.getStringArray(R.array.Difficulty)
         binding = ActivityHikingtrailBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.toolbarAdd.title = title
@@ -35,12 +39,22 @@ class HikingtrailView : AppCompatActivity() {
         presenter = HikingtrailPresenter(this)
 
         binding.chooseImage.setOnClickListener {
-            presenter.cacheHikingtrail(binding.hikingtrailTitle.text.toString(), binding.description.text.toString())
+            presenter.cacheHikingtrail(
+                binding.hikingtrailTitle.text.toString(),
+                binding.description.text.toString(),
+                binding.hikingtrailDifficulty.text.toString()
+
+
+            )
             presenter.doSelectImage()
         }
 
         binding.mapView2.setOnClickListener {
-            presenter.cacheHikingtrail(binding.hikingtrailTitle.text.toString(), binding.description.text.toString())
+            presenter.cacheHikingtrail(
+                binding.hikingtrailTitle.text.toString(),
+                binding.description.text.toString(),
+                binding.hikingtrailDifficulty.text.toString()
+            )
             presenter.doSetLocation()
         }
 
@@ -50,8 +64,44 @@ class HikingtrailView : AppCompatActivity() {
             presenter.doConfigureMap(map)
             it.setOnMapClickListener { presenter.doSetLocation() }
         }
+        if (binding.spinner != null) {
+            val adapter = ArrayAdapter(
+                this,
+                android.R.layout.simple_spinner_item, difficulty
 
+            )
+
+            binding.spinner.adapter = adapter
+
+
+            binding.spinner.onItemSelectedListener = object :
+
+                AdapterView.OnItemSelectedListener {
+
+                override fun onItemSelected(
+                    parent: AdapterView<*>,
+                    view: View, position: Int, id: Long
+
+                ) {
+
+                    binding.hikingtrailDifficulty.setText(difficulty[position])
+
+                    if (difficulty != null) {
+                        val spinnerPosition = adapter.getPosition(difficulty.toString())
+                        binding.spinner.setSelection(spinnerPosition)
+                    }
+
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>) {
+
+                }
+            }
+        }
     }
+
+
+
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_hikingtrail, menu)
@@ -75,7 +125,8 @@ class HikingtrailView : AppCompatActivity() {
                     GlobalScope.launch(Dispatchers.IO) {
                         presenter.doAddOrSave(
                             binding.hikingtrailTitle.text.toString(),
-                            binding.description.text.toString()
+                            binding.description.text.toString(),
+                            binding.hikingtrailDifficulty.text.toString()
                         )
                     }
                 }
@@ -96,7 +147,7 @@ class HikingtrailView : AppCompatActivity() {
     fun showHikingtrail(hikingtrail: HikingtrailModel) {
         if (binding.hikingtrailTitle.text.isEmpty()) binding.hikingtrailTitle.setText(hikingtrail.title)
         if (binding.description.text.isEmpty())  binding.description.setText(hikingtrail.description)
-
+        if (binding.hikingtrailDifficulty.text.isEmpty())  binding.hikingtrailDifficulty.setText(hikingtrail.difficulty)
         if (hikingtrail.image != "") {
             Picasso.get()
                 .load(hikingtrail.image)

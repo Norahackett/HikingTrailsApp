@@ -52,6 +52,7 @@ id currentTitle
 id description
 id drawer_layout
 id email
+id hikingtrailDifficulty
 id hikingtrailImage
 id hikingtrailListView
 id hikingtrailTitle
@@ -84,6 +85,7 @@ id recyclerView
 id relativeLayout
 id reportFragment
 id signUp
+id spinner
 id textView
 id textView2
 id textview_first

@@ -25,6 +25,9 @@ public final class CardHikingtrailBinding implements ViewBinding {
   public final TextView description;
 
   @NonNull
+  public final TextView hikingtrailDifficulty;
+
+  @NonNull
   public final TextView hikingtrailTitle;
 
   @NonNull
@@ -34,10 +37,11 @@ public final class CardHikingtrailBinding implements ViewBinding {
   public final ConstraintLayout relativeLayout;
 
   private CardHikingtrailBinding(@NonNull CardView rootView, @NonNull TextView description,
-      @NonNull TextView hikingtrailTitle, @NonNull ImageView imageIcon,
-      @NonNull ConstraintLayout relativeLayout) {
+      @NonNull TextView hikingtrailDifficulty, @NonNull TextView hikingtrailTitle,
+      @NonNull ImageView imageIcon, @NonNull ConstraintLayout relativeLayout) {
     this.rootView = rootView;
     this.description = description;
+    this.hikingtrailDifficulty = hikingtrailDifficulty;
     this.hikingtrailTitle = hikingtrailTitle;
     this.imageIcon = imageIcon;
     this.relativeLayout = relativeLayout;
@@ -76,6 +80,12 @@ public final class CardHikingtrailBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.hikingtrailDifficulty;
+      TextView hikingtrailDifficulty = ViewBindings.findChildViewById(rootView, id);
+      if (hikingtrailDifficulty == null) {
+        break missingId;
+      }
+
       id = R.id.hikingtrailTitle;
       TextView hikingtrailTitle = ViewBindings.findChildViewById(rootView, id);
       if (hikingtrailTitle == null) {
@@ -94,8 +104,8 @@ public final class CardHikingtrailBinding implements ViewBinding {
         break missingId;
       }
 
-      return new CardHikingtrailBinding((CardView) rootView, description, hikingtrailTitle,
-          imageIcon, relativeLayout);
+      return new CardHikingtrailBinding((CardView) rootView, description, hikingtrailDifficulty,
+          hikingtrailTitle, imageIcon, relativeLayout);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

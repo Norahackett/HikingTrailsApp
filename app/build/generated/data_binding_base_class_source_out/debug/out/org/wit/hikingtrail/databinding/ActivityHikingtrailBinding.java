@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -35,6 +36,9 @@ public final class ActivityHikingtrailBinding implements ViewBinding {
   public final EditText description;
 
   @NonNull
+  public final EditText hikingtrailDifficulty;
+
+  @NonNull
   public final ImageView hikingtrailImage;
 
   @NonNull
@@ -50,6 +54,9 @@ public final class ActivityHikingtrailBinding implements ViewBinding {
   public final MapView mapView2;
 
   @NonNull
+  public final Spinner spinner;
+
+  @NonNull
   public final TextView textView;
 
   @NonNull
@@ -57,18 +64,21 @@ public final class ActivityHikingtrailBinding implements ViewBinding {
 
   private ActivityHikingtrailBinding(@NonNull ConstraintLayout rootView,
       @NonNull AppBarLayout appBarLayout, @NonNull Button chooseImage,
-      @NonNull EditText description, @NonNull ImageView hikingtrailImage,
-      @NonNull EditText hikingtrailTitle, @NonNull TextView lat, @NonNull TextView lng,
-      @NonNull MapView mapView2, @NonNull TextView textView, @NonNull Toolbar toolbarAdd) {
+      @NonNull EditText description, @NonNull EditText hikingtrailDifficulty,
+      @NonNull ImageView hikingtrailImage, @NonNull EditText hikingtrailTitle,
+      @NonNull TextView lat, @NonNull TextView lng, @NonNull MapView mapView2,
+      @NonNull Spinner spinner, @NonNull TextView textView, @NonNull Toolbar toolbarAdd) {
     this.rootView = rootView;
     this.appBarLayout = appBarLayout;
     this.chooseImage = chooseImage;
     this.description = description;
+    this.hikingtrailDifficulty = hikingtrailDifficulty;
     this.hikingtrailImage = hikingtrailImage;
     this.hikingtrailTitle = hikingtrailTitle;
     this.lat = lat;
     this.lng = lng;
     this.mapView2 = mapView2;
+    this.spinner = spinner;
     this.textView = textView;
     this.toolbarAdd = toolbarAdd;
   }
@@ -118,6 +128,12 @@ public final class ActivityHikingtrailBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.hikingtrailDifficulty;
+      EditText hikingtrailDifficulty = ViewBindings.findChildViewById(rootView, id);
+      if (hikingtrailDifficulty == null) {
+        break missingId;
+      }
+
       id = R.id.hikingtrailImage;
       ImageView hikingtrailImage = ViewBindings.findChildViewById(rootView, id);
       if (hikingtrailImage == null) {
@@ -148,6 +164,12 @@ public final class ActivityHikingtrailBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.spinner;
+      Spinner spinner = ViewBindings.findChildViewById(rootView, id);
+      if (spinner == null) {
+        break missingId;
+      }
+
       id = R.id.textView;
       TextView textView = ViewBindings.findChildViewById(rootView, id);
       if (textView == null) {
@@ -161,8 +183,8 @@ public final class ActivityHikingtrailBinding implements ViewBinding {
       }
 
       return new ActivityHikingtrailBinding((ConstraintLayout) rootView, appBarLayout, chooseImage,
-          description, hikingtrailImage, hikingtrailTitle, lat, lng, mapView2, textView,
-          toolbarAdd);
+          description, hikingtrailDifficulty, hikingtrailImage, hikingtrailTitle, lat, lng,
+          mapView2, spinner, textView, toolbarAdd);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

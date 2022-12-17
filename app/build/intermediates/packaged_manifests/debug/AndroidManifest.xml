@@ -5,8 +5,8 @@
     android:versionName="7.0" >
 
     <uses-sdk
-        android:minSdkVersion="29"
-        android:targetSdkVersion="31" />
+        android:minSdkVersion="31"
+        android:targetSdkVersion="33" />
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -25,6 +25,12 @@
         <package android:name="com.google.android.apps.maps" />
     </queries>
 
+    <permission
+        android:name="org.wit.hikingtrails.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="org.wit.hikingtrails.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+
     <application
         android:name="org.wit.hikingtrail.main.MainApp"
         android:allowBackup="true"
@@ -41,13 +47,7 @@
             android:name="org.wit.hikingtrail.views.login.LoginView"
             android:exported="true"
             android:label="@string/title_activity_login"
-            android:launchMode="singleTop"
-            android:usesCleartextTraffic="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:launchMode="singleTop" >
         </activity>
         <activity
             android:name="org.wit.hikingtrail.views.map.HikingtrailMapView"
@@ -66,13 +66,15 @@
         <activity
             android:name="org.wit.hikingtrail.views.hikingtraillist.HikingtrailListView"
             android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name="org.wit.hikingtrail.views.hikingtrail.HikingtrailView" />
 
-        <provider
-            android:name="com.squareup.picasso.PicassoProvider"
-            android:authorities="org.wit.hikingtrails.com.squareup.picasso"
-            android:exported="false" /> <!-- Needs to be explicitly declared on P+ -->
+        <!-- Needs to be explicitly declared on P+ -->
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
@@ -128,10 +130,11 @@
                 android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar"
                 android:value="com.google.firebase.components.ComponentRegistrar" />
         </service>
-        <service
-            android:name="androidx.room.MultiInstanceInvalidationService"
-            android:directBootAware="true"
-            android:exported="false" />
+
+        <activity
+            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
         <provider
             android:name="com.google.firebase.provider.FirebaseInitProvider"
@@ -140,14 +143,37 @@
             android:exported="false"
             android:initOrder="100" />
 
-        <activity
-            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-            android:exported="false"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
+        <uses-library
+            android:name="androidx.window.extensions"
+            android:required="false" />
+        <uses-library
+            android:name="androidx.window.sidecar"
+            android:required="false" />
+
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="org.wit.hikingtrails.androidx-startup"
+            android:exported="false" >
+            <meta-data
+                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+                android:value="androidx.startup" />
+            <meta-data
+                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+                android:value="androidx.startup" />
+        </provider>
+        <provider
+            android:name="com.squareup.picasso.PicassoProvider"
+            android:authorities="org.wit.hikingtrails.com.squareup.picasso"
+            android:exported="false" />
+
+        <service
+            android:name="androidx.room.MultiInstanceInvalidationService"
+            android:directBootAware="true"
+            android:exported="false" />
     </application>
 
 </manifest>

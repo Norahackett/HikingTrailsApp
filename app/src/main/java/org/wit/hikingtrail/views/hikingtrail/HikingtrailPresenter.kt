@@ -59,9 +59,10 @@ class HikingtrailPresenter(private val view: HikingtrailView) {
 
     }
 
-    suspend fun doAddOrSave(title: String, description: String) {
+    suspend fun doAddOrSave(title: String, description: String, difficulty: String) {
         hikingtrail.title = title
         hikingtrail.description = description
+        hikingtrail.difficulty = difficulty
         if (edit) {
             app.hikingtrails.update(hikingtrail)
         } else {
@@ -141,9 +142,10 @@ class HikingtrailPresenter(private val view: HikingtrailView) {
         view.showHikingtrail(hikingtrail)
     }
 
-    fun cacheHikingtrail (title: String, description: String) {
+    fun cacheHikingtrail (title: String, description: String, difficulty: String) {
         hikingtrail.title = title;
         hikingtrail.description = description
+        hikingtrail.difficulty = difficulty
     }
 
     private fun registerImagePickerCallback() {

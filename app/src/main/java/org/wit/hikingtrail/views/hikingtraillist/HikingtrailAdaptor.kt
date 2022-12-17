@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
+import org.wit.hikingtrail.R
 import org.wit.hikingtrail.databinding.CardHikingtrailBinding
 import org.wit.hikingtrail.models.HikingtrailModel
 
@@ -36,6 +37,8 @@ class HikingtrailAdapter constructor(private var hikingtrails: List<HikingtrailM
         fun bind(hikingtrail: HikingtrailModel, listener: HikingtrailListener) {
             binding.hikingtrailTitle.text = hikingtrail.title
             binding.description.text = hikingtrail.description
+            binding.hikingtrailDifficulty.text = hikingtrail.difficulty
+
             if (hikingtrail.image != ""){
                 Picasso.get()
                     .load(hikingtrail.image)

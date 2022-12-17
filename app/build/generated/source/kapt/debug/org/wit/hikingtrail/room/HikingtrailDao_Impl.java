@@ -40,7 +40,7 @@ public final class HikingtrailDao_Impl implements HikingtrailDao {
     this.__insertionAdapterOfHikingtrailModel = new EntityInsertionAdapter<HikingtrailModel>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR REPLACE INTO `HikingtrailModel` (`id`,`fbId`,`title`,`description`,`image`,`lat`,`lng`,`zoom`) VALUES (nullif(?, 0),?,?,?,?,?,?,?)";
+        return "INSERT OR REPLACE INTO `HikingtrailModel` (`id`,`fbId`,`title`,`description`,`difficulty`,`image`,`lat`,`lng`,`zoom`) VALUES (nullif(?, 0),?,?,?,?,?,?,?,?)";
       }
 
       @Override
@@ -61,20 +61,25 @@ public final class HikingtrailDao_Impl implements HikingtrailDao {
         } else {
           stmt.bindString(4, value.getDescription());
         }
-        if (value.getImage() == null) {
+        if (value.getDifficulty() == null) {
           stmt.bindNull(5);
         } else {
-          stmt.bindString(5, value.getImage());
+          stmt.bindString(5, value.getDifficulty());
+        }
+        if (value.getImage() == null) {
+          stmt.bindNull(6);
+        } else {
+          stmt.bindString(6, value.getImage());
         }
         final Location _tmpLocation = value.getLocation();
         if(_tmpLocation != null) {
-          stmt.bindDouble(6, _tmpLocation.getLat());
-          stmt.bindDouble(7, _tmpLocation.getLng());
-          stmt.bindDouble(8, _tmpLocation.getZoom());
+          stmt.bindDouble(7, _tmpLocation.getLat());
+          stmt.bindDouble(8, _tmpLocation.getLng());
+          stmt.bindDouble(9, _tmpLocation.getZoom());
         } else {
-          stmt.bindNull(6);
           stmt.bindNull(7);
           stmt.bindNull(8);
+          stmt.bindNull(9);
         }
       }
     };
@@ -92,7 +97,7 @@ public final class HikingtrailDao_Impl implements HikingtrailDao {
     this.__updateAdapterOfHikingtrailModel = new EntityDeletionOrUpdateAdapter<HikingtrailModel>(__db) {
       @Override
       public String createQuery() {
-        return "UPDATE OR ABORT `HikingtrailModel` SET `id` = ?,`fbId` = ?,`title` = ?,`description` = ?,`image` = ?,`lat` = ?,`lng` = ?,`zoom` = ? WHERE `id` = ?";
+        return "UPDATE OR ABORT `HikingtrailModel` SET `id` = ?,`fbId` = ?,`title` = ?,`description` = ?,`difficulty` = ?,`image` = ?,`lat` = ?,`lng` = ?,`zoom` = ? WHERE `id` = ?";
       }
 
       @Override
@@ -113,22 +118,27 @@ public final class HikingtrailDao_Impl implements HikingtrailDao {
         } else {
           stmt.bindString(4, value.getDescription());
         }
-        if (value.getImage() == null) {
+        if (value.getDifficulty() == null) {
           stmt.bindNull(5);
         } else {
-          stmt.bindString(5, value.getImage());
+          stmt.bindString(5, value.getDifficulty());
+        }
+        if (value.getImage() == null) {
+          stmt.bindNull(6);
+        } else {
+          stmt.bindString(6, value.getImage());
         }
         final Location _tmpLocation = value.getLocation();
         if(_tmpLocation != null) {
-          stmt.bindDouble(6, _tmpLocation.getLat());
-          stmt.bindDouble(7, _tmpLocation.getLng());
-          stmt.bindDouble(8, _tmpLocation.getZoom());
+          stmt.bindDouble(7, _tmpLocation.getLat());
+          stmt.bindDouble(8, _tmpLocation.getLng());
+          stmt.bindDouble(9, _tmpLocation.getZoom());
         } else {
-          stmt.bindNull(6);
           stmt.bindNull(7);
           stmt.bindNull(8);
+          stmt.bindNull(9);
         }
-        stmt.bindLong(9, value.getId());
+        stmt.bindLong(10, value.getId());
       }
     };
   }
@@ -201,6 +211,7 @@ public final class HikingtrailDao_Impl implements HikingtrailDao {
           final int _cursorIndexOfFbId = CursorUtil.getColumnIndexOrThrow(_cursor, "fbId");
           final int _cursorIndexOfTitle = CursorUtil.getColumnIndexOrThrow(_cursor, "title");
           final int _cursorIndexOfDescription = CursorUtil.getColumnIndexOrThrow(_cursor, "description");
+          final int _cursorIndexOfDifficulty = CursorUtil.getColumnIndexOrThrow(_cursor, "difficulty");
           final int _cursorIndexOfImage = CursorUtil.getColumnIndexOrThrow(_cursor, "image");
           final int _cursorIndexOfLat = CursorUtil.getColumnIndexOrThrow(_cursor, "lat");
           final int _cursorIndexOfLng = CursorUtil.getColumnIndexOrThrow(_cursor, "lng");
@@ -228,6 +239,12 @@ public final class HikingtrailDao_Impl implements HikingtrailDao {
             } else {
               _tmpDescription = _cursor.getString(_cursorIndexOfDescription);
             }
+            final String _tmpDifficulty;
+            if (_cursor.isNull(_cursorIndexOfDifficulty)) {
+              _tmpDifficulty = null;
+            } else {
+              _tmpDifficulty = _cursor.getString(_cursorIndexOfDifficulty);
+            }
             final String _tmpImage;
             if (_cursor.isNull(_cursorIndexOfImage)) {
               _tmpImage = null;
@@ -246,7 +263,7 @@ public final class HikingtrailDao_Impl implements HikingtrailDao {
             }  else  {
               _tmpLocation = null;
             }
-            _item = new HikingtrailModel(_tmpId,_tmpFbId,_tmpTitle,_tmpDescription,_tmpImage,_tmpLocation);
+            _item = new HikingtrailModel(_tmpId,_tmpFbId,_tmpTitle,_tmpDescription,_tmpDifficulty,_tmpImage,_tmpLocation);
             _result.add(_item);
           }
           return _result;
@@ -274,6 +291,7 @@ public final class HikingtrailDao_Impl implements HikingtrailDao {
           final int _cursorIndexOfFbId = CursorUtil.getColumnIndexOrThrow(_cursor, "fbId");
           final int _cursorIndexOfTitle = CursorUtil.getColumnIndexOrThrow(_cursor, "title");
           final int _cursorIndexOfDescription = CursorUtil.getColumnIndexOrThrow(_cursor, "description");
+          final int _cursorIndexOfDifficulty = CursorUtil.getColumnIndexOrThrow(_cursor, "difficulty");
           final int _cursorIndexOfImage = CursorUtil.getColumnIndexOrThrow(_cursor, "image");
           final int _cursorIndexOfLat = CursorUtil.getColumnIndexOrThrow(_cursor, "lat");
           final int _cursorIndexOfLng = CursorUtil.getColumnIndexOrThrow(_cursor, "lng");
@@ -300,6 +318,12 @@ public final class HikingtrailDao_Impl implements HikingtrailDao {
             } else {
               _tmpDescription = _cursor.getString(_cursorIndexOfDescription);
             }
+            final String _tmpDifficulty;
+            if (_cursor.isNull(_cursorIndexOfDifficulty)) {
+              _tmpDifficulty = null;
+            } else {
+              _tmpDifficulty = _cursor.getString(_cursorIndexOfDifficulty);
+            }
             final String _tmpImage;
             if (_cursor.isNull(_cursorIndexOfImage)) {
               _tmpImage = null;
@@ -318,7 +342,7 @@ public final class HikingtrailDao_Impl implements HikingtrailDao {
             }  else  {
               _tmpLocation = null;
             }
-            _result = new HikingtrailModel(_tmpId,_tmpFbId,_tmpTitle,_tmpDescription,_tmpImage,_tmpLocation);
+            _result = new HikingtrailModel(_tmpId,_tmpFbId,_tmpTitle,_tmpDescription,_tmpDifficulty,_tmpImage,_tmpLocation);
           } else {
             _result = null;
           }

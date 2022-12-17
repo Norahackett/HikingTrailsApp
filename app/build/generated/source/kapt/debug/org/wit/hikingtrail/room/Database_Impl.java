@@ -1,10 +1,13 @@
 package org.wit.hikingtrail.room;
 
+import androidx.annotation.NonNull;
 import androidx.room.DatabaseConfiguration;
 import androidx.room.InvalidationTracker;
 import androidx.room.RoomOpenHelper;
 import androidx.room.RoomOpenHelper.Delegate;
 import androidx.room.RoomOpenHelper.ValidationResult;
+import androidx.room.migration.AutoMigrationSpec;
+import androidx.room.migration.Migration;
 import androidx.room.util.DBUtil;
 import androidx.room.util.TableInfo;
 import androidx.room.util.TableInfo.Column;
@@ -18,6 +21,7 @@ import java.lang.Class;
 import java.lang.Override;
 import java.lang.String;
 import java.lang.SuppressWarnings;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -30,12 +34,12 @@ public final class Database_Impl extends Database {
 
   @Override
   protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration configuration) {
-    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(2) {
+    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(3) {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `HikingtrailModel` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `fbId` TEXT NOT NULL, `title` TEXT NOT NULL, `description` TEXT NOT NULL, `image` TEXT NOT NULL, `lat` REAL NOT NULL, `lng` REAL NOT NULL, `zoom` REAL NOT NULL)");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `HikingtrailModel` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `fbId` TEXT NOT NULL, `title` TEXT NOT NULL, `description` TEXT NOT NULL, `difficulty` TEXT NOT NULL, `image` TEXT NOT NULL, `lat` REAL NOT NULL, `lng` REAL NOT NULL, `zoom` REAL NOT NULL)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'd612b379860d71ffac818ae06c173d43')");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '200f6e7ad3fb20bf102854a69c2ec544')");
       }
 
       @Override
@@ -79,11 +83,12 @@ public final class Database_Impl extends Database {
 
       @Override
       protected RoomOpenHelper.ValidationResult onValidateSchema(SupportSQLiteDatabase _db) {
-        final HashMap<String, TableInfo.Column> _columnsHikingtrailModel = new HashMap<String, TableInfo.Column>(8);
+        final HashMap<String, TableInfo.Column> _columnsHikingtrailModel = new HashMap<String, TableInfo.Column>(9);
         _columnsHikingtrailModel.put("id", new TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsHikingtrailModel.put("fbId", new TableInfo.Column("fbId", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsHikingtrailModel.put("title", new TableInfo.Column("title", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsHikingtrailModel.put("description", new TableInfo.Column("description", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsHikingtrailModel.put("difficulty", new TableInfo.Column("difficulty", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsHikingtrailModel.put("image", new TableInfo.Column("image", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsHikingtrailModel.put("lat", new TableInfo.Column("lat", "REAL", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsHikingtrailModel.put("lng", new TableInfo.Column("lng", "REAL", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
@@ -99,7 +104,7 @@ public final class Database_Impl extends Database {
         }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "d612b379860d71ffac818ae06c173d43", "d8e53443c44bc927d679667c54ed5ace");
+    }, "200f6e7ad3fb20bf102854a69c2ec544", "55cf8841ce20d804d3573256673965f0");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)
@@ -137,6 +142,18 @@ public final class Database_Impl extends Database {
     final HashMap<Class<?>, List<Class<?>>> _typeConvertersMap = new HashMap<Class<?>, List<Class<?>>>();
     _typeConvertersMap.put(HikingtrailDao.class, HikingtrailDao_Impl.getRequiredConverters());
     return _typeConvertersMap;
+  }
+
+  @Override
+  public Set<Class<? extends AutoMigrationSpec>> getRequiredAutoMigrationSpecs() {
+    final HashSet<Class<? extends AutoMigrationSpec>> _autoMigrationSpecsSet = new HashSet<Class<? extends AutoMigrationSpec>>();
+    return _autoMigrationSpecsSet;
+  }
+
+  @Override
+  public List<Migration> getAutoMigrations(
+      @NonNull Map<Class<? extends AutoMigrationSpec>, AutoMigrationSpec> autoMigrationSpecsMap) {
+    return Arrays.asList();
   }
 
   @Override

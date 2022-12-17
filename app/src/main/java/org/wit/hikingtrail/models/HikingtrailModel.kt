@@ -14,6 +14,7 @@ data class HikingtrailModel(@PrimaryKey(autoGenerate = true) var id: Long = 0,
                           var fbId: String = "",
                           var title: String = "",
                           var description: String = "",
+                            var difficulty: String = "",
                           var image: String = "",
                           @Embedded var location : Location = Location()): Parcelable
 
