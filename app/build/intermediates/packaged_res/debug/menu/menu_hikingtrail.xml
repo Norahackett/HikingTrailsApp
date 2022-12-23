@@ -14,4 +14,6 @@
         android:id="@+id/item_cancel"
         android:title="@string/menu_cancelHikingtrail"
         app:showAsAction="always"/>
+
+   
 </menu>

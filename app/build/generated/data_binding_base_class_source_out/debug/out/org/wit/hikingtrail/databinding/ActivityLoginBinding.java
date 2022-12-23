@@ -52,13 +52,16 @@ public final class ActivityLoginBinding implements ViewBinding {
   public final TextView textView2;
 
   @NonNull
+  public final TextView textView3;
+
+  @NonNull
   public final Toolbar toolbar;
 
   private ActivityLoginBinding(@NonNull ConstraintLayout rootView,
       @NonNull AppBarLayout appBarLayout, @NonNull Button btnChangeTheme, @NonNull EditText email,
       @NonNull Button logIn, @NonNull EditText password, @NonNull ProgressBar progressBar,
       @NonNull Button signUp, @NonNull TextView textView, @NonNull TextView textView2,
-      @NonNull Toolbar toolbar) {
+      @NonNull TextView textView3, @NonNull Toolbar toolbar) {
     this.rootView = rootView;
     this.appBarLayout = appBarLayout;
     this.btnChangeTheme = btnChangeTheme;
@@ -69,6 +72,7 @@ public final class ActivityLoginBinding implements ViewBinding {
     this.signUp = signUp;
     this.textView = textView;
     this.textView2 = textView2;
+    this.textView3 = textView3;
     this.toolbar = toolbar;
   }
 
@@ -153,6 +157,12 @@ public final class ActivityLoginBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.textView3;
+      TextView textView3 = ViewBindings.findChildViewById(rootView, id);
+      if (textView3 == null) {
+        break missingId;
+      }
+
       id = R.id.toolbar;
       Toolbar toolbar = ViewBindings.findChildViewById(rootView, id);
       if (toolbar == null) {
@@ -160,7 +170,7 @@ public final class ActivityLoginBinding implements ViewBinding {
       }
 
       return new ActivityLoginBinding((ConstraintLayout) rootView, appBarLayout, btnChangeTheme,
-          email, logIn, password, progressBar, signUp, textView, textView2, toolbar);
+          email, logIn, password, progressBar, signUp, textView, textView2, textView3, toolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

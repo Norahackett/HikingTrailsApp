@@ -2648,7 +2648,6 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
-drawable aboutus_homer
 drawable avd_hide_password
 drawable avd_show_password
 drawable btn_checkbox_checked_mtrl
@@ -2687,23 +2686,27 @@ drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable hiker
 drawable hiker2
+drawable ic_add_icon
 drawable ic_baseline_home_24
 drawable ic_clock_black_24dp
+drawable ic_home_background
+drawable ic_home_foreground
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable ic_login
 drawable ic_m3_chip_check
 drawable ic_m3_chip_checked_circle
 drawable ic_m3_chip_close
 drawable ic_menu_aboutus
 drawable ic_menu_donate
-drawable ic_menu_report
-drawable ic_menu_send
-drawable ic_menu_share
 drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable ic_person
+drawable ic_person_background
+drawable ic_setting
 drawable ic_swipe_delete
 drawable ic_swipe_edit
 drawable m3_appbar_background
@@ -2774,6 +2777,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable progress_bg
 drawable side_nav_bar
 drawable test_level_drawable
 drawable tooltip_frame_dark
@@ -2782,10 +2786,11 @@ id ALT
 id BOTTOM_END
 id BOTTOM_START
 id CTRL
+id Easy
 id FUNCTION
 id FirstFragment
-id Fragment
 id META
+id Moderate
 id NO_DEBUG
 id SHIFT
 id SHOW_ALL
@@ -2796,6 +2801,7 @@ id SecondFragment
 id SplashScreenImage
 id TOP_END
 id TOP_START
+id about
 id aboutFragment
 id accelerate
 id accessibility_action_clickable_span
@@ -2884,6 +2890,7 @@ id beginning
 id bestChoice
 id blocking
 id bottom
+id bottomNavigationView
 id bounce
 id bounceBoth
 id bounceEnd
@@ -2895,8 +2902,6 @@ id browser_actions_menu_items
 id browser_actions_menu_view
 id btn_change_theme
 id buttonPanel
-id button_first
-id button_second
 id cache_measures
 id callMeasure
 id cancel_button
@@ -2941,6 +2946,7 @@ id custom
 id customPanel
 id cut
 id dark
+id date
 id date_picker_actions
 id decelerate
 id decelerateAndComplete
@@ -2955,6 +2961,7 @@ id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
 id dialog_button
+id diffculty
 id difficulty
 id dimensions
 id direct
@@ -2971,7 +2978,6 @@ id dragLeft
 id dragRight
 id dragStart
 id dragUp
-id drawer_layout
 id dropdown_menu
 id easeIn
 id easeInOut
@@ -2993,6 +2999,7 @@ id fill
 id fill_horizontal
 id fill_vertical
 id filled
+id firstFragment
 id fitCenter
 id fitEnd
 id fitStart
@@ -3016,8 +3023,8 @@ id groups
 id guideline
 id header_title
 id hideable
+id hikeDifficulty
 id hikingtrailImage
-id hikingtrailListView
 id hikingtrailTitle
 id home
 id homeAsUp
@@ -3050,6 +3057,7 @@ id item_delete
 id item_logout
 id item_map
 id item_save
+id item_theme
 id item_touch_helper_previous_elevation
 id jumpToEnd
 id jumpToStart
@@ -3068,6 +3076,7 @@ id list_item
 id lng
 id locale
 id logIn
+id logout
 id ltr
 id main_navigation
 id mapView
@@ -3133,9 +3142,6 @@ id nav_controller_view_tag
 id nav_graph
 id nav_host_fragment
 id nav_host_fragment_container
-id nav_send
-id nav_share
-id nav_view
 id navigation_bar_item_active_indicator_view
 id navigation_bar_item_icon_container
 id navigation_bar_item_icon_view
@@ -3172,6 +3178,7 @@ id path
 id pathRelative
 id peekHeight
 id percent
+id person
 id pin
 id position
 id postLayout
@@ -3182,6 +3189,7 @@ id progress_horizontal
 id rBar
 id radio
 id rating
+id ratingBarCard
 id ratio
 id rectangles
 id recyclerView
@@ -3216,6 +3224,7 @@ id search_mag_icon
 id search_plate
 id search_src_text
 id search_voice_btn
+id secondFragment
 id select_dialog_listview
 id selected
 id selection_type
@@ -3285,6 +3294,7 @@ id textStart
 id textTop
 id textView
 id textView2
+id textView3
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -3294,8 +3304,6 @@ id textinput_helper_text
 id textinput_placeholder
 id textinput_prefix_text
 id textinput_suffix_text
-id textview_first
-id textview_second
 id time
 id title
 id titleDividerNoCustom
@@ -3494,7 +3502,6 @@ layout design_text_input_start_icon
 layout fragment_about
 layout fragment_first
 layout fragment_second
-layout home
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title
@@ -3554,10 +3561,12 @@ layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
+menu bottom_nav_menu
 menu men_edit_location
 menu menu_hikingtrail
 menu menu_main
-menu nav_drawer_menu
+mipmap ic_home
+mipmap ic_home_round
 mipmap ic_launcher
 mipmap ic_launcher_round
 navigation main_navigation
@@ -3635,6 +3644,8 @@ string common_signin_button_text
 string common_signin_button_text_long
 string copy_toast_msg
 string default_web_client_id
+string diffculty
+string easy
 string enter_hikingtrail_title
 string error_a11y_label
 string error_icon_content_description
@@ -3656,6 +3667,9 @@ string group_communicate
 string hello_first_fragment
 string hello_second_fragment
 string hide_bottom_view_on_scroll_behavior
+string hiking_date
+string hiking_details
+string hiking_location
 string hikingtrail_county_placeholder
 string hikingtrail_description_placeholder
 string hikingtrail_difficulty_placeholder
@@ -3708,6 +3722,8 @@ string menu_logout
 string menu_mapMode
 string menu_saveHikingtrail
 string menu_showMap
+string menu_theme
+string moderate
 string mtrl_badge_numberless_content_description
 string mtrl_checkbox_button_icon_path_checked
 string mtrl_checkbox_button_icon_path_group_name
@@ -3777,6 +3793,7 @@ string path_password_eye_mask_visible
 string path_password_strike_through
 string previous
 string project_id
+string register_hike
 string save_hikingtrail
 string search_menu_title
 string second_fragment_label

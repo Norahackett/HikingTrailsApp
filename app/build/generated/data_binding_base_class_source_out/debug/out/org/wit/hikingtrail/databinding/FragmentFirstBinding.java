@@ -4,7 +4,6 @@ package org.wit.hikingtrail.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,16 +20,12 @@ public final class FragmentFirstBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final Button buttonFirst;
+  public final TextView firstFragment;
 
-  @NonNull
-  public final TextView textviewFirst;
-
-  private FragmentFirstBinding(@NonNull ConstraintLayout rootView, @NonNull Button buttonFirst,
-      @NonNull TextView textviewFirst) {
+  private FragmentFirstBinding(@NonNull ConstraintLayout rootView,
+      @NonNull TextView firstFragment) {
     this.rootView = rootView;
-    this.buttonFirst = buttonFirst;
-    this.textviewFirst = textviewFirst;
+    this.firstFragment = firstFragment;
   }
 
   @Override
@@ -60,19 +55,13 @@ public final class FragmentFirstBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.button_first;
-      Button buttonFirst = ViewBindings.findChildViewById(rootView, id);
-      if (buttonFirst == null) {
+      id = R.id.firstFragment;
+      TextView firstFragment = ViewBindings.findChildViewById(rootView, id);
+      if (firstFragment == null) {
         break missingId;
       }
 
-      id = R.id.textview_first;
-      TextView textviewFirst = ViewBindings.findChildViewById(rootView, id);
-      if (textviewFirst == null) {
-        break missingId;
-      }
-
-      return new FragmentFirstBinding((ConstraintLayout) rootView, buttonFirst, textviewFirst);
+      return new FragmentFirstBinding((ConstraintLayout) rootView, firstFragment);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

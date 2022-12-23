@@ -1,14 +1,19 @@
 package org.wit.hikingtrail.views.hikingtraillist
 
 import android.content.Intent
+import android.provider.Settings.Global.getString
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatDelegate
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import org.wit.hikingtrail.R
 import org.wit.hikingtrail.main.MainApp
 import org.wit.hikingtrail.models.HikingtrailModel
+import org.wit.hikingtrail.views.about.AboutView
 import org.wit.hikingtrail.views.login.LoginView
 import org.wit.hikingtrail.views.hikingtrail.HikingtrailView
 import org.wit.hikingtrail.views.map.HikingtrailMapView
@@ -28,6 +33,11 @@ class HikingtrailListPresenter(private val view: HikingtrailListView) {
 
     fun doAddHikingtrail() {
         val launcherIntent = Intent(view, HikingtrailView::class.java)
+        editIntentLauncher.launch(launcherIntent)
+    }
+
+    fun doShowAbout() {
+        val launcherIntent = Intent(view, AboutView::class.java)
         editIntentLauncher.launch(launcherIntent)
     }
 
@@ -65,4 +75,7 @@ class HikingtrailListPresenter(private val view: HikingtrailListView) {
             { }
 
     }
+
+
+
 }

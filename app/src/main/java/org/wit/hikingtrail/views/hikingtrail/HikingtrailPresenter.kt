@@ -61,7 +61,7 @@ class HikingtrailPresenter(private val view: HikingtrailView) {
     }
 
 
-    suspend fun doAddOrSave(title: String, description: String, difficulty: String, rating: String) {
+    suspend fun doAddOrSave(title: String, description: String, rating: String,difficulty: String) {
         hikingtrail.title = title
         hikingtrail.description = description
         hikingtrail.difficulty = difficulty
@@ -91,6 +91,10 @@ class HikingtrailPresenter(private val view: HikingtrailView) {
         showImagePicker(imageIntentLauncher)
     }
 
+    //fun doCheckRatingBar(rating:Float)
+    //{
+      //  hikingtrail.rating = rating
+    //}
     fun doSetLocation() {
         locationManualyChanged = true
 
@@ -189,6 +193,7 @@ class HikingtrailPresenter(private val view: HikingtrailView) {
 
             }
     }
+
 
     private fun doPermissionLauncher() {
         i("permission check called")

@@ -9,6 +9,10 @@
     <string name="hint_hikingtrailDate">Select Date </string>
     <string name="menu_addHikingtrail">Add</string>
     <string name="menu_mapMode">Map Mode</string>
+    <string name="hiking_location">Hiking Location</string>
+    <string name="hiking_date">Hiking Date</string>
+    <string name="hiking_details">Hiking Details</string>
+    <string name="register_hike">Register</string>
     <string name="menu_cancelHikingtrail">Cancel</string>
     <string name="enter_hikingtrail_title"> Please enter a Hiking trail Title </string>
     <string name="save_hikingtrail"> Save Hiking Trail </string>
@@ -29,6 +33,9 @@
     <string name="selected_item">Selected item:</string>
     <string name="aboutus_message">Welcome to Hiking App!!</string>
     <string name="action_about">About Us</string>
+    <string name="easy">Easy</string>
+    <string name="moderate">Moderate</string>
+    <string name="diffculty">Difficult</string>
 
     <string name="nav_header_title">Hiking Trails</string>
     <string name="nav_header_subtitle">make a review</string>
@@ -43,7 +50,9 @@
     <string name="title_activity_login"> Signup/Login to Hiking Trails App</string>
     <string name="menu_showMap">Show Map</string>
     <string name="menu_logout">Logout</string>
-    <string name="choose_theme_text">choose_theme_text</string>
+    <string name="choose_theme_text">choose_theme </string>
+    <string name="menu_theme">choose_theme </string>
+
 
 
     <string-array name="Difficulty">

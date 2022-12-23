@@ -11,6 +11,7 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -21,14 +22,19 @@ public final class ActivityHikingtrailListBinding implements ViewBinding {
   private final CoordinatorLayout rootView;
 
   @NonNull
+  public final BottomNavigationView bottomNavigationView;
+
+  @NonNull
   public final RecyclerView recyclerView;
 
   @NonNull
   public final Toolbar toolbar;
 
   private ActivityHikingtrailListBinding(@NonNull CoordinatorLayout rootView,
-      @NonNull RecyclerView recyclerView, @NonNull Toolbar toolbar) {
+      @NonNull BottomNavigationView bottomNavigationView, @NonNull RecyclerView recyclerView,
+      @NonNull Toolbar toolbar) {
     this.rootView = rootView;
+    this.bottomNavigationView = bottomNavigationView;
     this.recyclerView = recyclerView;
     this.toolbar = toolbar;
   }
@@ -60,6 +66,12 @@ public final class ActivityHikingtrailListBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.bottomNavigationView;
+      BottomNavigationView bottomNavigationView = ViewBindings.findChildViewById(rootView, id);
+      if (bottomNavigationView == null) {
+        break missingId;
+      }
+
       id = R.id.recyclerView;
       RecyclerView recyclerView = ViewBindings.findChildViewById(rootView, id);
       if (recyclerView == null) {
@@ -72,8 +84,8 @@ public final class ActivityHikingtrailListBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityHikingtrailListBinding((CoordinatorLayout) rootView, recyclerView,
-          toolbar);
+      return new ActivityHikingtrailListBinding((CoordinatorLayout) rootView, bottomNavigationView,
+          recyclerView, toolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -4,63 +4,55 @@
         "source": "org.wit.hikingtrail.app-main-57:/layout/activity_hikingtrail.xml"
     },
     {
-        "merged": "C:\\Users\\norah\\.gradle\\daemon\\7.4\\org.wit.hikingtrail.app-mergeDebugResources-54:\\layout\\content_home.xml",
-        "source": "C:\\Users\\norah\\.gradle\\daemon\\7.4\\org.wit.hikingtrail.app-main-57:\\layout\\content_home.xml"
+        "merged": "org.wit.hikingtrail.app-mergeDebugResources-54:/layout/nav_header.xml",
+        "source": "org.wit.hikingtrail.app-main-57:/layout/nav_header.xml"
     },
     {
-        "merged": "C:\\Users\\norah\\.gradle\\daemon\\7.4\\org.wit.hikingtrail.app-mergeDebugResources-54:\\layout\\activity_splash_screen.xml",
-        "source": "C:\\Users\\norah\\.gradle\\daemon\\7.4\\org.wit.hikingtrail.app-main-57:\\layout\\activity_splash_screen.xml"
+        "merged": "org.wit.hikingtrail.app-mergeDebugResources-54:/layout/activity_map.xml",
+        "source": "org.wit.hikingtrail.app-main-57:/layout/activity_map.xml"
     },
     {
-        "merged": "C:\\Users\\norah\\.gradle\\daemon\\7.4\\org.wit.hikingtrail.app-mergeDebugResources-54:\\layout\\activity_hikingtrail.xml",
-        "source": "C:\\Users\\norah\\.gradle\\daemon\\7.4\\org.wit.hikingtrail.app-main-57:\\layout\\activity_hikingtrail.xml"
+        "merged": "org.wit.hikingtrail.app-mergeDebugResources-54:/layout/fragment_first.xml",
+        "source": "org.wit.hikingtrail.app-main-57:/layout/fragment_first.xml"
     },
     {
-        "merged": "C:\\Users\\norah\\.gradle\\daemon\\7.4\\org.wit.hikingtrail.app-mergeDebugResources-54:\\layout\\activity_hikingtrail_maps.xml",
-        "source": "C:\\Users\\norah\\.gradle\\daemon\\7.4\\org.wit.hikingtrail.app-main-57:\\layout\\activity_hikingtrail_maps.xml"
+        "merged": "org.wit.hikingtrail.app-mergeDebugResources-54:/layout/fragment_about.xml",
+        "source": "org.wit.hikingtrail.app-main-57:/layout/fragment_about.xml"
     },
     {
-        "merged": "C:\\Users\\norah\\.gradle\\daemon\\7.4\\org.wit.hikingtrail.app-mergeDebugResources-54:\\layout\\home.xml",
-        "source": "C:\\Users\\norah\\.gradle\\daemon\\7.4\\org.wit.hikingtrail.app-main-57:\\layout\\home.xml"
+        "merged": "org.wit.hikingtrail.app-mergeDebugResources-54:/layout/activity_hikingtrail_list.xml",
+        "source": "org.wit.hikingtrail.app-main-57:/layout/activity_hikingtrail_list.xml"
     },
     {
-        "merged": "C:\\Users\\norah\\.gradle\\daemon\\7.4\\org.wit.hikingtrail.app-mergeDebugResources-54:\\layout\\fragment_first.xml",
-        "source": "C:\\Users\\norah\\.gradle\\daemon\\7.4\\org.wit.hikingtrail.app-main-57:\\layout\\fragment_first.xml"
+        "merged": "org.wit.hikingtrail.app-mergeDebugResources-54:/layout/activity_hikingtrail_maps.xml",
+        "source": "org.wit.hikingtrail.app-main-57:/layout/activity_hikingtrail_maps.xml"
     },
     {
-        "merged": "C:\\Users\\norah\\.gradle\\daemon\\7.4\\org.wit.hikingtrail.app-mergeDebugResources-54:\\layout\\fragment_second.xml",
-        "source": "C:\\Users\\norah\\.gradle\\daemon\\7.4\\org.wit.hikingtrail.app-main-57:\\layout\\fragment_second.xml"
+        "merged": "org.wit.hikingtrail.app-mergeDebugResources-54:/layout/card_hikingtrail.xml",
+        "source": "org.wit.hikingtrail.app-main-57:/layout/card_hikingtrail.xml"
     },
     {
-        "merged": "C:\\Users\\norah\\.gradle\\daemon\\7.4\\org.wit.hikingtrail.app-mergeDebugResources-54:\\layout\\fragment_about.xml",
-        "source": "C:\\Users\\norah\\.gradle\\daemon\\7.4\\org.wit.hikingtrail.app-main-57:\\layout\\fragment_about.xml"
+        "merged": "org.wit.hikingtrail.app-mergeDebugResources-54:/layout/activity_splash_screen.xml",
+        "source": "org.wit.hikingtrail.app-main-57:/layout/activity_splash_screen.xml"
     },
     {
-        "merged": "C:\\Users\\norah\\.gradle\\daemon\\7.4\\org.wit.hikingtrail.app-mergeDebugResources-54:\\layout\\content_hikingtrail_maps.xml",
-        "source": "C:\\Users\\norah\\.gradle\\daemon\\7.4\\org.wit.hikingtrail.app-main-57:\\layout\\content_hikingtrail_maps.xml"
+        "merged": "org.wit.hikingtrail.app-mergeDebugResources-54:/layout/content_home.xml",
+        "source": "org.wit.hikingtrail.app-main-57:/layout/content_home.xml"
     },
     {
-        "merged": "C:\\Users\\norah\\.gradle\\daemon\\7.4\\org.wit.hikingtrail.app-mergeDebugResources-54:\\layout\\app_bar_home.xml",
-        "source": "C:\\Users\\norah\\.gradle\\daemon\\7.4\\org.wit.hikingtrail.app-main-57:\\layout\\app_bar_home.xml"
+        "merged": "org.wit.hikingtrail.app-mergeDebugResources-54:/layout/fragment_second.xml",
+        "source": "org.wit.hikingtrail.app-main-57:/layout/fragment_second.xml"
     },
     {
-        "merged": "C:\\Users\\norah\\.gradle\\daemon\\7.4\\org.wit.hikingtrail.app-mergeDebugResources-54:\\layout\\activity_login.xml",
-        "source": "C:\\Users\\norah\\.gradle\\daemon\\7.4\\org.wit.hikingtrail.app-main-57:\\layout\\activity_login.xml"
+        "merged": "org.wit.hikingtrail.app-mergeDebugResources-54:/layout/content_hikingtrail_maps.xml",
+        "source": "org.wit.hikingtrail.app-main-57:/layout/content_hikingtrail_maps.xml"
     },
     {
-        "merged": "C:\\Users\\norah\\.gradle\\daemon\\7.4\\org.wit.hikingtrail.app-mergeDebugResources-54:\\layout\\activity_hikingtrail_list.xml",
-        "source": "C:\\Users\\norah\\.gradle\\daemon\\7.4\\org.wit.hikingtrail.app-main-57:\\layout\\activity_hikingtrail_list.xml"
+        "merged": "org.wit.hikingtrail.app-mergeDebugResources-54:/layout/app_bar_home.xml",
+        "source": "org.wit.hikingtrail.app-main-57:/layout/app_bar_home.xml"
     },
     {
-        "merged": "C:\\Users\\norah\\.gradle\\daemon\\7.4\\org.wit.hikingtrail.app-mergeDebugResources-54:\\layout\\card_hikingtrail.xml",
-        "source": "C:\\Users\\norah\\.gradle\\daemon\\7.4\\org.wit.hikingtrail.app-main-57:\\layout\\card_hikingtrail.xml"
-    },
-    {
-        "merged": "C:\\Users\\norah\\.gradle\\daemon\\7.4\\org.wit.hikingtrail.app-mergeDebugResources-54:\\layout\\nav_header.xml",
-        "source": "C:\\Users\\norah\\.gradle\\daemon\\7.4\\org.wit.hikingtrail.app-main-57:\\layout\\nav_header.xml"
-    },
-    {
-        "merged": "C:\\Users\\norah\\.gradle\\daemon\\7.4\\org.wit.hikingtrail.app-mergeDebugResources-54:\\layout\\activity_map.xml",
-        "source": "C:\\Users\\norah\\.gradle\\daemon\\7.4\\org.wit.hikingtrail.app-main-57:\\layout\\activity_map.xml"
+        "merged": "org.wit.hikingtrail.app-mergeDebugResources-54:/layout/activity_login.xml",
+        "source": "org.wit.hikingtrail.app-main-57:/layout/activity_login.xml"
     }
 ]

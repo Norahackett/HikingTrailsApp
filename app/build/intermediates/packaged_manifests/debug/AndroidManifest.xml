@@ -38,6 +38,7 @@
         android:debuggable="true"
         android:extractNativeLibs="false"
         android:icon="@mipmap/ic_launcher"
+        android:installLocation="preferExternal"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -63,6 +64,14 @@
             android:name="org.wit.hikingtrail.views.location.EditLocationView"
             android:exported="true"
             android:label="@string/title_activity_map" />
+        <activity
+            android:name="org.wit.hikingtrail.activities.SplashScreen"
+            android:exported="true" >
+        </activity>
+        <activity
+            android:name="org.wit.hikingtrail.views.about.AboutView"
+            android:exported="true" >
+        </activity>
         <activity
             android:name="org.wit.hikingtrail.views.hikingtraillist.HikingtrailListView"
             android:exported="true" >

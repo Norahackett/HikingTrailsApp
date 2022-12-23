@@ -177,8 +177,10 @@
                 android:layout_marginBottom="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/hikingtrailImage" />
+                app:layout_constraintTop_toBottomOf="@+id/hikingtrailImage"
+                app:layout_constraintVertical_bias="1.0" />
 
             <TextView
                 android:id="@+id/textView"
@@ -200,6 +202,49 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <RadioGroup
+                android:id="@+id/hikeDifficulty"
+                android:layout_width="181dp"
+                android:layout_height="128dp"
+
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.042"
+                app:layout_constraintStart_toStartOf="parent"
+
+                app:layout_constraintVertical_bias="0.276">
+
+                <RadioButton
+                    android:id="@+id/Easy"
+                    android:layout_width="97dp"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/easy" />
+
+                <RadioButton
+                    android:id="@+id/Moderate"
+                    android:layout_width="97dp"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="@string/moderate" />
+
+                <RadioButton
+                    android:id="@+id/diffculty"
+                    android:layout_width="97dp"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="@string/diffculty"
+                    tools:layout_editor_absoluteX="270dp"
+                    tools:layout_editor_absoluteY="610dp" />
+
+            </RadioGroup>
+
             <RatingBar
                 android:id="@+id/rBar"
                 android:layout_width="wrap_content"
@@ -213,8 +258,11 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/rating" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
+

@@ -154,7 +154,8 @@ public final class HikingtrailDao_Impl implements HikingtrailDao {
   }
 
   @Override
-  public Object create(final HikingtrailModel hikingtrail, final Continuation<? super Unit> arg1) {
+  public Object create(final HikingtrailModel hikingtrail,
+      final Continuation<? super Unit> continuation) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
       public Unit call() throws Exception {
@@ -167,12 +168,12 @@ public final class HikingtrailDao_Impl implements HikingtrailDao {
           __db.endTransaction();
         }
       }
-    }, arg1);
+    }, continuation);
   }
 
   @Override
   public Object deleteHikingtrail(final HikingtrailModel hikingtrail,
-      final Continuation<? super Unit> arg1) {
+      final Continuation<? super Unit> continuation) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
       public Unit call() throws Exception {
@@ -185,11 +186,12 @@ public final class HikingtrailDao_Impl implements HikingtrailDao {
           __db.endTransaction();
         }
       }
-    }, arg1);
+    }, continuation);
   }
 
   @Override
-  public Object update(final HikingtrailModel hikingtrail, final Continuation<? super Unit> arg1) {
+  public Object update(final HikingtrailModel hikingtrail,
+      final Continuation<? super Unit> continuation) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
       public Unit call() throws Exception {
@@ -202,11 +204,11 @@ public final class HikingtrailDao_Impl implements HikingtrailDao {
           __db.endTransaction();
         }
       }
-    }, arg1);
+    }, continuation);
   }
 
   @Override
-  public Object findAll(final Continuation<? super List<HikingtrailModel>> arg0) {
+  public Object findAll(final Continuation<? super List<HikingtrailModel>> continuation) {
     final String _sql = "SELECT * FROM HikingtrailModel";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
     final CancellationSignal _cancellationSignal = DBUtil.createCancellationSignal();
@@ -287,11 +289,11 @@ public final class HikingtrailDao_Impl implements HikingtrailDao {
           _statement.release();
         }
       }
-    }, arg0);
+    }, continuation);
   }
 
   @Override
-  public Object findById(final long id, final Continuation<? super HikingtrailModel> arg1) {
+  public Object findById(final long id, final Continuation<? super HikingtrailModel> continuation) {
     final String _sql = "select * from HikingtrailModel where id = ?";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
     int _argIndex = 1;
@@ -374,7 +376,7 @@ public final class HikingtrailDao_Impl implements HikingtrailDao {
           _statement.release();
         }
       }
-    }, arg1);
+    }, continuation);
   }
 
   public static List<Class<?>> getRequiredConverters() {

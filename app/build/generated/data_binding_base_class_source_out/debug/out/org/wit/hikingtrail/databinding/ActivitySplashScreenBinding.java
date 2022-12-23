@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -22,10 +23,14 @@ public final class ActivitySplashScreenBinding implements ViewBinding {
   @NonNull
   public final ImageView SplashScreenImage;
 
+  @NonNull
+  public final ProgressBar progressBar;
+
   private ActivitySplashScreenBinding(@NonNull ConstraintLayout rootView,
-      @NonNull ImageView SplashScreenImage) {
+      @NonNull ImageView SplashScreenImage, @NonNull ProgressBar progressBar) {
     this.rootView = rootView;
     this.SplashScreenImage = SplashScreenImage;
+    this.progressBar = progressBar;
   }
 
   @Override
@@ -61,7 +66,14 @@ public final class ActivitySplashScreenBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivitySplashScreenBinding((ConstraintLayout) rootView, SplashScreenImage);
+      id = R.id.progressBar;
+      ProgressBar progressBar = ViewBindings.findChildViewById(rootView, id);
+      if (progressBar == null) {
+        break missingId;
+      }
+
+      return new ActivitySplashScreenBinding((ConstraintLayout) rootView, SplashScreenImage,
+          progressBar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

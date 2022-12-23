@@ -36,13 +36,37 @@ class HikingtrailListView : AppCompatActivity(), HikingtrailListener {
         presenter = HikingtrailListPresenter(this)
         val layoutManager = LinearLayoutManager(this)
         binding.recyclerView.layoutManager = layoutManager
-        updateRecyclerView()
+
+        binding.bottomNavigationView.setOnItemSelectedListener { item: MenuItem ->
+            when (item.itemId) {
+                R.id.about ->
+                    presenter.doShowAbout()
+
+                R.id.logout ->
+                    GlobalScope.launch(Dispatchers.IO) {
+                        presenter.doLogout()
+                    }
+                R.id.person ->
+                    GlobalScope.launch(Dispatchers.IO) {
+                        presenter.doLogout()
+                    }
+
+            }
+                true
+            }
+
+
+                          updateRecyclerView()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+
+
+        override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
         return super.onCreateOptionsMenu(menu)
     }
+
+
 
     override fun onResume() {
 
@@ -67,6 +91,10 @@ class HikingtrailListView : AppCompatActivity(), HikingtrailListener {
                 GlobalScope.launch(Dispatchers.IO) {
                     presenter.doLogout()
                 }
+
+            }
+            R.id.item_theme -> {
+                //setOnClickListener({ chooseThemeDialog()})
             }
         }
         return super.onOptionsItemSelected(item)
@@ -84,4 +112,8 @@ class HikingtrailListView : AppCompatActivity(), HikingtrailListener {
         }
     }
 
+
 }
+
+
+

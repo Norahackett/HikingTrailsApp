@@ -7,8 +7,9 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
+import android.widget.*
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
@@ -21,13 +22,14 @@ import org.wit.hikingtrail.models.Location
 import org.wit.hikingtrail.models.HikingtrailModel
 import timber.log.Timber.i
 
+
 class HikingtrailView : AppCompatActivity() {
 
     private lateinit var binding: ActivityHikingtrailBinding
     private lateinit var presenter: HikingtrailPresenter
     lateinit var map: GoogleMap
     var hikingtrail = HikingtrailModel()
-
+    lateinit var hikeDifficulty: RadioGroup
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val difficulty = resources.getStringArray(R.array.Difficulty)
@@ -38,8 +40,27 @@ class HikingtrailView : AppCompatActivity() {
 
         presenter = HikingtrailPresenter(this)
 
+        hikeDifficulty = findViewById(R.id.hikeDifficulty)
+
+        hikeDifficulty.setOnCheckedChangeListener { group, checkedId ->
+
+            // on below line we are getting radio button from our group.
+            val radioButton = findViewById<RadioButton>(checkedId)
+
+            // on below line we are displaying a toast message.
+            Toast.makeText(
+                this@HikingtrailView,
+                "Selected Radio Button is : " + radioButton.text,
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+
+
+
+
+
         binding.chooseImage.setOnClickListener {
-            presenter.cacheHikingtrail(binding.hikingtrailTitle.text.toString(), binding.description.text.toString(), binding.difficulty.text.toString(),binding.rating.text.toString())
+            presenter.cacheHikingtrail(binding.hikingtrailTitle.text.toString(), binding.description.text.toString(), binding.difficulty.text.toString(), binding.rating.text.toString())
             presenter.doSelectImage()
         }
 
@@ -61,8 +82,7 @@ class HikingtrailView : AppCompatActivity() {
                 android.R.layout.simple_spinner_item, difficulty
 
             )
-
-            binding.spinner.adapter = adapter
+            //binding.spinner.adapter = adapter
 
 
             binding.spinner.onItemSelectedListener = object :
@@ -89,6 +109,8 @@ class HikingtrailView : AppCompatActivity() {
             }
         }
     }
+
+
 
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -185,5 +207,7 @@ class HikingtrailView : AppCompatActivity() {
         super.onSaveInstanceState(outState)
         binding.mapView2.onSaveInstanceState(outState)
     }
+
+
 
 }

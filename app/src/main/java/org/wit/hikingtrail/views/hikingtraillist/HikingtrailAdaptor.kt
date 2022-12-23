@@ -41,7 +41,8 @@ class HikingtrailAdapter constructor(private var hikingtrails: List<HikingtrailM
             binding.hikingtrailTitle.text = hikingtrail.title
             binding.description.text = hikingtrail.description
             binding.difficulty.text = hikingtrail.difficulty
-            binding.rating.text = hikingtrail.rating
+            //binding.rating.text= hikingtrail.rating
+            binding.rating.text= hikingtrail.rating
             if (hikingtrail.image != ""){
                 Picasso.get()
                     .load(hikingtrail.image)

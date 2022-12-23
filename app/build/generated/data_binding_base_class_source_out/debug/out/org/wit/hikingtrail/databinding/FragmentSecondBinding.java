@@ -4,7 +4,6 @@ package org.wit.hikingtrail.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,16 +20,12 @@ public final class FragmentSecondBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final Button buttonSecond;
+  public final TextView secondFragment;
 
-  @NonNull
-  public final TextView textviewSecond;
-
-  private FragmentSecondBinding(@NonNull ConstraintLayout rootView, @NonNull Button buttonSecond,
-      @NonNull TextView textviewSecond) {
+  private FragmentSecondBinding(@NonNull ConstraintLayout rootView,
+      @NonNull TextView secondFragment) {
     this.rootView = rootView;
-    this.buttonSecond = buttonSecond;
-    this.textviewSecond = textviewSecond;
+    this.secondFragment = secondFragment;
   }
 
   @Override
@@ -60,19 +55,13 @@ public final class FragmentSecondBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.button_second;
-      Button buttonSecond = ViewBindings.findChildViewById(rootView, id);
-      if (buttonSecond == null) {
+      id = R.id.secondFragment;
+      TextView secondFragment = ViewBindings.findChildViewById(rootView, id);
+      if (secondFragment == null) {
         break missingId;
       }
 
-      id = R.id.textview_second;
-      TextView textviewSecond = ViewBindings.findChildViewById(rootView, id);
-      if (textviewSecond == null) {
-        break missingId;
-      }
-
-      return new FragmentSecondBinding((ConstraintLayout) rootView, buttonSecond, textviewSecond);
+      return new FragmentSecondBinding((ConstraintLayout) rootView, secondFragment);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
