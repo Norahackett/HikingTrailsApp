@@ -45,7 +45,7 @@ class LoginView : AppCompatActivity() {
             }
         }
 
-        binding.btnChangeTheme.setOnClickListener({ chooseThemeDialog()})
+
     }
 
     fun showSnackBar(message: CharSequence) {

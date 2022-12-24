@@ -70,7 +70,10 @@
         </activity>
         <activity
             android:name="org.wit.hikingtrail.views.about.AboutView"
-            android:exported="true" >
+            android:exported="true"
+            android:label="@string/title_about"
+            android:launchMode="singleTop" >
+>
         </activity>
         <activity
             android:name="org.wit.hikingtrail.views.hikingtraillist.HikingtrailListView"

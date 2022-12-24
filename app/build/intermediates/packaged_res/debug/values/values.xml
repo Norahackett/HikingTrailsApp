@@ -99,6 +99,7 @@
     <string name="hint_hikingtrailDifficulty">Select Difficulty of Hike  </string>
     <string name="hint_hikingtrailRating">Submit your Rating below </string>
     <string name="hint_hikingtrailTitle">Hiking trail Title</string>
+    <string name="menu_Back">Back</string>
     <string name="menu_addHikingtrail">Add</string>
     <string name="menu_cancelHikingtrail">Cancel</string>
     <string name="menu_deleteHikingtrail">Delete</string>
@@ -119,6 +120,7 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="select_hikingtrail_image">Select hiking trail image</string>
     <string name="selected_item">Selected item:</string>
+    <string name="title_about">Welcome</string>
     <string name="title_activity_hikingtrail_maps">Map of All Hikingtrails </string>
     <string name="title_activity_login"> Signup/Login to Hiking Trails App</string>
     <string name="title_activity_map">Map</string>

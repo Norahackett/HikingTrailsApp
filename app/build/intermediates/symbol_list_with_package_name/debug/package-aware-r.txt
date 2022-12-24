@@ -2883,6 +2883,7 @@ id auto
 id autoComplete
 id autoCompleteToEnd
 id autoCompleteToStart
+id back
 id barrier
 id baseline
 id beginOnFirstDraw
@@ -2900,7 +2901,6 @@ id browser_actions_menu_item_icon
 id browser_actions_menu_item_text
 id browser_actions_menu_items
 id browser_actions_menu_view
-id btn_change_theme
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -2999,7 +2999,6 @@ id fill
 id fill_horizontal
 id fill_vertical
 id filled
-id firstFragment
 id fitCenter
 id fitEnd
 id fitStart
@@ -3040,7 +3039,6 @@ id ignore
 id ignoreRequest
 id image
 id imageIcon
-id imageView
 id imageView2
 id imageView3
 id immediateStop
@@ -3224,7 +3222,6 @@ id search_mag_icon
 id search_plate
 id search_src_text
 id search_voice_btn
-id secondFragment
 id select_dialog_listview
 id selected
 id selection_type
@@ -3294,7 +3291,6 @@ id textStart
 id textTop
 id textView
 id textView2
-id textView3
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -3322,7 +3318,6 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
-id tvAboutUs
 id unchecked
 id uniform
 id unlabeled
@@ -3471,6 +3466,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_about
 layout activity_hikingtrail
 layout activity_hikingtrail_list
 layout activity_hikingtrail_maps
@@ -3499,9 +3495,6 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
-layout fragment_about
-layout fragment_first
-layout fragment_second
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title
@@ -3550,7 +3543,6 @@ layout mtrl_picker_header_title_text
 layout mtrl_picker_header_toggle
 layout mtrl_picker_text_input_date
 layout mtrl_picker_text_input_date_range
-layout nav_header
 layout notification_action
 layout notification_action_tombstone
 layout notification_template_custom_big
@@ -3563,6 +3555,7 @@ layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
 menu bottom_nav_menu
 menu men_edit_location
+menu menu_back
 menu menu_hikingtrail
 menu menu_main
 mipmap ic_home
@@ -3715,6 +3708,7 @@ string material_timepicker_minute
 string material_timepicker_pm
 string material_timepicker_select_time
 string material_timepicker_text_input_mode_description
+string menu_Back
 string menu_addHikingtrail
 string menu_cancelHikingtrail
 string menu_deleteHikingtrail
@@ -3800,6 +3794,7 @@ string second_fragment_label
 string select_hikingtrail_image
 string selected_item
 string status_bar_notification_info_overflow
+string title_about
 string title_activity_hikingtrail_maps
 string title_activity_login
 string title_activity_map

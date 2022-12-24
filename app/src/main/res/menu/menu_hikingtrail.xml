@@ -15,5 +15,4 @@
         android:title="@string/menu_cancelHikingtrail"
         app:showAsAction="always"/>
 
-   
 </menu>
