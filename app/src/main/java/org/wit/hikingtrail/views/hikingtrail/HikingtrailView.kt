@@ -255,4 +255,7 @@ class HikingtrailView : AppCompatActivity() {
 
 
 
+
+
+
 }

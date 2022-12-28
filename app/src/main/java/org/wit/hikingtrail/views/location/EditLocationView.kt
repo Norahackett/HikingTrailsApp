@@ -2,8 +2,11 @@ package org.wit.hikingtrail.views.location
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.Marker
+import org.wit.hikingtrail.R
 import org.wit.hikingtrail.models.Location
 import org.wit.hikingtrail.databinding.ActivityMapBinding
 
@@ -29,6 +32,22 @@ class EditLocationView : AppCompatActivity(),
             it.setOnMarkerClickListener(this)
             presenter.initMap(it)
         }
+    }
+
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_back, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.back -> {
+                presenter.doCancel()
+            }
+
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onMarkerDragStart(marker: Marker) {

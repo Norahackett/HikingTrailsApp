@@ -48,4 +48,8 @@ class EditLocationPresenter (val view: EditLocationView) {
         marker.snippet = "GPS : $loc"
 
     }
+
+    fun doCancel() {
+        view.finish()
+    }
 }

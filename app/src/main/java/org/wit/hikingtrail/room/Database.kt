@@ -6,7 +6,7 @@ import androidx.room.TypeConverters
 import org.wit.hikingtrail.helpers.Converters
 import org.wit.hikingtrail.models.HikingtrailModel
 
-@Database(entities = [HikingtrailModel::class], version = 2,  exportSchema = false)
+@Database(entities = [HikingtrailModel::class], version = 3,  exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class Database : RoomDatabase() {
     abstract fun hikingtrailDao(): HikingtrailDao

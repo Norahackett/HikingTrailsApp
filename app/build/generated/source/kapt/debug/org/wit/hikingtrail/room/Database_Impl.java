@@ -34,7 +34,7 @@ public final class Database_Impl extends Database {
 
   @Override
   protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration configuration) {
-    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(2) {
+    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(3) {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
         _db.execSQL("CREATE TABLE IF NOT EXISTS `HikingtrailModel` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `fbId` TEXT NOT NULL, `title` TEXT NOT NULL, `description` TEXT NOT NULL, `difficulty` TEXT NOT NULL, `rating` TEXT NOT NULL, `date` TEXT NOT NULL, `image` TEXT NOT NULL, `lat` REAL NOT NULL, `lng` REAL NOT NULL, `zoom` REAL NOT NULL)");
