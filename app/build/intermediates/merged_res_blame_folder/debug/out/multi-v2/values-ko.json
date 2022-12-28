@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "org.wit.hikingtrail.app-mergeDebugResources-53:/values-ko/values-ko.xml",
+            "outputFile": "org.wit.hikingtrail.app-mergeDebugResources-54:/values-ko/values-ko.xml",
             "map": [
                 {
                     "source": "C:\\Users\\norah\\.gradle\\caches\\transforms-3\\2b763ecc77580436425b323020bf8092\\transformed\\material-1.7.0\\res\\values-ko\\values-ko.xml",

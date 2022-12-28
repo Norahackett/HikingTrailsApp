@@ -25,6 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="wrap_content"
@@ -65,7 +66,7 @@
                 android:id="@+id/currentDifficulty"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="64dp"
+                android:layout_marginTop="108dp"
                 android:layout_marginEnd="100dp"
                 android:text="@string/hikingtrail_difficulty_placeholder"
                 app:layout_constraintEnd_toStartOf="@+id/imageView2"

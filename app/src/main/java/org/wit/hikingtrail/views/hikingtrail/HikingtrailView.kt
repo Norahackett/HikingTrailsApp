@@ -1,6 +1,7 @@
 package org.wit.hikingtrail.views.hikingtrail
 
 
+import android.icu.util.Calendar
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -29,10 +30,9 @@ class HikingtrailView : AppCompatActivity() {
     private lateinit var presenter: HikingtrailPresenter
     lateinit var map: GoogleMap
     var hikingtrail = HikingtrailModel()
-    lateinit var hikeDifficulty: RadioGroup
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val difficulty = resources.getStringArray(R.array.Difficulty)
         binding = ActivityHikingtrailBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.toolbarAdd.title = title
@@ -40,41 +40,37 @@ class HikingtrailView : AppCompatActivity() {
 
         presenter = HikingtrailPresenter(this)
 
-        hikeDifficulty = findViewById(R.id.hikeDifficulty)
 
-        hikeDifficulty.setOnCheckedChangeListener { group, checkedId ->
+        //binding.hikeDifficulty.setOnCheckedChangeListener { group, checkedId ->
 
             // on below line we are getting radio button from our group.
-            val radioButton = findViewById<RadioButton>(checkedId)
+        //    val radioButton = findViewById<RadioButton>(checkedId)
 
-            // on below line we are displaying a toast message.
-            Toast.makeText(
-                this@HikingtrailView,
-                "Selected Radio Button is : " + radioButton.text,
-                Toast.LENGTH_SHORT
-            ).show()
+         //  // on below line we are displaying a toast message.
+          // Toast.makeText(
+           //     this@HikingtrailView,
+             //   "Selected Radio Button is : " + radioButton.text,
+               // Toast.LENGTH_SHORT
+            //).show()
+        //}
+
+       val datePicker = binding.datePicker
+       val today = Calendar.getInstance()
+
+
+        datePicker.init(
+            today.get(Calendar.YEAR), today.get(Calendar.MONTH),
+            today.get(Calendar.DAY_OF_MONTH)
+
+        ) { view, year, month, day ->
+            val month = month + 1
+            binding.dateView.setText("$day/$month/$year")
+            val msg = "You Selected: $day/$month/$year"
+            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
         }
 
 
-
-
-
-        binding.chooseImage.setOnClickListener {
-            presenter.cacheHikingtrail(binding.hikingtrailTitle.text.toString(), binding.description.text.toString(), binding.difficulty.text.toString(), binding.rating.text.toString())
-            presenter.doSelectImage()
-        }
-
-        binding.mapView2.setOnClickListener {
-            presenter.cacheHikingtrail(binding.hikingtrailTitle.text.toString(), binding.description.text.toString(), binding.difficulty.text.toString(), binding.rating.text.toString())
-            presenter.doSetLocation()
-        }
-
-        binding.mapView2.onCreate(savedInstanceState);
-        binding.mapView2.getMapAsync {
-            map = it
-            presenter.doConfigureMap(map)
-            it.setOnMapClickListener { presenter.doSetLocation() }
-        }
+        val difficulty = resources.getStringArray(R.array.Difficulty)
 
         if (binding.spinner != null) {
             val adapter = ArrayAdapter(
@@ -82,7 +78,8 @@ class HikingtrailView : AppCompatActivity() {
                 android.R.layout.simple_spinner_item, difficulty
 
             )
-            //binding.spinner.adapter = adapter
+
+            binding.spinner.adapter = adapter
 
 
             binding.spinner.onItemSelectedListener = object :
@@ -103,11 +100,55 @@ class HikingtrailView : AppCompatActivity() {
                     }
 
                 }
+
                 override fun onNothingSelected(parent: AdapterView<*>) {
 
                 }
             }
         }
+
+
+       // presenter = HikingtrailPresenter(this)
+
+       // hikeDifficulty = findViewById(R.id.hikeDifficulty)
+
+
+
+       // hikeDifficulty.setOnCheckedChangeListener { group, checkedId ->
+
+            // on below line we are getting radio button from our group.
+         //   val radioButton = findViewById<RadioButton>(checkedId)
+
+            // on below line we are displaying a toast message.
+          // Toast.makeText(
+            //    this@HikingtrailView,
+         //      "Selected Radio Button is : " + radioButton.text,
+           //     Toast.LENGTH_SHORT
+         //   ).show()
+
+
+        //}
+
+
+
+        binding.chooseImage.setOnClickListener {
+            presenter.cacheHikingtrail(binding.hikingtrailTitle.text.toString(), binding.description.text.toString(), binding.difficulty.text.toString(), binding.rating.text.toString(),binding.dateView.text.toString())
+            presenter.doSelectImage()
+        }
+
+        binding.mapView2.setOnClickListener {
+            presenter.cacheHikingtrail(binding.hikingtrailTitle.text.toString(), binding.description.text.toString(), binding.difficulty.text.toString(), binding.rating.text.toString(),  binding.dateView.text.toString())
+            presenter.doSetLocation()
+        }
+
+        binding.mapView2.onCreate(savedInstanceState);
+        binding.mapView2.getMapAsync {
+            map = it
+            presenter.doConfigureMap(map)
+            it.setOnMapClickListener { presenter.doSetLocation() }
+        }
+
+
     }
 
 
@@ -138,6 +179,8 @@ class HikingtrailView : AppCompatActivity() {
                             binding.description.text.toString(),
                             binding.difficulty.text.toString(),
                             binding.rBar.rating.toString(),
+                            binding.dateView.text.toString()
+
                         )
                     }
                 }
@@ -160,6 +203,8 @@ class HikingtrailView : AppCompatActivity() {
         if (binding.description.text.isEmpty())  binding.description.setText(hikingtrail.description)
         if (binding.difficulty.text.isEmpty())  binding.difficulty.setText(hikingtrail.difficulty)
         if (binding.rating.text.isEmpty())  binding.rating.setText(hikingtrail.rating)
+        if (binding.dateView.text.isEmpty())  binding.dateView.setText(hikingtrail.date)
+
         if (hikingtrail.image != "") {
             Picasso.get()
                 .load(hikingtrail.image)

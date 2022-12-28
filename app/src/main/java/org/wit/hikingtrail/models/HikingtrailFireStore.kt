@@ -44,6 +44,8 @@ class HikingtrailFireStore(val context: Context) : HikingtrailStore {
             foundHikingtrail.rating = hikingtrail.rating
             foundHikingtrail.image = hikingtrail.image
             foundHikingtrail.location = hikingtrail.location
+            foundHikingtrail.date = hikingtrail.date
+
         }
 
         db.child("users").child(userId).child("hikingtrails").child(hikingtrail.fbId).setValue(hikingtrail)

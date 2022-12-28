@@ -1,8 +1,12 @@
 package org.wit.hikingtrail.views.login
 import android.content.Intent
+import android.provider.Settings.Global.getString
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatDelegate
 import com.google.firebase.auth.FirebaseAuth
+import org.wit.hikingtrail.R
 import org.wit.hikingtrail.main.MainApp
 import org.wit.hikingtrail.models.HikingtrailFireStore
 import org.wit.hikingtrail.views.hikingtraillist.HikingtrailListView
@@ -49,16 +53,16 @@ class LoginPresenter (val view: LoginView) {
     }
 
     fun doSignUp(email: String, password: String) {
-       view.showProgress()
-       auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(view) { task ->
+        view.showProgress()
+        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(view) { task ->
             if (task.isSuccessful) {
-               fireStore!!.fetchHikingtrails {
-                   view?.hideProgress()
-                   val launcherIntent = Intent(view, HikingtrailListView::class.java)
+                fireStore!!.fetchHikingtrails {
+                    view?.hideProgress()
+                    val launcherIntent = Intent(view, HikingtrailListView::class.java)
                     loginIntentLauncher.launch(launcherIntent)
                 }
-           } else {
-               view.showSnackBar("Login failed: ${task.exception?.message}")
+            } else {
+                view.showSnackBar("Login failed: ${task.exception?.message}")
             }
             view.hideProgress()
         }
@@ -70,3 +74,6 @@ class LoginPresenter (val view: LoginView) {
             { }
     }
 }
+
+
+

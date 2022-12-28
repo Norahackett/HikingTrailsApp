@@ -1,6 +1,8 @@
 package org.wit.hikingtrail.views.map
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.Marker
@@ -8,6 +10,7 @@ import com.squareup.picasso.Picasso
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import org.wit.hikingtrail.R
 import org.wit.hikingtrail.databinding.ActivityHikingtrailMapsBinding
 import org.wit.hikingtrail.databinding.ContentHikingtrailMapsBinding
 import org.wit.hikingtrail.main.MainApp
@@ -37,6 +40,21 @@ class HikingtrailMapView : AppCompatActivity() , GoogleMap.OnMarkerClickListener
                 presenter.doPopulateMap(it)
             }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_back, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.back -> {
+                presenter.doCancel()
+            }
+
+        }
+        return super.onOptionsItemSelected(item)
     }
     override fun onMarkerClick(marker: Marker): Boolean {
         GlobalScope.launch(Dispatchers.Main) {
@@ -77,6 +95,9 @@ class HikingtrailMapView : AppCompatActivity() , GoogleMap.OnMarkerClickListener
         super.onSaveInstanceState(outState)
         contentBinding.mapView.onSaveInstanceState(outState)
     }
+
+
+
 
 
 }

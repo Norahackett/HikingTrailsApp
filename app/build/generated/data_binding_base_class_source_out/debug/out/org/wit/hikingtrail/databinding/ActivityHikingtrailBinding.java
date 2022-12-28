@@ -5,10 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.RatingBar;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -30,28 +29,22 @@ public final class ActivityHikingtrailBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final RadioButton Easy;
-
-  @NonNull
-  public final RadioButton Moderate;
-
-  @NonNull
   public final AppBarLayout appBarLayout;
 
   @NonNull
   public final Button chooseImage;
 
   @NonNull
+  public final DatePicker datePicker;
+
+  @NonNull
+  public final TextView dateView;
+
+  @NonNull
   public final EditText description;
 
   @NonNull
-  public final RadioButton diffculty;
-
-  @NonNull
   public final EditText difficulty;
-
-  @NonNull
-  public final RadioGroup hikeDifficulty;
 
   @NonNull
   public final ImageView hikingtrailImage;
@@ -72,7 +65,7 @@ public final class ActivityHikingtrailBinding implements ViewBinding {
   public final RatingBar rBar;
 
   @NonNull
-  public final EditText rating;
+  public final TextView rating;
 
   @NonNull
   public final Spinner spinner;
@@ -83,23 +76,20 @@ public final class ActivityHikingtrailBinding implements ViewBinding {
   @NonNull
   public final Toolbar toolbarAdd;
 
-  private ActivityHikingtrailBinding(@NonNull ConstraintLayout rootView, @NonNull RadioButton Easy,
-      @NonNull RadioButton Moderate, @NonNull AppBarLayout appBarLayout,
-      @NonNull Button chooseImage, @NonNull EditText description, @NonNull RadioButton diffculty,
-      @NonNull EditText difficulty, @NonNull RadioGroup hikeDifficulty,
-      @NonNull ImageView hikingtrailImage, @NonNull EditText hikingtrailTitle,
-      @NonNull TextView lat, @NonNull TextView lng, @NonNull MapView mapView2,
-      @NonNull RatingBar rBar, @NonNull EditText rating, @NonNull Spinner spinner,
-      @NonNull TextView textView, @NonNull Toolbar toolbarAdd) {
+  private ActivityHikingtrailBinding(@NonNull ConstraintLayout rootView,
+      @NonNull AppBarLayout appBarLayout, @NonNull Button chooseImage,
+      @NonNull DatePicker datePicker, @NonNull TextView dateView, @NonNull EditText description,
+      @NonNull EditText difficulty, @NonNull ImageView hikingtrailImage,
+      @NonNull EditText hikingtrailTitle, @NonNull TextView lat, @NonNull TextView lng,
+      @NonNull MapView mapView2, @NonNull RatingBar rBar, @NonNull TextView rating,
+      @NonNull Spinner spinner, @NonNull TextView textView, @NonNull Toolbar toolbarAdd) {
     this.rootView = rootView;
-    this.Easy = Easy;
-    this.Moderate = Moderate;
     this.appBarLayout = appBarLayout;
     this.chooseImage = chooseImage;
+    this.datePicker = datePicker;
+    this.dateView = dateView;
     this.description = description;
-    this.diffculty = diffculty;
     this.difficulty = difficulty;
-    this.hikeDifficulty = hikeDifficulty;
     this.hikingtrailImage = hikingtrailImage;
     this.hikingtrailTitle = hikingtrailTitle;
     this.lat = lat;
@@ -139,18 +129,6 @@ public final class ActivityHikingtrailBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.Easy;
-      RadioButton Easy = ViewBindings.findChildViewById(rootView, id);
-      if (Easy == null) {
-        break missingId;
-      }
-
-      id = R.id.Moderate;
-      RadioButton Moderate = ViewBindings.findChildViewById(rootView, id);
-      if (Moderate == null) {
-        break missingId;
-      }
-
       id = R.id.appBarLayout;
       AppBarLayout appBarLayout = ViewBindings.findChildViewById(rootView, id);
       if (appBarLayout == null) {
@@ -163,27 +141,27 @@ public final class ActivityHikingtrailBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.datePicker;
+      DatePicker datePicker = ViewBindings.findChildViewById(rootView, id);
+      if (datePicker == null) {
+        break missingId;
+      }
+
+      id = R.id.dateView;
+      TextView dateView = ViewBindings.findChildViewById(rootView, id);
+      if (dateView == null) {
+        break missingId;
+      }
+
       id = R.id.description;
       EditText description = ViewBindings.findChildViewById(rootView, id);
       if (description == null) {
         break missingId;
       }
 
-      id = R.id.diffculty;
-      RadioButton diffculty = ViewBindings.findChildViewById(rootView, id);
-      if (diffculty == null) {
-        break missingId;
-      }
-
       id = R.id.difficulty;
       EditText difficulty = ViewBindings.findChildViewById(rootView, id);
       if (difficulty == null) {
-        break missingId;
-      }
-
-      id = R.id.hikeDifficulty;
-      RadioGroup hikeDifficulty = ViewBindings.findChildViewById(rootView, id);
-      if (hikeDifficulty == null) {
         break missingId;
       }
 
@@ -224,7 +202,7 @@ public final class ActivityHikingtrailBinding implements ViewBinding {
       }
 
       id = R.id.rating;
-      EditText rating = ViewBindings.findChildViewById(rootView, id);
+      TextView rating = ViewBindings.findChildViewById(rootView, id);
       if (rating == null) {
         break missingId;
       }
@@ -247,10 +225,9 @@ public final class ActivityHikingtrailBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityHikingtrailBinding((ConstraintLayout) rootView, Easy, Moderate,
-          appBarLayout, chooseImage, description, diffculty, difficulty, hikeDifficulty,
-          hikingtrailImage, hikingtrailTitle, lat, lng, mapView2, rBar, rating, spinner, textView,
-          toolbarAdd);
+      return new ActivityHikingtrailBinding((ConstraintLayout) rootView, appBarLayout, chooseImage,
+          datePicker, dateView, description, difficulty, hikingtrailImage, hikingtrailTitle, lat,
+          lng, mapView2, rBar, rating, spinner, textView, toolbarAdd);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

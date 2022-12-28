@@ -4,8 +4,8 @@ package org.wit.hikingtrail.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageView;
-import android.widget.RatingBar;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -32,6 +32,12 @@ public final class CardHikingtrailBinding implements ViewBinding {
   public final TextView difficulty;
 
   @NonNull
+  public final ImageView favCard;
+
+  @NonNull
+  public final CheckBox favIcon;
+
+  @NonNull
   public final TextView hikingtrailTitle;
 
   @NonNull
@@ -41,23 +47,21 @@ public final class CardHikingtrailBinding implements ViewBinding {
   public final TextView rating;
 
   @NonNull
-  public final RatingBar ratingBarCard;
-
-  @NonNull
   public final ConstraintLayout relativeLayout;
 
   private CardHikingtrailBinding(@NonNull CardView rootView, @NonNull TextView date,
-      @NonNull TextView description, @NonNull TextView difficulty,
-      @NonNull TextView hikingtrailTitle, @NonNull ImageView imageIcon, @NonNull TextView rating,
-      @NonNull RatingBar ratingBarCard, @NonNull ConstraintLayout relativeLayout) {
+      @NonNull TextView description, @NonNull TextView difficulty, @NonNull ImageView favCard,
+      @NonNull CheckBox favIcon, @NonNull TextView hikingtrailTitle, @NonNull ImageView imageIcon,
+      @NonNull TextView rating, @NonNull ConstraintLayout relativeLayout) {
     this.rootView = rootView;
     this.date = date;
     this.description = description;
     this.difficulty = difficulty;
+    this.favCard = favCard;
+    this.favIcon = favIcon;
     this.hikingtrailTitle = hikingtrailTitle;
     this.imageIcon = imageIcon;
     this.rating = rating;
-    this.ratingBarCard = ratingBarCard;
     this.relativeLayout = relativeLayout;
   }
 
@@ -106,6 +110,18 @@ public final class CardHikingtrailBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.favCard;
+      ImageView favCard = ViewBindings.findChildViewById(rootView, id);
+      if (favCard == null) {
+        break missingId;
+      }
+
+      id = R.id.favIcon;
+      CheckBox favIcon = ViewBindings.findChildViewById(rootView, id);
+      if (favIcon == null) {
+        break missingId;
+      }
+
       id = R.id.hikingtrailTitle;
       TextView hikingtrailTitle = ViewBindings.findChildViewById(rootView, id);
       if (hikingtrailTitle == null) {
@@ -124,20 +140,14 @@ public final class CardHikingtrailBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.ratingBarCard;
-      RatingBar ratingBarCard = ViewBindings.findChildViewById(rootView, id);
-      if (ratingBarCard == null) {
-        break missingId;
-      }
-
       id = R.id.relativeLayout;
       ConstraintLayout relativeLayout = ViewBindings.findChildViewById(rootView, id);
       if (relativeLayout == null) {
         break missingId;
       }
 
-      return new CardHikingtrailBinding((CardView) rootView, date, description, difficulty,
-          hikingtrailTitle, imageIcon, rating, ratingBarCard, relativeLayout);
+      return new CardHikingtrailBinding((CardView) rootView, date, description, difficulty, favCard,
+          favIcon, hikingtrailTitle, imageIcon, rating, relativeLayout);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

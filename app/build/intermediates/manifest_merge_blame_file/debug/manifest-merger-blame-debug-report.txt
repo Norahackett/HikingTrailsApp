@@ -53,7 +53,7 @@
 32-->[androidx.core:core:1.9.0] C:\Users\norah\.gradle\caches\transforms-3\5f472065f8857926e0f73dc532dcb2ac\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
 33
 34    <application
-34-->C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:8:5-67:19
+34-->C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:8:5-69:19
 35        android:name="org.wit.hikingtrail.main.MainApp"
 35-->C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:9:9-37
 36        android:allowBackup="true"
@@ -113,44 +113,44 @@
 66            android:label="@string/title_activity_map" />
 66-->C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:38:13-55
 67        <activity
-67-->C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:40:9-44:16
+67-->C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:40:9-49:16
 68            android:name="org.wit.hikingtrail.activities.SplashScreen"
 68-->C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:41:13-52
 69            android:exported="true" >
 69-->C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:42:13-36
-70        </activity>
-71        <activity
-71-->C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:46:9-55:20
-72            android:name="org.wit.hikingtrail.views.about.AboutView"
-72-->C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:47:13-50
-73            android:exported="true"
-73-->C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:49:13-36
-74            android:label="@string/title_about"
-74-->C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:48:13-48
-75            android:launchMode="singleTop" >
-75-->C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:50:13-43
-76>
-77        </activity>
-78        <activity
-78-->C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:56:9-64:20
-79            android:name="org.wit.hikingtrail.views.hikingtraillist.HikingtrailListView"
-79-->C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:57:13-70
-80            android:exported="true" >
-80-->C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:58:13-36
-81            <intent-filter>
-81-->C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:59:9-62:25
-82                <action android:name="android.intent.action.MAIN" />
-82-->C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:60:13-65
-82-->C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:60:21-62
-83
-84                <category android:name="android.intent.category.LAUNCHER" />
-84-->C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:61:13-73
-84-->C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:61:23-70
-85            </intent-filter>
+70            <intent-filter>
+70-->C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:44:13-47:29
+71                <action android:name="android.intent.action.MAIN" />
+71-->C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:45:17-69
+71-->C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:45:25-66
+72
+73                <category android:name="android.intent.category.LAUNCHER" />
+73-->C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:46:17-77
+73-->C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:46:27-74
+74            </intent-filter>
+75        </activity>
+76        <activity
+76-->C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:51:9-60:20
+77            android:name="org.wit.hikingtrail.views.about.AboutView"
+77-->C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:52:13-50
+78            android:exported="true"
+78-->C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:54:13-36
+79            android:label="@string/title_about"
+79-->C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:53:13-48
+80            android:launchMode="singleTop" >
+80-->C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:55:13-43
+81>
+82        </activity>
+83        <activity
+83-->C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:61:9-66:20
+84            android:name="org.wit.hikingtrail.views.hikingtraillist.HikingtrailListView"
+84-->C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:62:13-70
+85            android:exported="true" >
+85-->C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:63:13-36
 86        </activity>
 87        <activity android:name="org.wit.hikingtrail.views.hikingtrail.HikingtrailView" />
-87-->C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:65:9-71
-87-->C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:65:19-68
+87-->C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:67:9-71
+87-->C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:67:19-68
 88
 89        <!-- Needs to be explicitly declared on P+ -->
 90        <uses-library

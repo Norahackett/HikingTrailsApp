@@ -33,6 +33,8 @@ class HikingtrailMemStore : HikingtrailStore {
             foundHikingtrail.rating = hikingtrail.rating
             foundHikingtrail.image = hikingtrail.image
             foundHikingtrail.location = hikingtrail.location
+            foundHikingtrail.date = hikingtrail.date
+
             logAll()
         }
     }

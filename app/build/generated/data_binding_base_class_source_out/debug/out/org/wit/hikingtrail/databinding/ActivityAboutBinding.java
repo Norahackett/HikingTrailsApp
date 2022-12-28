@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
@@ -22,6 +23,9 @@ public final class ActivityAboutBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
+  public final TextView aboutText;
+
+  @NonNull
   public final AppBarLayout appBarLayout;
 
   @NonNull
@@ -30,10 +34,11 @@ public final class ActivityAboutBinding implements ViewBinding {
   @NonNull
   public final Toolbar toolbarAdd;
 
-  private ActivityAboutBinding(@NonNull ConstraintLayout rootView,
+  private ActivityAboutBinding(@NonNull ConstraintLayout rootView, @NonNull TextView aboutText,
       @NonNull AppBarLayout appBarLayout, @NonNull ImageView imageView3,
       @NonNull Toolbar toolbarAdd) {
     this.rootView = rootView;
+    this.aboutText = aboutText;
     this.appBarLayout = appBarLayout;
     this.imageView3 = imageView3;
     this.toolbarAdd = toolbarAdd;
@@ -66,6 +71,12 @@ public final class ActivityAboutBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.aboutText;
+      TextView aboutText = ViewBindings.findChildViewById(rootView, id);
+      if (aboutText == null) {
+        break missingId;
+      }
+
       id = R.id.appBarLayout;
       AppBarLayout appBarLayout = ViewBindings.findChildViewById(rootView, id);
       if (appBarLayout == null) {
@@ -84,8 +95,8 @@ public final class ActivityAboutBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityAboutBinding((ConstraintLayout) rootView, appBarLayout, imageView3,
-          toolbarAdd);
+      return new ActivityAboutBinding((ConstraintLayout) rootView, aboutText, appBarLayout,
+          imageView3, toolbarAdd);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

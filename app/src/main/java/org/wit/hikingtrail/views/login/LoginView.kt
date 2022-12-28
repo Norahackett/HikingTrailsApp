@@ -21,6 +21,7 @@ class LoginView : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         //setContentView(R.layout.activity_login)
+        setSupportActionBar(binding.toolbar)
 
 
         binding.progressBar.visibility = View.GONE
@@ -35,6 +36,8 @@ class LoginView : AppCompatActivity() {
             }
         }
 
+
+
         binding.logIn.setOnClickListener {
             val email = binding.email.text.toString()
             val password = binding.password.text.toString()
@@ -44,8 +47,7 @@ class LoginView : AppCompatActivity() {
                 presenter.doLogin(email, password)
             }
         }
-
-
+        binding.btnChangeTheme.setOnClickListener { chooseThemeDialog()}
     }
 
     fun showSnackBar(message: CharSequence) {

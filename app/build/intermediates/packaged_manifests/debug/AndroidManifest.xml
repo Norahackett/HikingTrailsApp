@@ -67,6 +67,11 @@
         <activity
             android:name="org.wit.hikingtrail.activities.SplashScreen"
             android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name="org.wit.hikingtrail.views.about.AboutView"
@@ -78,11 +83,6 @@
         <activity
             android:name="org.wit.hikingtrail.views.hikingtraillist.HikingtrailListView"
             android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name="org.wit.hikingtrail.views.hikingtrail.HikingtrailView" />
 

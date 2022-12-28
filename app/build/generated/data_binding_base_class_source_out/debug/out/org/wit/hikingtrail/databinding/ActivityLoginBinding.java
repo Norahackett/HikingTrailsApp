@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -28,7 +29,13 @@ public final class ActivityLoginBinding implements ViewBinding {
   public final AppBarLayout appBarLayout;
 
   @NonNull
+  public final Button btnChangeTheme;
+
+  @NonNull
   public final EditText email;
+
+  @NonNull
+  public final ImageView icon;
 
   @NonNull
   public final Button logIn;
@@ -52,12 +59,15 @@ public final class ActivityLoginBinding implements ViewBinding {
   public final Toolbar toolbar;
 
   private ActivityLoginBinding(@NonNull ConstraintLayout rootView,
-      @NonNull AppBarLayout appBarLayout, @NonNull EditText email, @NonNull Button logIn,
-      @NonNull EditText password, @NonNull ProgressBar progressBar, @NonNull Button signUp,
-      @NonNull TextView textView, @NonNull TextView textView2, @NonNull Toolbar toolbar) {
+      @NonNull AppBarLayout appBarLayout, @NonNull Button btnChangeTheme, @NonNull EditText email,
+      @NonNull ImageView icon, @NonNull Button logIn, @NonNull EditText password,
+      @NonNull ProgressBar progressBar, @NonNull Button signUp, @NonNull TextView textView,
+      @NonNull TextView textView2, @NonNull Toolbar toolbar) {
     this.rootView = rootView;
     this.appBarLayout = appBarLayout;
+    this.btnChangeTheme = btnChangeTheme;
     this.email = email;
+    this.icon = icon;
     this.logIn = logIn;
     this.password = password;
     this.progressBar = progressBar;
@@ -100,9 +110,21 @@ public final class ActivityLoginBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.btn_change_theme;
+      Button btnChangeTheme = ViewBindings.findChildViewById(rootView, id);
+      if (btnChangeTheme == null) {
+        break missingId;
+      }
+
       id = R.id.email;
       EditText email = ViewBindings.findChildViewById(rootView, id);
       if (email == null) {
+        break missingId;
+      }
+
+      id = R.id.icon;
+      ImageView icon = ViewBindings.findChildViewById(rootView, id);
+      if (icon == null) {
         break missingId;
       }
 
@@ -148,8 +170,8 @@ public final class ActivityLoginBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityLoginBinding((ConstraintLayout) rootView, appBarLayout, email, logIn,
-          password, progressBar, signUp, textView, textView2, toolbar);
+      return new ActivityLoginBinding((ConstraintLayout) rootView, appBarLayout, btnChangeTheme,
+          email, icon, logIn, password, progressBar, signUp, textView, textView2, toolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

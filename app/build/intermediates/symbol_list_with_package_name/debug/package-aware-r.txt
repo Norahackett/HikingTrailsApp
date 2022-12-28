@@ -184,6 +184,7 @@ attr borderRoundPercent
 attr borderWidth
 attr borderlessButtonStyle
 attr bottomAppBarStyle
+attr bottomEdgeSwipeOffset
 attr bottomInsetScrimEnabled
 attr bottomNavigationStyle
 attr bottomSheetDialogTheme
@@ -291,6 +292,7 @@ attr circularflow_viewCenter
 attr clearTop
 attr clearsTag
 attr clickAction
+attr clickToClose
 attr clockFaceBackgroundColor
 attr clockHandColor
 attr clockIcon
@@ -442,6 +444,7 @@ attr dividerVertical
 attr dragDirection
 attr dragScale
 attr dragThreshold
+attr drag_edge
 attr drawPath
 attr drawableBottomCompat
 attr drawableEndCompat
@@ -745,6 +748,7 @@ attr layout_scrollEffect
 attr layout_scrollFlags
 attr layout_scrollInterpolator
 attr layout_wrapBehaviorInParent
+attr leftEdgeSwipeOffset
 attr liftOnScroll
 attr liftOnScrollTargetViewId
 attr limitBoundsTo
@@ -984,6 +988,7 @@ attr region_widthMoreThan
 attr removeEmbeddedFabElevation
 attr restoreState
 attr reverseLayout
+attr rightEdgeSwipeOffset
 attr rippleColor
 attr rotationCenterId
 attr round
@@ -1026,6 +1031,7 @@ attr showMotionSpec
 attr showPaths
 attr showText
 attr showTitle
+attr show_mode
 attr shrinkMotionSpec
 attr simpleItemLayout
 attr simpleItemSelectedColor
@@ -1239,6 +1245,7 @@ attr tooltipForegroundColor
 attr tooltipFrameBackground
 attr tooltipStyle
 attr tooltipText
+attr topEdgeSwipeOffset
 attr topInsetScrimEnabled
 attr touchAnchorId
 attr touchAnchorSide
@@ -2094,6 +2101,7 @@ dimen fab_margin
 dimen fastscroll_default_thickness
 dimen fastscroll_margin
 dimen fastscroll_minimum_range
+dimen field_width_standard
 dimen highlight_alpha_material_colored
 dimen highlight_alpha_material_dark
 dimen highlight_alpha_material_light
@@ -2101,6 +2109,8 @@ dimen hint_alpha_material_dark
 dimen hint_alpha_material_light
 dimen hint_pressed_alpha_material_dark
 dimen hint_pressed_alpha_material_light
+dimen icon_bottom_margin
+dimen icon_top_margin
 dimen item_touch_helper_max_drag_scroll_per_frame
 dimen item_touch_helper_swipe_escape_max_velocity
 dimen item_touch_helper_swipe_escape_velocity
@@ -2561,6 +2571,7 @@ dimen notification_subtext_size
 dimen notification_top_pad
 dimen notification_top_pad_large_text
 dimen sliding_pane_detail_pane_width
+dimen title_bottom_margin
 dimen tooltip_corner_radius
 dimen tooltip_horizontal_padding
 dimen tooltip_margin
@@ -2687,8 +2698,17 @@ drawable googleg_standard_color_18
 drawable hiker
 drawable hiker2
 drawable ic_add_icon
+drawable ic_back
+drawable ic_back_background
 drawable ic_baseline_home_24
 drawable ic_clock_black_24dp
+drawable ic_fav_background
+drawable ic_fav_off
+drawable ic_fav_off_background
+drawable ic_fav_off_foreground
+drawable ic_fav_on
+drawable ic_go_back_background
+drawable ic_go_back_foreground
 drawable ic_home_background
 drawable ic_home_foreground
 drawable ic_keyboard_black_24dp
@@ -2698,15 +2718,12 @@ drawable ic_login
 drawable ic_m3_chip_check
 drawable ic_m3_chip_checked_circle
 drawable ic_m3_chip_close
-drawable ic_menu_aboutus
-drawable ic_menu_donate
 drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_person
 drawable ic_person_background
-drawable ic_setting
 drawable ic_swipe_delete
 drawable ic_swipe_edit
 drawable m3_appbar_background
@@ -2778,7 +2795,6 @@ drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable progress_bg
-drawable side_nav_bar
 drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -2786,11 +2802,9 @@ id ALT
 id BOTTOM_END
 id BOTTOM_START
 id CTRL
-id Easy
 id FUNCTION
 id FirstFragment
 id META
-id Moderate
 id NO_DEBUG
 id SHIFT
 id SHOW_ALL
@@ -2803,6 +2817,7 @@ id TOP_END
 id TOP_START
 id about
 id aboutFragment
+id aboutText
 id accelerate
 id accessibility_action_clickable_span
 id accessibility_custom_action_0
@@ -2901,6 +2916,7 @@ id browser_actions_menu_item_icon
 id browser_actions_menu_item_text
 id browser_actions_menu_items
 id browser_actions_menu_view
+id btn_change_theme
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -2947,6 +2963,8 @@ id customPanel
 id cut
 id dark
 id date
+id datePicker
+id dateView
 id date_picker_actions
 id decelerate
 id decelerateAndComplete
@@ -2961,7 +2979,6 @@ id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
 id dialog_button
-id diffculty
 id difficulty
 id dimensions
 id direct
@@ -2995,6 +3012,8 @@ id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
 id fade
+id favCard
+id favIcon
 id fill
 id fill_horizontal
 id fill_vertical
@@ -3022,7 +3041,6 @@ id groups
 id guideline
 id header_title
 id hideable
-id hikeDifficulty
 id hikingtrailImage
 id hikingtrailTitle
 id home
@@ -3061,6 +3079,7 @@ id jumpToEnd
 id jumpToStart
 id labeled
 id lat
+id lay_down
 id layout
 id left
 id leftToRight
@@ -3176,7 +3195,6 @@ id path
 id pathRelative
 id peekHeight
 id percent
-id person
 id pin
 id position
 id postLayout
@@ -3184,10 +3202,10 @@ id pressed
 id progressBar
 id progress_circular
 id progress_horizontal
+id pull_out
 id rBar
 id radio
 id rating
-id ratingBarCard
 id ratio
 id rectangles
 id recyclerView
@@ -3558,6 +3576,8 @@ menu men_edit_location
 menu menu_back
 menu menu_hikingtrail
 menu menu_main
+mipmap ic_go_back
+mipmap ic_go_back_round
 mipmap ic_home
 mipmap ic_home_round
 mipmap ic_launcher
@@ -3599,6 +3619,7 @@ string action_home
 string action_report
 string action_send
 string action_share
+string add_map_location
 string androidx_startup
 string app_name
 string appbar_scrolling_view_behavior
@@ -3637,6 +3658,7 @@ string common_signin_button_text
 string common_signin_button_text_long
 string copy_toast_msg
 string default_web_client_id
+string desc_firebase_lockup
 string diffculty
 string easy
 string enter_hikingtrail_title
@@ -3805,6 +3827,7 @@ style Animation_AppCompat_DropDownUp
 style Animation_AppCompat_Tooltip
 style Animation_Design_BottomSheetDialog
 style Animation_MaterialComponents_BottomSheetDialog
+style AppTheme
 style Base_AlertDialog_AppCompat
 style Base_AlertDialog_AppCompat_Light
 style Base_Animation_AppCompat_Dialog
@@ -4396,6 +4419,7 @@ style ThemeOverlay_AppCompat_Dialog
 style ThemeOverlay_AppCompat_Dialog_Alert
 style ThemeOverlay_AppCompat_Light
 style ThemeOverlay_Design_TextInputEditText
+style ThemeOverlay_FirebaseIcon
 style ThemeOverlay_Material3
 style ThemeOverlay_Material3_ActionBar
 style ThemeOverlay_Material3_AutoCompleteTextView
@@ -5002,6 +5026,7 @@ styleable State android_id constraints
 styleable StateListDrawable android_dither android_visible android_variablePadding android_constantSize android_enterFadeDuration android_exitFadeDuration
 styleable StateListDrawableItem android_drawable
 styleable StateSet defaultState
+styleable SwipeLayout bottomEdgeSwipeOffset clickToClose drag_edge leftEdgeSwipeOffset rightEdgeSwipeOffset show_mode topEdgeSwipeOffset
 styleable SwitchCompat android_textOn android_textOff android_thumb showText splitTrack switchMinWidth switchPadding switchTextAppearance thumbTextPadding thumbTint thumbTintMode track trackTint trackTintMode
 styleable SwitchMaterial useMaterialThemeColors
 styleable TabItem android_icon android_layout android_text

@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:2:1-69:12
-INJECTED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:2:1-69:12
-INJECTED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:2:1-69:12
-INJECTED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:2:1-69:12
+ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:2:1-71:12
+INJECTED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:2:1-71:12
+INJECTED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:2:1-71:12
+INJECTED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:2:1-71:12
 MERGED from [androidx.databinding:viewbinding:7.2.2] C:\Users\norah\.gradle\caches\transforms-3\703aab7c83ddaa18716b4679f0addc3e\transformed\jetified-viewbinding-7.2.2\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.room:room-ktx:2.4.3] C:\Users\norah\.gradle\caches\transforms-3\23e939ce51e901fc192cf1a56c49d7b4\transformed\jetified-room-ktx-2.4.3\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.navigation:navigation-fragment-ktx:2.5.3] C:\Users\norah\.gradle\caches\transforms-3\909b27612332747c4b338eead162416a\transformed\navigation-fragment-ktx-2.5.3\AndroidManifest.xml:17:1-24:12
@@ -62,6 +62,7 @@ MERGED from [androidx.core:core:1.9.0] C:\Users\norah\.gradle\caches\transforms-
 MERGED from [androidx.core:core-ktx:1.9.0] C:\Users\norah\.gradle\caches\transforms-3\507a16aa6ad17cf393305d706f76136e\transformed\jetified-core-ktx-1.9.0\AndroidManifest.xml:2:1-7:12
 MERGED from [com.github.ajalt:timberkt:1.5.1] C:\Users\norah\.gradle\caches\transforms-3\9c4c72712e661da15e41f47fbe12cd50\transformed\jetified-timberkt-1.5.1\AndroidManifest.xml:2:1-9:12
 MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\norah\.gradle\caches\transforms-3\835ba4f078eccbf3146986574ee56d06\transformed\jetified-picasso-2.71828\AndroidManifest.xml:2:1-14:12
+MERGED from [com.daimajia.swipelayout:library:1.2.0] C:\Users\norah\.gradle\caches\transforms-3\e17937bffb37a45ccef12230646583f3\transformed\jetified-library-1.2.0\AndroidManifest.xml:2:1-10:12
 MERGED from [androidx.room:room-runtime:2.4.3] C:\Users\norah\.gradle\caches\transforms-3\6adf02d2f42701f05d006dc725f5bde9\transformed\room-runtime-2.4.3\AndroidManifest.xml:17:1-31:12
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\norah\.gradle\caches\transforms-3\2987d642ac15fce9a79750375f88535b\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\norah\.gradle\caches\transforms-3\437f44a78b14ca5c35894ef069ea4b0b\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:17:1-37:12
@@ -86,20 +87,20 @@ MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\norah\.gradle\ca
 MERGED from [androidx.print:print:1.0.0] C:\Users\norah\.gradle\caches\transforms-3\012c43748320895674bc4cdab08fbeca\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.3.0] C:\Users\norah\.gradle\caches\transforms-3\93205c325add9ea461a8d4c853c2531b\transformed\jetified-annotation-experimental-1.3.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.jakewharton.timber:timber:4.7.0] C:\Users\norah\.gradle\caches\transforms-3\541ec9bb1f3e6386c51b7acc28b740bc\transformed\jetified-timber-4.7.0\AndroidManifest.xml:2:1-9:12
-INJECTED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:2:1-69:12
-INJECTED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:2:1-69:12
-INJECTED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:2:1-69:12
+INJECTED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:2:1-71:12
+INJECTED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:2:1-71:12
+INJECTED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:2:1-71:12
 	package
 		ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:3:5-34
 		INJECTED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:2:1-69:12
+		ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:2:1-71:12
 		INJECTED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:2:1-69:12
+		ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:2:1-71:12
 		INJECTED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:2:11-69
@@ -112,7 +113,7 @@ ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\Andro
 	android:name
 		ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:6:22-76
 application
-ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:8:5-67:19
+ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:8:5-69:19
 MERGED from [com.google.android.material:material:1.7.0] C:\Users\norah\.gradle\caches\transforms-3\2b763ecc77580436425b323020bf8092\transformed\material-1.7.0\AndroidManifest.xml:24:5-20
 MERGED from [com.google.android.material:material:1.7.0] C:\Users\norah\.gradle\caches\transforms-3\2b763ecc77580436425b323020bf8092\transformed\material-1.7.0\AndroidManifest.xml:24:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\norah\.gradle\caches\transforms-3\4ec2a1bbf8b83787f9fb476d5ea57407\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
@@ -214,41 +215,41 @@ ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\Andro
 	android:name
 		ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:36:13-60
 activity#org.wit.hikingtrail.activities.SplashScreen
-ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:40:9-44:16
+ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:40:9-49:16
 	android:exported
 		ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:42:13-36
 	android:name
 		ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:41:13-52
-activity#org.wit.hikingtrail.views.about.AboutView
-ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:46:9-55:20
-	android:label
-		ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:48:13-48
-	android:launchMode
-		ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:50:13-43
-	android:exported
-		ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:49:13-36
-	android:name
-		ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:47:13-50
-activity#org.wit.hikingtrail.views.hikingtraillist.HikingtrailListView
-ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:56:9-64:20
-	android:exported
-		ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:58:13-36
-	android:name
-		ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:57:13-70
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:59:9-62:25
+ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:44:13-47:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:60:13-65
+ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:45:17-69
 	android:name
-		ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:60:21-62
+		ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:45:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:61:13-73
+ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:46:17-77
 	android:name
-		ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:61:23-70
+		ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:46:27-74
+activity#org.wit.hikingtrail.views.about.AboutView
+ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:51:9-60:20
+	android:label
+		ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:53:13-48
+	android:launchMode
+		ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:55:13-43
+	android:exported
+		ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:54:13-36
+	android:name
+		ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:52:13-50
+activity#org.wit.hikingtrail.views.hikingtraillist.HikingtrailListView
+ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:61:9-66:20
+	android:exported
+		ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:63:13-36
+	android:name
+		ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:62:13-70
 activity#org.wit.hikingtrail.views.hikingtrail.HikingtrailView
-ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:65:9-71
+ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:67:9-71
 	android:name
-		ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:65:19-68
+		ADDED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml:67:19-68
 uses-sdk
 INJECTED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\norah\AndroidStudioProjects\HikingTrails2\app\src\main\AndroidManifest.xml
@@ -369,6 +370,8 @@ MERGED from [com.github.ajalt:timberkt:1.5.1] C:\Users\norah\.gradle\caches\tran
 MERGED from [com.github.ajalt:timberkt:1.5.1] C:\Users\norah\.gradle\caches\transforms-3\9c4c72712e661da15e41f47fbe12cd50\transformed\jetified-timberkt-1.5.1\AndroidManifest.xml:7:5-43
 MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\norah\.gradle\caches\transforms-3\835ba4f078eccbf3146986574ee56d06\transformed\jetified-picasso-2.71828\AndroidManifest.xml:5:5-44
 MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\norah\.gradle\caches\transforms-3\835ba4f078eccbf3146986574ee56d06\transformed\jetified-picasso-2.71828\AndroidManifest.xml:5:5-44
+MERGED from [com.daimajia.swipelayout:library:1.2.0] C:\Users\norah\.gradle\caches\transforms-3\e17937bffb37a45ccef12230646583f3\transformed\jetified-library-1.2.0\AndroidManifest.xml:6:5-8:41
+MERGED from [com.daimajia.swipelayout:library:1.2.0] C:\Users\norah\.gradle\caches\transforms-3\e17937bffb37a45ccef12230646583f3\transformed\jetified-library-1.2.0\AndroidManifest.xml:6:5-8:41
 MERGED from [androidx.room:room-runtime:2.4.3] C:\Users\norah\.gradle\caches\transforms-3\6adf02d2f42701f05d006dc725f5bde9\transformed\room-runtime-2.4.3\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.room:room-runtime:2.4.3] C:\Users\norah\.gradle\caches\transforms-3\6adf02d2f42701f05d006dc725f5bde9\transformed\room-runtime-2.4.3\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\norah\.gradle\caches\transforms-3\2987d642ac15fce9a79750375f88535b\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44

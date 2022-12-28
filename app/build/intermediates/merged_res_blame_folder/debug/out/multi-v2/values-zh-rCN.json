@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "org.wit.hikingtrail.app-mergeDebugResources-53:/values-zh-rCN/values-zh-rCN.xml",
+            "outputFile": "org.wit.hikingtrail.app-mergeDebugResources-54:/values-zh-rCN/values-zh-rCN.xml",
             "map": [
                 {
                     "source": "C:\\Users\\norah\\.gradle\\caches\\transforms-3\\06582d8be2c155c88aa8a937b41267d0\\transformed\\jetified-play-services-basement-18.1.0\\res\\values-zh-rCN\\values.xml",

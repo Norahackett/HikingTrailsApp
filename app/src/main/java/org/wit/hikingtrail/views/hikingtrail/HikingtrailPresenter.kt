@@ -2,6 +2,8 @@ package org.wit.hikingtrail.views.hikingtrail
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.icu.util.Calendar
+import android.view.View
 
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -61,11 +63,14 @@ class HikingtrailPresenter(private val view: HikingtrailView) {
     }
 
 
-    suspend fun doAddOrSave(title: String, description: String, rating: String,difficulty: String) {
+    suspend fun doAddOrSave(title: String, description: String, difficulty: String, rating: String, date: String) {
         hikingtrail.title = title
         hikingtrail.description = description
         hikingtrail.difficulty = difficulty
         hikingtrail.rating = rating
+        hikingtrail.date = date
+
+
         if (edit) {
             app.hikingtrails.update(hikingtrail)
         } else {
@@ -81,6 +86,7 @@ class HikingtrailPresenter(private val view: HikingtrailView) {
 
     }
 
+
     suspend fun doDelete() {
         app.hikingtrails.delete(hikingtrail)
         view.finish()
@@ -90,6 +96,8 @@ class HikingtrailPresenter(private val view: HikingtrailView) {
     fun doSelectImage() {
         showImagePicker(imageIntentLauncher)
     }
+
+
 
     //fun doCheckRatingBar(rating:Float)
     //{
@@ -149,11 +157,14 @@ class HikingtrailPresenter(private val view: HikingtrailView) {
         view.showHikingtrail(hikingtrail)
     }
 
-    fun cacheHikingtrail (title: String, description: String, difficulty: String, rating: String) {
+    fun cacheHikingtrail (title: String, description: String, difficulty: String, rating: String, date: String) {
         hikingtrail.title = title
         hikingtrail.description = description
         hikingtrail.difficulty = difficulty
+        hikingtrail.date = date
+
         hikingtrail.rating = rating
+
     }
 
     private fun registerImagePickerCallback() {

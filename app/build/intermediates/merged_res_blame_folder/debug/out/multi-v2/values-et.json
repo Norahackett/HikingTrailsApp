@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "org.wit.hikingtrail.app-mergeDebugResources-53:/values-et/values-et.xml",
+            "outputFile": "org.wit.hikingtrail.app-mergeDebugResources-54:/values-et/values-et.xml",
             "map": [
                 {
                     "source": "C:\\Users\\norah\\.gradle\\caches\\transforms-3\\acf29a0f6cb28cd31aaacfa2f862b6cd\\transformed\\jetified-play-services-base-18.0.1\\res\\values-et\\values.xml",

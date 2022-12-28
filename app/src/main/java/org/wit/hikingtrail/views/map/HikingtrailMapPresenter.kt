@@ -15,6 +15,8 @@ class HikingtrailMapPresenter(val view: HikingtrailMapView) {
         app = view.application as MainApp
     }
 
+
+
     suspend fun doPopulateMap(map: GoogleMap) {
         map.uiSettings.setZoomControlsEnabled(true)
         map.setOnMarkerClickListener(view)
@@ -30,5 +32,9 @@ class HikingtrailMapPresenter(val view: HikingtrailMapView) {
         val tag = marker.tag as Long
         val hikingtrail = app.hikingtrails.findById(tag)
         if (hikingtrail != null) view.showHikingtrail(hikingtrail)
+    }
+
+    fun doCancel() {
+        view.finish()
     }
 }

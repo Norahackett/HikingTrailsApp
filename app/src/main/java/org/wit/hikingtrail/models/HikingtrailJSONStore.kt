@@ -54,6 +54,8 @@ class HikingtrailJSONStore(private val context: Context) : HikingtrailStore {
             foundHikingtrail.rating = hikingtrail.rating
             foundHikingtrail.image = hikingtrail.image
             foundHikingtrail.location = hikingtrail.location
+            foundHikingtrail.date = hikingtrail.date
+
         }
         serialize()
     }

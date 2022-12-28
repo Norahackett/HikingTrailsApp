@@ -17,8 +17,8 @@ class MainApp : Application() {
     override fun onCreate() {
         super.onCreate()
         Timber.plant(Timber.DebugTree())
-        hikingtrails = HikingtrailStoreRoom(applicationContext)
-       // hikingtrails = HikingtrailFireStore(applicationContext)
+        //hikingtrails = HikingtrailStoreRoom(applicationContext)
+        hikingtrails = HikingtrailFireStore(applicationContext)
         i("Hikingtrail started")
     }
 }

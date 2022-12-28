@@ -11,6 +11,7 @@ import org.wit.hikingtrail.R
 import org.wit.hikingtrail.databinding.ActivityHikingtrailListBinding
 import org.wit.hikingtrail.main.MainApp
 import org.wit.hikingtrail.models.HikingtrailModel
+import org.wit.hikingtrail.views.hikingtrail.HikingtrailView
 import timber.log.Timber.i
 
 class HikingtrailListView : AppCompatActivity(), HikingtrailListener {
@@ -20,6 +21,7 @@ class HikingtrailListView : AppCompatActivity(), HikingtrailListener {
     lateinit var presenter: HikingtrailListPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
 
         super.onCreate(savedInstanceState)
         binding = ActivityHikingtrailListBinding.inflate(layoutInflater)
@@ -37,6 +39,8 @@ class HikingtrailListView : AppCompatActivity(), HikingtrailListener {
         val layoutManager = LinearLayoutManager(this)
         binding.recyclerView.layoutManager = layoutManager
 
+
+
         binding.bottomNavigationView.setOnItemSelectedListener { item: MenuItem ->
             when (item.itemId) {
                 R.id.about ->
@@ -46,9 +50,9 @@ class HikingtrailListView : AppCompatActivity(), HikingtrailListener {
                     GlobalScope.launch(Dispatchers.IO) {
                         presenter.doLogout()
                     }
-                R.id.person ->
+                R.id.add ->
                     GlobalScope.launch(Dispatchers.IO) {
-                        presenter.doLogout()
+                        presenter.doAddHikingtrail()
                     }
 
             }
@@ -107,7 +111,7 @@ class HikingtrailListView : AppCompatActivity(), HikingtrailListener {
 
     private fun updateRecyclerView() {
         GlobalScope.launch(Dispatchers.Main) {
-            binding.recyclerView.adapter =
+            binding.recyclerView.adapter=
                 HikingtrailAdapter(presenter.getHikingtrails(), this@HikingtrailListView)
         }
     }
