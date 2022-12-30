@@ -46,6 +46,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
+
     </activity>
 
         <activity
@@ -61,6 +62,9 @@
         <activity
             android:name=".views.hikingtraillist.HikingtrailListView"
             android:exported="true">
+
+
+
 
 
         </activity>

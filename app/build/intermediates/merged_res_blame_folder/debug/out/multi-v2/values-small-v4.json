@@ -4,7 +4,7 @@
             "outputFile": "org.wit.hikingtrail.app-mergeDebugResources-54:/values-small-v4/values-small-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\norah\\.gradle\\caches\\transforms-3\\2b763ecc77580436425b323020bf8092\\transformed\\material-1.7.0\\res\\values-small-v4\\values-small-v4.xml",
+                    "source": "C:\\Users\\norah\\.gradle\\caches\\transforms-3\\f5298591234edbea06ac0c2383e7decf\\transformed\\material-1.7.0\\res\\values-small-v4\\values-small-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

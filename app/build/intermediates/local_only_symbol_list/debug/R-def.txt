@@ -203,7 +203,6 @@ string title_about
 string title_activity_hikingtrail_maps
 string title_activity_login
 string title_activity_map
-style AppTheme
 style ThemeOverlay.FirebaseIcon
 style Theme.Hikingtrail
 style Theme.Hikingtrail.AppBarOverlay

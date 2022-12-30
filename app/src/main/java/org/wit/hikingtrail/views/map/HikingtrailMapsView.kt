@@ -65,6 +65,7 @@ class HikingtrailMapView : AppCompatActivity() , GoogleMap.OnMarkerClickListener
     fun showHikingtrail(hikingtrail: HikingtrailModel) {
         contentBinding.currentTitle.text = hikingtrail.title
         contentBinding.currentDescription.text = hikingtrail.description
+        contentBinding.currentDifficulty.text = hikingtrail.difficulty
         //contentBinding.currentRating.text = hikingtrail.rating
         Picasso.get()
             .load(hikingtrail.image)

@@ -4,7 +4,6 @@ package org.wit.hikingtrail.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
@@ -26,20 +25,16 @@ public final class ActivityHikingtrailListBinding implements ViewBinding {
   public final BottomNavigationView bottomNavigationView;
 
   @NonNull
-  public final Button btnChangeTheme;
-
-  @NonNull
   public final RecyclerView recyclerView;
 
   @NonNull
   public final Toolbar toolbar;
 
   private ActivityHikingtrailListBinding(@NonNull CoordinatorLayout rootView,
-      @NonNull BottomNavigationView bottomNavigationView, @NonNull Button btnChangeTheme,
-      @NonNull RecyclerView recyclerView, @NonNull Toolbar toolbar) {
+      @NonNull BottomNavigationView bottomNavigationView, @NonNull RecyclerView recyclerView,
+      @NonNull Toolbar toolbar) {
     this.rootView = rootView;
     this.bottomNavigationView = bottomNavigationView;
-    this.btnChangeTheme = btnChangeTheme;
     this.recyclerView = recyclerView;
     this.toolbar = toolbar;
   }
@@ -77,12 +72,6 @@ public final class ActivityHikingtrailListBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.btn_change_theme;
-      Button btnChangeTheme = ViewBindings.findChildViewById(rootView, id);
-      if (btnChangeTheme == null) {
-        break missingId;
-      }
-
       id = R.id.recyclerView;
       RecyclerView recyclerView = ViewBindings.findChildViewById(rootView, id);
       if (recyclerView == null) {
@@ -96,7 +85,7 @@ public final class ActivityHikingtrailListBinding implements ViewBinding {
       }
 
       return new ActivityHikingtrailListBinding((CoordinatorLayout) rootView, bottomNavigationView,
-          btnChangeTheme, recyclerView, toolbar);
+          recyclerView, toolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

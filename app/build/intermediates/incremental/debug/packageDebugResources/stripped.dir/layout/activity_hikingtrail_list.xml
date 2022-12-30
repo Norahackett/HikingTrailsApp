@@ -28,6 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical"
+
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
 
@@ -46,18 +47,7 @@
         app:menu="@menu/bottom_nav_menu" />
 
 
-    <Button
-        android:id="@+id/btn_change_theme"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="Change theme"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.551"
-        app:layout_constraintStart_toStartOf="parent" />
+
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

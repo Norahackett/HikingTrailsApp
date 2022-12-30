@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.DayNight">
+    <style name="Theme.Hikingtrail" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_200</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -13,6 +13,9 @@
         <item name="android:statusBarColor" tools:targetApi="l">@color/purple_500</item>
         <!-- Customize your theme here. -->
         <item name="android:textColor"> #FFFFFF</item>
+
+
+
         <item name="backgroundColor">@color/purple_700</item>
     </style>
 </resources>
